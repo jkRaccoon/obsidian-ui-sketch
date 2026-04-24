@@ -32,6 +32,24 @@ describe("renderLayoutNodes", () => {
     expect((cols[1] as HTMLElement).style.flex).toContain("3");
   });
 
+  it("col with flex:0 sizes to content (0 0 auto), not to 0 width", () => {
+    const host = document.createElement("div");
+    host.appendChild(
+      renderLayoutNodes([
+        {
+          kind: "row",
+          items: [
+            { kind: "col", flex: 0, items: [{ kind: "component", type: "sidebar", props: { w: 220 } }] },
+            { kind: "col", flex: 1, items: [{ kind: "component", type: "card", props: { title: "Main" } }] },
+          ],
+        },
+      ]),
+    );
+    const cols = host.querySelectorAll(".uis-col");
+    expect((cols[0] as HTMLElement).style.flex).toBe("0 0 auto");
+    expect((cols[1] as HTMLElement).style.flex).toBe("1 1 0px");
+  });
+
   it("renders an unknown component as an inline L3 error", () => {
     const host = document.createElement("div");
     host.appendChild(renderLayoutNodes([{ kind: "component", type: "mystery", props: {} }]));

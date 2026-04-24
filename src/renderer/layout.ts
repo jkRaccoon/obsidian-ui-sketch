@@ -33,7 +33,11 @@ function renderRow(n: RowNode, path: string): HTMLElement {
 function renderCol(n: ColNode, path: string): HTMLElement {
   const el = document.createElement("div");
   el.className = "uis-col";
-  if (typeof n.flex === "number") el.style.flex = `${n.flex} 1 0`;
+  if (typeof n.flex === "number") {
+    // flex:0 means "size to content" — a fixed-width sidebar shouldn't
+    // collapse to 0 or shrink. flex>0 keeps the classic grow/shrink behavior.
+    el.style.flex = n.flex === 0 ? "0 0 auto" : `${n.flex} 1 0`;
+  }
   n.items.forEach((child, i) => el.appendChild(renderNode(child, `${path}.items[${i}]`)));
   return el;
 }
