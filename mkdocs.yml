@@ -143,8 +143,15 @@ markdown_extensions:
   - footnotes
   - md_in_html
   - tables
+  # Unicode-aware slugify so Korean headings keep Korean anchor IDs
+  # (e.g. "정렬 관용구" → #정렬-관용구) instead of being stripped to
+  # MkDocs' default _1/_2/_3 fallbacks. Links like ../yaml-reference.md
+  # #정렬-관용구 in docs/ko/** only resolve with this setting.
   - toc:
       permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
