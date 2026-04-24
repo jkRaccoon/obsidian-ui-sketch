@@ -75,9 +75,27 @@ nav:
     - Placeholder: components/placeholder.md
     - Raw (escape hatch): components/raw.md
   - Recipes:
-    - Dashboard: recipes/dashboard.md
-    - Login Form: recipes/login-form.md
-    - Settings Panel: recipes/settings-panel.md
+    - Overview: recipes/README.md
+    - Simple:
+      - Landing hero: recipes/hero.md
+      - Empty state: recipes/empty-state.md
+      - Card grid: recipes/card-grid.md
+      - Confirmation modal: recipes/confirmation-modal.md
+    - Forms:
+      - Login form: recipes/login-form.md
+      - Contact form: recipes/contact-form.md
+      - Settings panel: recipes/settings-panel.md
+      - Material registration (자재 등록): recipes/material-registration.md
+    - Layouts:
+      - Dashboard: recipes/dashboard.md
+      - Email client: recipes/email-client.md
+      - Docs site: recipes/docs-site.md
+      - Pricing page: recipes/pricing-page.md
+      - Profile page: recipes/profile-page.md
+    - Data:
+      - Admin table: recipes/admin-table.md
+      - Analytics dashboard: recipes/analytics-dashboard.md
+      - Activity feed: recipes/activity-feed.md
   - Troubleshooting: troubleshooting.md
   - 한국어:
     - 홈: ko/README.md
