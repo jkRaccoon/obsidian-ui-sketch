@@ -113,9 +113,27 @@ nav:
       - 플레이스홀더: ko/components/placeholder.md
       - Raw (탈출구): ko/components/raw.md
     - 레시피:
-      - 대시보드: ko/recipes/dashboard.md
-      - 로그인 폼: ko/recipes/login-form.md
-      - 설정 패널: ko/recipes/settings-panel.md
+      - 개요: ko/recipes/README.md
+      - Simple:
+        - 랜딩 히어로: ko/recipes/hero.md
+        - 빈 상태: ko/recipes/empty-state.md
+        - 카드 그리드: ko/recipes/card-grid.md
+        - 확인 모달: ko/recipes/confirmation-modal.md
+      - 폼:
+        - 로그인 폼: ko/recipes/login-form.md
+        - 연락처 폼: ko/recipes/contact-form.md
+        - 설정 패널: ko/recipes/settings-panel.md
+        - 자재 등록: ko/recipes/material-registration.md
+      - 레이아웃:
+        - 대시보드: ko/recipes/dashboard.md
+        - 이메일 클라이언트: ko/recipes/email-client.md
+        - 문서 사이트: ko/recipes/docs-site.md
+        - 가격 페이지: ko/recipes/pricing-page.md
+        - 프로필 페이지: ko/recipes/profile-page.md
+      - 데이터:
+        - 관리자 표: ko/recipes/admin-table.md
+        - 애널리틱스 대시보드: ko/recipes/analytics-dashboard.md
+        - 활동 피드: ko/recipes/activity-feed.md
     - 문제 해결: ko/troubleshooting.md
 
 markdown_extensions:
