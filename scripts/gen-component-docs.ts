@@ -27,7 +27,10 @@ import { BasePropsSchema } from "../src/schema/base";
 installBuiltinComponents();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const docsRoot = path.resolve(__dirname, "..", "docs", "components");
+const docsComponentDirs = [
+  path.resolve(__dirname, "..", "docs", "components"),
+  path.resolve(__dirname, "..", "docs", "ko", "components"),
+];
 
 /**
  * Central description table. Prefer adding `.describe("...")` to the zod
@@ -164,36 +167,41 @@ function main(): void {
   const baseShape = (BasePropsSchema as any)._def?.shape?.();
   const baseFieldNames = new Set(baseShape ? Object.keys(baseShape) : []);
 
-  const files = fs.readdirSync(docsRoot).filter((f) => f.endsWith(".md") && f !== "README.md");
   const summary: { type: string; file: string; fields: number }[] = [];
 
-  for (const fileName of files) {
-    const filePath = path.join(docsRoot, fileName);
-    let content = fs.readFileSync(filePath, "utf8");
-    let changed = false;
+  for (const docsRoot of docsComponentDirs) {
+    if (!fs.existsSync(docsRoot)) continue;
+    const files = fs.readdirSync(docsRoot).filter((f) => f.endsWith(".md") && f !== "README.md");
+    const rel = path.relative(path.resolve(__dirname, ".."), docsRoot);
 
-    for (const type of registeredTypes()) {
-      const startMarker = `<!-- gen:props type=${type} -->`;
-      if (!content.includes(startMarker)) continue;
+    for (const fileName of files) {
+      const filePath = path.join(docsRoot, fileName);
+      let content = fs.readFileSync(filePath, "utf8");
+      let changed = false;
 
-      const def = lookup(type);
-      if (!def || !def.schema) continue;
+      for (const type of registeredTypes()) {
+        const startMarker = `<!-- gen:props type=${type} -->`;
+        if (!content.includes(startMarker)) continue;
 
-      const fields = extractFields(type, def.schema as ZodTypeAny, baseFieldNames);
-      const table = renderTable(fields);
-      const updated = replaceMarkedBlock(content, type, table);
-      if (updated !== content) {
-        content = updated;
-        changed = true;
+        const def = lookup(type);
+        if (!def || !def.schema) continue;
+
+        const fields = extractFields(type, def.schema as ZodTypeAny, baseFieldNames);
+        const table = renderTable(fields);
+        const updated = replaceMarkedBlock(content, type, table);
+        if (updated !== content) {
+          content = updated;
+          changed = true;
+        }
+        summary.push({ type, file: `${rel}/${fileName}`, fields: fields.length });
       }
-      summary.push({ type, file: fileName, fields: fields.length });
-    }
 
-    if (changed) {
-      fs.writeFileSync(filePath, content);
-      console.log(`updated  ${fileName}`);
-    } else {
-      console.log(`up-to-date  ${fileName}`);
+      if (changed) {
+        fs.writeFileSync(filePath, content);
+        console.log(`updated  ${rel}/${fileName}`);
+      } else {
+        console.log(`up-to-date  ${rel}/${fileName}`);
+      }
     }
   }
 

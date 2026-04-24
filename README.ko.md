@@ -90,31 +90,31 @@ screen:
 
 ### 3. 더 들어가기
 
-전체 문서는 [**`docs/`**](./docs/README.md)에 있습니다 (영문):
+전체 문서는 [**`docs/ko/`**](./docs/ko/README.md)에 있습니다:
 
-- [Getting Started](./docs/getting-started.md) — 5분 튜토리얼
-- [YAML Reference](./docs/yaml-reference.md) — 전체 문법
-- [Component Reference](./docs/components/README.md) — 44개 컴포넌트의 프롭 표와 예제
-- [Recipes](./docs/recipes/dashboard.md) — 자주 쓰는 화면 템플릿
-- [Troubleshooting](./docs/troubleshooting.md) — 에러 레벨과 대응법
+- [시작하기](./docs/ko/getting-started.md) — 5분 튜토리얼
+- [YAML 레퍼런스](./docs/ko/yaml-reference.md) — 전체 문법
+- [컴포넌트 레퍼런스](./docs/ko/components/README.md) — 44개 컴포넌트의 프롭 표와 예제
+- [레시피](./docs/ko/recipes/dashboard.md) — 자주 쓰는 화면 템플릿
+- [문제 해결](./docs/ko/troubleshooting.md) — 에러 레벨과 대응법
 
 ---
 
 ## 🧩 컴포넌트 카탈로그
 
-**8개 카테고리 44개 컴포넌트 + 탈출구 하나.** 모든 컴포넌트는 타입별 프롭 위에 공통 프롭(`id`, `w`, `h`, `align`, `pad`, `note`, `muted`)을 받습니다. 상세 프롭 표는 [Component Reference](./docs/components/README.md) 참고.
+**8개 카테고리 44개 컴포넌트 + 탈출구 하나.** 모든 컴포넌트는 타입별 프롭 위에 공통 프롭(`id`, `w`, `h`, `align`, `pad`, `note`, `muted`)을 받습니다. 상세 프롭 표는 [컴포넌트 레퍼런스](./docs/ko/components/README.md) 참고.
 
 | 카테고리 | 컴포넌트 |
 |---|---|
-| [**레이아웃**](./docs/components/layout.md) | `container` · `card` · `panel` · `divider` · `spacer` |
-| [**내비게이션**](./docs/components/navigation.md) | `navbar` · `sidebar` · `tabs` · `breadcrumb` · `pagination` · `stepper` |
-| [**기본 입력**](./docs/components/input-basic.md) | `button` · `input` · `textarea` · `select` · `checkbox` · `radio` |
-| [**고급 입력**](./docs/components/input-advanced.md) | `toggle` · `slider` · `date-picker` · `file-upload` · `search` |
-| [**표시**](./docs/components/display.md) | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `kbd` |
-| [**피드백**](./docs/components/feedback.md) | `alert` · `progress` · `toast` · `modal` · `skeleton` |
-| [**데이터**](./docs/components/data.md) | `table` · `list` · `tree` · `kv-list` |
-| [**플레이스홀더**](./docs/components/placeholder.md) | `chart` · `map` · `video` · `placeholder` |
-| [**탈출구**](./docs/components/raw.md) | `raw` (sanitize된 HTML) |
+| [**레이아웃**](./docs/ko/components/layout.md) | `container` · `card` · `panel` · `divider` · `spacer` |
+| [**내비게이션**](./docs/ko/components/navigation.md) | `navbar` · `sidebar` · `tabs` · `breadcrumb` · `pagination` · `stepper` |
+| [**기본 입력**](./docs/ko/components/input-basic.md) | `button` · `input` · `textarea` · `select` · `checkbox` · `radio` |
+| [**고급 입력**](./docs/ko/components/input-advanced.md) | `toggle` · `slider` · `date-picker` · `file-upload` · `search` |
+| [**표시**](./docs/ko/components/display.md) | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `kbd` |
+| [**피드백**](./docs/ko/components/feedback.md) | `alert` · `progress` · `toast` · `modal` · `skeleton` |
+| [**데이터**](./docs/ko/components/data.md) | `table` · `list` · `tree` · `kv-list` |
+| [**플레이스홀더**](./docs/ko/components/placeholder.md) | `chart` · `map` · `video` · `placeholder` |
+| [**탈출구**](./docs/ko/components/raw.md) | `raw` (sanitize된 HTML) |
 
 ### 예시 몇 가지
 
@@ -146,7 +146,7 @@ kbd:
 
 ## 📐 YAML 구조
 
-전체 문법은 [**YAML Reference**](./docs/yaml-reference.md) 참고. 간단 개요:
+전체 문법은 [**YAML 레퍼런스**](./docs/ko/yaml-reference.md) 참고. 간단 개요:
 
 최상위 키:
 
@@ -213,7 +213,7 @@ UI Sketch는 조용히 실패하지 않습니다. 항상 뭔가 대응 가능한
 - 최대 노드 수: **블록당 5000**
 - `raw:` HTML은 항상 `sanitize-html`을 통과 — `<script>` 불가, 인라인 이벤트 핸들러 불가.
 
-자주 마주치는 문제와 해결법은 [**Troubleshooting**](./docs/troubleshooting.md) 참고.
+자주 마주치는 문제와 해결법은 [**문제 해결**](./docs/ko/troubleshooting.md) 참고.
 
 ---
 
