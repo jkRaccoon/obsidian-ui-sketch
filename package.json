@@ -11,7 +11,8 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "gen:docs": "tsx scripts/gen-component-docs.ts",
-    "gen:screenshots": "tsx scripts/gen-screenshots.ts"
+    "gen:screenshots": "tsx scripts/gen-screenshots.ts",
+    "preview": "tsx scripts/preview-sketch.ts"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",

@@ -11,16 +11,21 @@ Obsidian community plugin that renders mid-fidelity web UI wireframes from YAML 
 Package manager is **yarn 3** (`packageManager` pinned in `package.json`; `.yarnrc.yml` uses `nodeLinker: node-modules`). Requires Node 18+.
 
 ```bash
-yarn dev         # esbuild watch (sourcemaps, no minify) → main.js
-yarn build       # tsc --noEmit && esbuild production bundle → main.js
-yarn test        # vitest run (happy-dom environment)
-yarn test:watch  # vitest watch
-yarn typecheck   # tsc --noEmit
+yarn dev              # esbuild watch (sourcemaps, no minify) → main.js
+yarn build            # tsc --noEmit && esbuild production bundle → main.js
+yarn test             # vitest run (happy-dom environment)
+yarn test:watch       # vitest watch
+yarn typecheck        # tsc --noEmit
+yarn gen:docs         # regenerate docs/**/components/*.md prop tables from zod
+yarn gen:screenshots  # regenerate docs/img/**/*.png from recipe + hero YAML
+yarn preview <yaml>   # render one YAML file to ./preview.png (use '-' for stdin)
 ```
 
 Run a single test file or filter: `yarn test tests/components/button.test.ts` or `yarn test -t "renders a button"`.
 
 The build step runs `tsc --noEmit` first — a type error fails the build. esbuild does not typecheck on its own.
+
+The `gen:screenshots` and `preview` scripts share a headless-Chromium harness in `scripts/render-shared.ts` — bundles the renderer for browser use via esbuild, launches a page with Obsidian CSS variable defaults, and exposes a `shoot(yaml, outPath)` helper. If you need another render-based script, reuse `openSession()` from there.
 
 ## Architecture
 

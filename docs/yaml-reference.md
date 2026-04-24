@@ -123,6 +123,66 @@ Every component, in addition to its type-specific props, accepts these base prop
 | `note` | string | Hover tooltip annotation — adds a ⓘ marker |
 | `muted` | boolean | De-emphasize (reduces opacity/contrast) |
 
+## Alignment idioms
+
+Flex primitives cover most layouts, but two things need explicit patterns and are easy to get wrong the first time: **right-aligning items in a row**, and **keeping label columns aligned across rows that don't have a label**.
+
+### Right-aligning items in a row
+
+**Why `align: end` doesn't work here.** `align` is a base prop that maps to CSS `alignSelf` — it positions an element along the *cross-axis* of its flex parent. Inside a `row` (horizontal flex), the cross-axis is vertical, so `align: end` on the row or its children pushes them *down*, not right.
+
+To push items to the right edge, use an empty `col` with `flex: 1` as a spacer. The `flex-grow: 1` absorbs remaining horizontal space, shifting the following items to the end:
+
+```yaml
+- row:
+    gap: 8
+    items:
+      - col: { flex: 1, items: [] }          # absorbs remaining space
+      - button: { label: "Cancel", variant: ghost }
+      - button: { label: "Save",   variant: primary }
+```
+
+### Keeping label columns aligned across rows
+
+In a vertically-stacked form, every row typically starts with a label (e.g. `text: { value: "Name", w: 120 }`), which makes all the inputs line up at `x = 128px`. But a row that groups several inputs without a label starts at `x = 0`, breaking alignment:
+
+```yaml
+# ✗ Misaligned — inputs start from the left edge
+- row:
+    items:
+      - text: { value: "Name", w: 120 }
+      - input: { placeholder: "Name", w: 420 }
+- row:
+    items:
+      - input: { placeholder: "Purpose", w: 200 }        # ← starts at x=0
+      - input: { placeholder: "Spec",    w: 200 }
+```
+
+Add a dummy `text` with an empty value and the same width to preserve the label column:
+
+```yaml
+# ✓ Aligned — dummy text reserves the label column
+- row:
+    items:
+      - text: { value: "", w: 120 }
+      - input: { placeholder: "Purpose", w: 200 }
+      - input: { placeholder: "Spec",    w: 200 }
+```
+
+### Space-between: push the last item right
+
+Combine both patterns — put a flex-grow spacer in the middle of a row to split items left/right:
+
+```yaml
+- row:
+    gap: 8
+    align: center
+    items:
+      - heading: { level: 3, text: "Account settings" }
+      - col: { flex: 1, items: [] }                       # pushes the button right
+      - button: { label: "Delete account", variant: danger }
+```
+
 ## Safety limits
 
 To prevent a runaway block from freezing Obsidian, the plugin enforces:

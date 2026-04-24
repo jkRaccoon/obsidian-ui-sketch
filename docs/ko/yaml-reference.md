@@ -123,6 +123,66 @@ row:
 | `note` | string | 호버 툴팁 주석 — ⓘ 마커 표시 |
 | `muted` | boolean | 강조 낮춤 (투명도/대비 감소) |
 
+## 정렬 관용구
+
+Flex 프리미티브로 대부분의 레이아웃이 커버되지만, 처음에 틀리기 쉬운 두 가지는 패턴을 외워두면 편합니다: **row 안에서 항목을 오른쪽 정렬**, 그리고 **라벨 없는 row에서도 라벨 컬럼 정렬 유지**.
+
+### row 안에서 오른쪽 정렬
+
+**`align: end`는 여기서 안 먹힙니다.** `align`은 공통 프롭(base props)으로 CSS `alignSelf`에 매핑됩니다 — flex 부모의 *교차축(cross-axis)* 상에서 자기 정렬. `row`(가로 flex)의 교차축은 수직이라서, `align: end`는 요소를 아래로 밀지 오른쪽으로 밀지 않습니다.
+
+항목을 오른쪽 끝으로 밀려면 빈 `col`에 `flex: 1`을 줘서 스페이서로 씁니다. `flex-grow: 1`이 남은 가로 공간을 흡수해서 뒤 항목들이 우측으로 밀려납니다:
+
+```yaml
+- row:
+    gap: 8
+    items:
+      - col: { flex: 1, items: [] }          # 남은 공간 흡수
+      - button: { label: "취소", variant: ghost }
+      - button: { label: "저장", variant: primary }
+```
+
+### 라벨 컬럼 정렬 유지
+
+세로로 쌓인 폼에서는 보통 각 row가 라벨로 시작합니다 (예: `text: { value: "이름", w: 120 }`). 이러면 입력 필드들이 전부 `x = 128px`에 정렬됩니다. 그런데 라벨 없이 입력 여러 개를 그룹으로 묶은 row는 `x = 0`에서 시작해서 정렬이 깨집니다:
+
+```yaml
+# ✗ 정렬 어긋남 — 입력이 왼쪽 끝에서 시작
+- row:
+    items:
+      - text: { value: "이름", w: 120 }
+      - input: { placeholder: "이름", w: 420 }
+- row:
+    items:
+      - input: { placeholder: "용도", w: 200 }        # ← x=0부터
+      - input: { placeholder: "사양", w: 200 }
+```
+
+빈 값과 같은 너비의 더미 `text`를 추가해서 라벨 컬럼 공간을 보존합니다:
+
+```yaml
+# ✓ 정렬 맞음 — 더미 text가 라벨 자리 확보
+- row:
+    items:
+      - text: { value: "", w: 120 }
+      - input: { placeholder: "용도", w: 200 }
+      - input: { placeholder: "사양", w: 200 }
+```
+
+### Space-between: 마지막 항목만 우측으로
+
+두 패턴을 결합 — row 중간에 flex-grow 스페이서를 넣으면 좌우로 분할됩니다:
+
+```yaml
+- row:
+    gap: 8
+    align: center
+    items:
+      - heading: { level: 3, text: "계정 설정" }
+      - col: { flex: 1, items: [] }                       # 버튼을 우측으로
+      - button: { label: "계정 삭제", variant: danger }
+```
+
 ## 안전 제한
 
 폭주 블록으로 Obsidian이 멈추는 걸 방지하기 위해 플러그인이 강제하는 제한:

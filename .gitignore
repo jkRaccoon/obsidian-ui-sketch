@@ -15,3 +15,6 @@ data.json
 
 # Claude Code local state
 .claude/
+
+# yarn preview output
+preview.png
