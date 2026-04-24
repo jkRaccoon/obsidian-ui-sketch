@@ -32,10 +32,10 @@ describe("renderLayoutNodes", () => {
     expect((cols[1] as HTMLElement).style.flex).toContain("3");
   });
 
-  it("renders an unknown component as a placeholder (L3 deferred; v0.1 shows a stub)", () => {
+  it("renders an unknown component as an inline L3 error", () => {
     const host = document.createElement("div");
     host.appendChild(renderLayoutNodes([{ kind: "component", type: "mystery", props: {} }]));
-    expect(host.querySelector(".uis-unknown")).not.toBeNull();
+    expect(host.querySelector(".uis-error--inline")).not.toBeNull();
   });
 
   it("applies note annotation", () => {

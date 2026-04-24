@@ -1,41 +1,44 @@
+// src/renderer/layout.ts
 import type { LayoutNode, RowNode, ColNode, GridNode, ComponentNode } from "@/types";
-import { lookup } from "@/components/registry";
+import { lookup, registeredTypes } from "@/components/registry";
 import { wrapWithAnnotation } from "./annotation";
+import { renderInlineError } from "@/errors/render";
+import { suggestType } from "@/schema/suggestions";
 
-export function renderLayoutNodes(nodes: LayoutNode[]): HTMLElement {
+export function renderLayoutNodes(nodes: LayoutNode[], path = "screen"): HTMLElement {
   const root = document.createElement("div");
   root.className = "uis-flow";
-  for (const n of nodes) root.appendChild(renderNode(n));
+  nodes.forEach((n, i) => root.appendChild(renderNode(n, `${path}[${i}]`)));
   return root;
 }
 
-export function renderNode(n: LayoutNode): HTMLElement {
+export function renderNode(n: LayoutNode, path: string): HTMLElement {
   if ("kind" in n) {
-    if (n.kind === "row") return renderRow(n);
-    if (n.kind === "col") return renderCol(n);
-    if (n.kind === "grid") return renderGrid(n);
-    if (n.kind === "component") return renderComponent(n);
+    if (n.kind === "row") return renderRow(n, path);
+    if (n.kind === "col") return renderCol(n, path);
+    if (n.kind === "grid") return renderGrid(n, path);
+    if (n.kind === "component") return renderComponent(n, path);
   }
   return placeholder("invalid node");
 }
 
-function renderRow(n: RowNode): HTMLElement {
+function renderRow(n: RowNode, path: string): HTMLElement {
   const el = document.createElement("div");
   el.className = "uis-row";
   if (typeof n.gap === "number") el.style.gap = `${n.gap}px`;
-  for (const child of n.items) el.appendChild(renderNode(child));
+  n.items.forEach((child, i) => el.appendChild(renderNode(child, `${path}.items[${i}]`)));
   return el;
 }
 
-function renderCol(n: ColNode): HTMLElement {
+function renderCol(n: ColNode, path: string): HTMLElement {
   const el = document.createElement("div");
   el.className = "uis-col";
   if (typeof n.flex === "number") el.style.flex = `${n.flex} 1 0`;
-  for (const child of n.items) el.appendChild(renderNode(child));
+  n.items.forEach((child, i) => el.appendChild(renderNode(child, `${path}.items[${i}]`)));
   return el;
 }
 
-export function renderGrid(n: GridNode): HTMLElement {
+export function renderGrid(n: GridNode, path = "screen"): HTMLElement {
   const el = document.createElement("div");
   el.className = "uis-grid";
   el.style.display = "grid";
@@ -46,22 +49,45 @@ export function renderGrid(n: GridNode): HTMLElement {
     const cell = document.createElement("div");
     cell.className = "uis-grid__cell";
     cell.style.gridArea = name;
-    cell.appendChild(renderComponent(node));
+    cell.appendChild(renderComponent(node, `${path}.map.${name}`));
     el.appendChild(cell);
   }
   return el;
 }
 
-function renderComponent(n: ComponentNode): HTMLElement {
+function renderComponent(n: ComponentNode, path: string): HTMLElement {
   const def = lookup(n.type);
-  let inner: HTMLElement;
   if (!def) {
-    inner = placeholder(`unknown: ${n.type}`);
-  } else {
-    inner = def.render(n.props, { muted: n.props.muted === true });
+    const suggestion = suggestType(n.type, registeredTypes());
+    return renderInlineError({
+      kind: "component",
+      componentType: n.type,
+      message: "unknown component type",
+      path,
+      suggestion,
+    });
   }
-  applyBaseLayout(inner, n.props);
-  return wrapWithAnnotation(inner, typeof n.props.note === "string" ? n.props.note : undefined);
+
+  let props: Record<string, unknown> = n.props;
+  if (def.schema) {
+    const result = def.schema.safeParse(n.props);
+    if (!result.success) {
+      const first = result.error.errors[0];
+      const fieldPath = first?.path.join(".") ?? "";
+      const message = fieldPath ? `${fieldPath}: ${first.message}` : first?.message ?? "invalid props";
+      return renderInlineError({
+        kind: "component",
+        componentType: n.type,
+        message,
+        path,
+      });
+    }
+    props = result.data as Record<string, unknown>;
+  }
+
+  const inner = def.render(props, { muted: props.muted === true });
+  applyBaseLayout(inner, props);
+  return wrapWithAnnotation(inner, typeof props.note === "string" ? props.note : undefined);
 }
 
 function applyBaseLayout(el: HTMLElement, props: Record<string, unknown>): void {
