@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Typecheck, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Enable corepack (yarn 3)
+        run: corepack enable
+      - name: Install
+        run: yarn install --immutable
+      - name: Typecheck
+        run: yarn typecheck
+      - name: Test
+        run: yarn test
+      - name: Build
+        run: yarn build
+
+  docs-sync:
+    name: Component prop tables in sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: corepack enable
+      - run: yarn install --immutable
+      - name: Regenerate prop tables
+        run: yarn gen:docs
+      - name: Fail if prop tables drift from zod schemas
+        run: |
+          if ! git diff --exit-code docs/; then
+            echo "::error::Component prop tables are out of sync with zod schemas."
+            echo "::error::Run 'yarn gen:docs' locally and commit the updated docs/**/components/*.md files."
+            exit 1
+          fi
+
+  screenshots:
+    name: Recipe screenshots in sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: corepack enable
+      - run: yarn install --immutable
+      - name: Install chromium
+        run: yarn playwright install --with-deps chromium
+      - name: Regenerate screenshots
+        run: yarn gen:screenshots
+      # Screenshots contain subtle anti-aliasing / font rendering differences
+      # between macOS (local) and Linux (CI), so a strict byte-diff would be
+      # too noisy. We only fail if the file *list* changed — i.e. a new
+      # recipe block was added without its PNG, or a PNG was orphaned.
+      - name: Fail if the screenshot file list changed
+        run: |
+          ls docs/img/recipes/ | sort > /tmp/ci-list.txt
+          git show HEAD:docs/img/recipes/ 2>/dev/null | tail -n +3 | sort > /tmp/committed-list.txt || touch /tmp/committed-list.txt
+          if ! diff -q /tmp/committed-list.txt /tmp/ci-list.txt > /dev/null; then
+            echo "::error::Screenshot file list changed (recipe block added/removed without matching PNG)."
+            echo "::error::Run 'yarn gen:screenshots' locally and commit the updated PNGs."
+            diff /tmp/committed-list.txt /tmp/ci-list.txt || true
+            exit 1
+          fi
