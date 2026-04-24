@@ -12,3 +12,6 @@ coverage/
 # Local dev vault lives in this directory
 .obsidian/
 data.json
+
+# Claude Code local state
+.claude/
