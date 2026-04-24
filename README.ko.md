@@ -39,7 +39,9 @@ screen:
                   note: "Navigates to /documents/new"
 ```
 
-위 YAML을 ` ```ui-sketch ` 코드 블록 안에 넣고 읽기 뷰로 전환하세요. 바로 와이어프레임이 보입니다.
+![UI Sketch가 렌더한 DocHub 대시보드](./docs/img/hero.png)
+
+위 YAML을 ` ```ui-sketch ` 코드 블록 안에 넣고 읽기 뷰로 전환하세요. 바로 이렇게 와이어프레임이 뜹니다 — 노트 안에서, Obsidian 테마에 자동으로 맞춰지고, 글과 절대 따로 놀지 않습니다.
 
 ---
 
@@ -57,6 +59,27 @@ screen:
 - **친절한 에러.** YAML 오타? 줄 번호와 함께 빨간 박스를 보여줍니다. 컴포넌트 이름 틀림? 가까운 실제 이름을 제안합니다 (Levenshtein 거리 기반).
 - **안전함.** 깊이/노드 수 제한으로 폭주 방지. `raw:` 탈출구는 `sanitize-html`을 거치므로 XSS 우려 없음.
 - **런타임 상태 없음.** 매 렌더링은 YAML → DOM 순수 함수. 라이브 프리뷰에서 놀랄 일 없습니다.
+
+`viewport:` 한 줄로 데스크톱부터 모바일까지 전환됩니다:
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**`viewport: mobile`** — 375px 로그인 폼, [레시피](./docs/ko/recipes/login-form.md) 에서:
+
+![모바일 로그인 폼 스케치](./docs/img/recipes/login-form-1.png)
+
+</td>
+<td width="50%" valign="top">
+
+**`viewport: desktop`** — named-area 그리드 대시보드, [레시피](./docs/ko/recipes/dashboard.md) 에서:
+
+![대시보드 그리드 레이아웃](./docs/img/recipes/dashboard-1.png)
+
+</td>
+</tr>
+</table>
 
 ---
 

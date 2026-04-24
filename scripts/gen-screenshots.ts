@@ -18,7 +18,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
 const entryPoint = path.join(__dirname, "screenshot-entry.ts");
 const recipesDir = path.join(repoRoot, "docs", "recipes");
-const outDir = path.join(repoRoot, "docs", "img", "recipes");
+const recipesOutDir = path.join(repoRoot, "docs", "img", "recipes");
+const heroOutDir = path.join(repoRoot, "docs", "img");
+const readmePath = path.join(repoRoot, "README.md");
 const pluginStyles = fs.readFileSync(path.join(repoRoot, "styles.css"), "utf8");
 
 /**
@@ -86,6 +88,16 @@ function extractUiSketchBlocks(mdPath: string): string[] {
   return blocks;
 }
 
+// The README showcases the intro YAML inside a ```yaml block (to get syntax
+// highlighting on GitHub) rather than a ```ui-sketch block (what users
+// actually type). For the hero image we want that first yaml block — it's
+// the example readers see immediately above the screenshot.
+function extractFirstYamlBlock(mdPath: string): string | undefined {
+  const content = fs.readFileSync(mdPath, "utf8");
+  const m = /```yaml\s*\n([\s\S]*?)```/.exec(content);
+  return m?.[1];
+}
+
 async function renderAndShoot(page: Page, yaml: string, outPath: string): Promise<void> {
   await page.evaluate((src: string) => {
     const out = document.getElementById("out")!;
@@ -102,7 +114,8 @@ async function renderAndShoot(page: Page, yaml: string, outPath: string): Promis
 }
 
 async function main(): Promise<void> {
-  fs.mkdirSync(outDir, { recursive: true });
+  fs.mkdirSync(recipesOutDir, { recursive: true });
+  fs.mkdirSync(heroOutDir, { recursive: true });
   console.log("bundling renderer for browser...");
   const bundledJs = await bundleEntry();
 
@@ -135,9 +148,16 @@ async function main(): Promise<void> {
     console.log(`${recipeFile}  (${blocks.length} block${blocks.length === 1 ? "" : "s"})`);
     for (let i = 0; i < blocks.length; i++) {
       const suffix = blocks.length === 1 ? "" : `-${i + 1}`;
-      const outPath = path.join(outDir, `${base}${suffix}.png`);
+      const outPath = path.join(recipesOutDir, `${base}${suffix}.png`);
       await renderAndShoot(page, blocks[i], outPath);
     }
+  }
+
+  // Hero image: first ```yaml block in the README (the intro example).
+  const hero = extractFirstYamlBlock(readmePath);
+  if (hero) {
+    console.log("README.md  (hero)");
+    await renderAndShoot(page, hero, path.join(heroOutDir, "hero.png"));
   }
 
   await browser.close();

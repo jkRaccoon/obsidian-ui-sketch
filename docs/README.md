@@ -2,7 +2,9 @@
 
 **English · [한국어](./ko/README.md)**
 
-User-facing reference for the UI Sketch Obsidian plugin. For installation and a quick overview, see the [main README](https://github.com/jkRaccoon/obsidian-ui-sketch#readme).
+![A UI Sketch wireframe rendered inline in a note](./img/hero.png)
+
+User-facing reference for the UI Sketch Obsidian plugin — render mid-fidelity web UI wireframes inside Obsidian notes from a short YAML block. For installation and an overview, see the [main README](https://github.com/jkRaccoon/obsidian-ui-sketch#readme).
 
 ## Sections
 

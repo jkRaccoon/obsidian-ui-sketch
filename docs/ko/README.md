@@ -2,7 +2,9 @@
 
 **[English](../README.md) · 한국어**
 
-UI Sketch Obsidian 플러그인의 사용자 문서. 설치 및 개요는 [메인 README](https://github.com/jkRaccoon/obsidian-ui-sketch/blob/main/README.ko.md) 참고.
+![UI Sketch가 노트 안에 렌더한 와이어프레임](../img/hero.png)
+
+UI Sketch Obsidian 플러그인의 사용자 문서 — 짧은 YAML 블록에서 중간 충실도 웹 UI 와이어프레임을 Obsidian 노트 안에 바로 렌더링합니다. 설치와 개요는 [메인 README](https://github.com/jkRaccoon/obsidian-ui-sketch/blob/main/README.ko.md) 참고.
 
 ## 섹션
 

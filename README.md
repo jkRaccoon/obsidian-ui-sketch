@@ -39,7 +39,9 @@ screen:
                   note: "Navigates to /documents/new"
 ```
 
-Drop that in a ` ```ui-sketch ` fenced block. Switch to Reading view. There's your wireframe.
+![DocHub dashboard rendered by UI Sketch](./docs/img/hero.png)
+
+Drop that in a ` ```ui-sketch ` fenced block. Switch to Reading view. There's your wireframe — live in your note, adapting to your Obsidian theme, never out of sync with your prose.
 
 ---
 
@@ -57,6 +59,27 @@ Drop that in a ` ```ui-sketch ` fenced block. Switch to Reading view. There's yo
 - **Friendly errors.** YAML typo? You get a red box with line number. Unknown component? It suggests the closest real one (Levenshtein).
 - **Safe.** Depth caps and node-count caps prevent runaway blocks. The `raw:` escape hatch runs through `sanitize-html` — no XSS surface.
 - **Zero runtime state.** Each render is a pure function from YAML to DOM. No surprises in Live Preview.
+
+Sketches scale from desktop to mobile with a single `viewport:` key:
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**`viewport: mobile`** — a 375px login form from [the recipe](./docs/recipes/login-form.md):
+
+![Mobile login form sketch](./docs/img/recipes/login-form-1.png)
+
+</td>
+<td width="50%" valign="top">
+
+**`viewport: desktop`** with a named-area grid from [the dashboard recipe](./docs/recipes/dashboard.md):
+
+![Dashboard grid layout](./docs/img/recipes/dashboard-1.png)
+
+</td>
+</tr>
+</table>
 
 ---
 
