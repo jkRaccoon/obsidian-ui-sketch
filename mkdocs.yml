@@ -1,0 +1,126 @@
+site_name: UI Sketch
+site_description: Render mid-fidelity web UI wireframes inside Obsidian notes — with YAML, not ASCII.
+site_url: https://jkraccoon.github.io/obsidian-ui-sketch/
+repo_url: https://github.com/jkRaccoon/obsidian-ui-sketch
+repo_name: jkRaccoon/obsidian-ui-sketch
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+
+# Content under docs/ that should not be published to the site.
+exclude_docs: |
+  superpowers/
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+
+# Language selector shown in the header. Points to the Korean mirror under /ko/.
+extra:
+  alternate:
+    - name: English
+      link: /obsidian-ui-sketch/
+      lang: en
+    - name: 한국어
+      link: /obsidian-ui-sketch/ko/
+      lang: ko
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jkRaccoon/obsidian-ui-sketch
+
+nav:
+  - Home: README.md
+  - Getting Started: getting-started.md
+  - YAML Reference: yaml-reference.md
+  - Components:
+    - Overview: components/README.md
+    - Layout: components/layout.md
+    - Navigation: components/navigation.md
+    - Basic Input: components/input-basic.md
+    - Advanced Input: components/input-advanced.md
+    - Display: components/display.md
+    - Feedback: components/feedback.md
+    - Data: components/data.md
+    - Placeholder: components/placeholder.md
+    - Raw (escape hatch): components/raw.md
+  - Recipes:
+    - Dashboard: recipes/dashboard.md
+    - Login Form: recipes/login-form.md
+    - Settings Panel: recipes/settings-panel.md
+  - Troubleshooting: troubleshooting.md
+  - 한국어:
+    - 홈: ko/README.md
+    - 시작하기: ko/getting-started.md
+    - YAML 레퍼런스: ko/yaml-reference.md
+    - 컴포넌트:
+      - 개요: ko/components/README.md
+      - 레이아웃: ko/components/layout.md
+      - 내비게이션: ko/components/navigation.md
+      - 기본 입력: ko/components/input-basic.md
+      - 고급 입력: ko/components/input-advanced.md
+      - 표시: ko/components/display.md
+      - 피드백: ko/components/feedback.md
+      - 데이터: ko/components/data.md
+      - 플레이스홀더: ko/components/placeholder.md
+      - Raw (탈출구): ko/components/raw.md
+    - 레시피:
+      - 대시보드: ko/recipes/dashboard.md
+      - 로그인 폼: ko/recipes/login-form.md
+      - 설정 패널: ko/recipes/settings-panel.md
+    - 문제 해결: ko/troubleshooting.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  - search
