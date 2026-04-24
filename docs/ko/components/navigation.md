@@ -11,10 +11,10 @@
 브랜드와 메뉴 항목이 있는 상단 내비게이션 바.
 
 <!-- gen:props type=navbar -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `brand` | string | Brand/logo text (left side) |
-| `items` | string[] | Menu items (right side) |
+| `brand` | string | 브랜드/로고 텍스트 (왼쪽) |
+| `items` | string[] | 메뉴 항목 (오른쪽) |
 <!-- /gen:props -->
 
 ```yaml
@@ -28,10 +28,10 @@ navbar:
 세로 내비게이션 목록. 대시보드 레이아웃의 왼쪽 컬럼으로 자주 사용.
 
 <!-- gen:props type=sidebar -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `items` | string[] | Menu entries |
-| `active` | string \| number | Active entry — label or zero-based index |
+| `items` | string[] | 메뉴 항목 |
+| `active` | string \| number | 활성 항목 — 라벨 또는 0-based 인덱스 |
 <!-- /gen:props -->
 
 ```yaml
@@ -45,10 +45,10 @@ sidebar:
 가로 탭 내비게이션.
 
 <!-- gen:props type=tabs -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `items` | string[] | Tab labels |
-| `active` | string \| number | Active tab — label or zero-based index |
+| `items` | string[] | 탭 라벨 |
+| `active` | string \| number | 활성 탭 — 라벨 또는 0-based 인덱스 |
 <!-- /gen:props -->
 
 ```yaml
@@ -62,9 +62,9 @@ tabs:
 사용자 경로를 보여주는 계층적 브레드크럼.
 
 <!-- gen:props type=breadcrumb -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `items` | string[] | Segments from root to current |
+| `items` | string[] | 루트에서 현재까지의 세그먼트 |
 <!-- /gen:props -->
 
 ```yaml
@@ -77,10 +77,10 @@ breadcrumb:
 현재/전체를 보여주는 페이지 내비게이션 컨트롤.
 
 <!-- gen:props type=pagination -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `current` | number | Current page (1-based) |
-| `total` | number | Total page count |
+| `current` | number | 현재 페이지 (1-based) |
+| `total` | number | 전체 페이지 수 |
 <!-- /gen:props -->
 
 ```yaml
@@ -94,10 +94,10 @@ pagination:
 여러 단계 진행 표시기. 온보딩이나 결제 플로우에 유용.
 
 <!-- gen:props type=stepper -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `items` | string[] | Step labels |
-| `active` | number | Zero-based index of the active step |
+| `items` | string[] | 단계 라벨 |
+| `active` | number | 활성 단계의 0-based 인덱스 |
 <!-- /gen:props -->
 
 ```yaml

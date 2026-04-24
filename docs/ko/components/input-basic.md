@@ -9,11 +9,11 @@
 variant가 있는 클릭 가능한 버튼.
 
 <!-- gen:props type=button -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `label` | string | Button text |
-| `variant` | `"primary"` \| `"secondary"` \| `"ghost"` \| `"danger"` | Visual style |
-| `icon` | string | Icon label (text only in v0.2) |
+| `label` | string | 버튼 텍스트 |
+| `variant` | `"primary"` \| `"secondary"` \| `"ghost"` \| `"danger"` | 시각 스타일 |
+| `icon` | string | 아이콘 라벨 (v0.2는 텍스트만) |
 <!-- /gen:props -->
 
 ```yaml
@@ -32,10 +32,10 @@ button:
 한 줄 텍스트 입력.
 
 <!-- gen:props type=input -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `placeholder` | string | Shown when empty |
-| `value` | string | Pre-filled value |
+| `placeholder` | string | 비었을 때 표시 |
+| `value` | string | 미리 채운 값 |
 <!-- /gen:props -->
 
 ```yaml
@@ -49,11 +49,11 @@ input:
 여러 줄 텍스트 입력.
 
 <!-- gen:props type=textarea -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `placeholder` | string | Shown when empty |
-| `value` | string | Pre-filled value |
-| `rows` | number | Visible rows (affects height) |
+| `placeholder` | string | 비었을 때 표시 |
+| `value` | string | 미리 채운 값 |
+| `rows` | number | 표시할 행 수 (높이에 영향) |
 <!-- /gen:props -->
 
 ```yaml
@@ -67,11 +67,11 @@ textarea:
 드롭다운 선택기.
 
 <!-- gen:props type=select -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `placeholder` | string | Shown when no value selected |
-| `value` | string | Selected value |
-| `options` | string[] | Available options |
+| `placeholder` | string | 값이 선택되지 않았을 때 |
+| `value` | string | 선택된 값 |
+| `options` | string[] | 선택지 |
 <!-- /gen:props -->
 
 ```yaml
@@ -86,10 +86,10 @@ select:
 라벨이 있는 단일 체크박스.
 
 <!-- gen:props type=checkbox -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `label` | string | Label next to the box |
-| `checked` | boolean | Whether the box is ticked |
+| `label` | string | 박스 옆 라벨 |
+| `checked` | boolean | 체크 여부 |
 <!-- /gen:props -->
 
 ```yaml
@@ -103,10 +103,10 @@ checkbox:
 라벨이 있는 단일 라디오 버튼. 그룹으로 쓰려면 `col` 안에 여러 개 쌓으세요.
 
 <!-- gen:props type=radio -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `label` | string | Label text |
-| `selected` | boolean | Whether this radio is selected |
+| `label` | string | 라벨 텍스트 |
+| `selected` | boolean | 이 라디오가 선택되었는지 |
 <!-- /gen:props -->
 
 ```yaml

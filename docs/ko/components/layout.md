@@ -11,7 +11,7 @@
 옵션 패딩이 있는 중립적인 사각 표면. 경계가 보이는 래퍼가 필요할 때.
 
 <!-- gen:props type=container -->
-_No component-specific props — accepts [base props](../yaml-reference.md#base-props) only._
+_컴포넌트별 프롭 없음 — [공통 프롭(base props)](../yaml-reference.md#공통-프롭-base-props)만 받습니다._
 <!-- /gen:props -->
 
 ```yaml
@@ -26,7 +26,7 @@ container:
 제목과 옵션 본문이 있는 표면 — 기본 "콘텐츠 카드" 모양.
 
 <!-- gen:props type=card -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
 | `title` | string | Card heading |
 | `body` | string | Card body text |
@@ -43,9 +43,9 @@ card:
 뚜렷한 헤더 바가 있는 카드 스타일 표면 — 헤딩과 임의 콘텐츠를 묶을 때 card보다 좋습니다.
 
 <!-- gen:props type=panel -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `header` | string | Panel header text |
+| `header` | string | 패널 헤더 텍스트 |
 <!-- /gen:props -->
 
 ```yaml
@@ -60,9 +60,9 @@ panel:
 가늘고 가로 또는 세로인 구분선. 섹션 시각적 분리에 유용.
 
 <!-- gen:props type=divider -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `orientation` | `"horizontal"` \| `"vertical"` | Direction of the rule |
+| `orientation` | `"horizontal"` \| `"vertical"` | 구분선 방향 |
 <!-- /gen:props -->
 
 ```yaml
@@ -77,9 +77,9 @@ screen:
 보이지 않는 간격 — 부모 `row`/`col`의 `gap:`으로 부족할 때 강제로 공간을 줍니다.
 
 <!-- gen:props type=spacer -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `size` | number | Gap size in pixels |
+| `size` | number | 간격 크기 (픽셀) |
 <!-- /gen:props -->
 
 ```yaml

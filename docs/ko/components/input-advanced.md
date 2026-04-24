@@ -9,10 +9,10 @@
 라벨이 있는 ON/OFF 스위치.
 
 <!-- gen:props type=toggle -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `label` | string | Label text |
-| `on` | boolean | Whether the switch is on |
+| `label` | string | 라벨 텍스트 |
+| `on` | boolean | 스위치가 켜져 있는지 |
 <!-- /gen:props -->
 
 ```yaml
@@ -26,11 +26,11 @@ toggle:
 `min`과 `max` 사이의 값을 보여주는 슬라이더.
 
 <!-- gen:props type=slider -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `value` | number | Current value |
-| `min` | number | Minimum (default 0) |
-| `max` | number | Maximum (default 100) |
+| `value` | number | 현재 값 |
+| `min` | number | 최소값 (기본 0) |
+| `max` | number | 최대값 (기본 100) |
 <!-- /gen:props -->
 
 ```yaml
@@ -46,10 +46,10 @@ slider:
 플레이스홀더와 옵션 초기값이 있는 날짜 입력.
 
 <!-- gen:props type=date-picker -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `value` | string | Preset date (free-form string — not parsed) |
-| `placeholder` | string | Shown when empty |
+| `value` | string | 미리 설정된 날짜 (자유 형식 문자열 — 파싱 안 함) |
+| `placeholder` | string | 비었을 때 표시 |
 <!-- /gen:props -->
 
 ```yaml
@@ -63,9 +63,9 @@ date-picker:
 라벨이 있는 파일 선택 영역.
 
 <!-- gen:props type=file-upload -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `label` | string | Text shown inside the dropzone |
+| `label` | string | 드롭존 안 텍스트 |
 <!-- /gen:props -->
 
 ```yaml
@@ -80,10 +80,10 @@ file-upload:
 플레이스홀더와 옵션 초기값이 있는 검색 입력. `input`과 시각적으로 구분됨 (보통 검색 아이콘 표시).
 
 <!-- gen:props type=search -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `value` | string | Pre-filled query |
-| `placeholder` | string | Shown when empty |
+| `value` | string | 미리 채운 쿼리 |
+| `placeholder` | string | 비었을 때 표시 |
 <!-- /gen:props -->
 
 ```yaml

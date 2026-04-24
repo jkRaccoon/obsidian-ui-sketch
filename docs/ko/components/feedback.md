@@ -9,11 +9,11 @@
 severity가 있는 배너 스타일 알림.
 
 <!-- gen:props type=alert -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `title` | string | Alert title |
-| `message` | string | Alert body text |
-| `severity` | `"info"` \| `"warn"` \| `"error"` \| `"success"` | Color/icon style |
+| `title` | string | 알림 제목 |
+| `message` | string | 알림 본문 |
+| `severity` | `"info"` \| `"warn"` \| `"error"` \| `"success"` | 색상/아이콘 스타일 |
 <!-- /gen:props -->
 
 ```yaml
@@ -30,10 +30,10 @@ alert:
 0–100 값의 프로그레스 바.
 
 <!-- gen:props type=progress -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `value` | number | Percentage 0–100 |
-| `label` | string | Optional label shown alongside |
+| `value` | number | 퍼센트 0–100 |
+| `label` | string | 옆에 표시할 옵션 라벨 |
 <!-- /gen:props -->
 
 ```yaml
@@ -48,10 +48,10 @@ progress:
 일시적 알림 칩 — 보통 화면 모서리에 표시됩니다.
 
 <!-- gen:props type=toast -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `message` | string | Toast body |
-| `severity` | `"info"` \| `"warn"` \| `"error"` \| `"success"` | Color style |
+| `message` | string | 토스트 본문 |
+| `severity` | `"info"` \| `"warn"` \| `"error"` \| `"success"` | 색상 스타일 |
 <!-- /gen:props -->
 
 ```yaml
@@ -65,10 +65,10 @@ toast:
 모달 다이얼로그 플레이스홀더. 인라인으로 그려짐 (실제 오버레이 아님) — 스케치 목적.
 
 <!-- gen:props type=modal -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `title` | string | Dialog title |
-| `body` | string | Dialog body text |
+| `title` | string | 다이얼로그 제목 |
+| `body` | string | 다이얼로그 본문 |
 <!-- /gen:props -->
 
 ```yaml
@@ -83,10 +83,10 @@ modal:
 로딩 상태용 회색 shimmer 플레이스홀더.
 
 <!-- gen:props type=skeleton -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `width` | string \| number | Width of the shimmer area |
-| `height` | string \| number | Height of the shimmer area |
+| `width` | string \| number | shimmer 영역 너비 |
+| `height` | string \| number | shimmer 영역 높이 |
 <!-- /gen:props -->
 
 ```yaml

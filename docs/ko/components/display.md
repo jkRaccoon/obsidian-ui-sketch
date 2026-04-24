@@ -9,10 +9,10 @@
 레벨에 따른 섹션 헤딩.
 
 <!-- gen:props type=heading -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `text` | string | Heading text |
-| `level` | number | 1–6, matching HTML h1–h6 |
+| `text` | string | 헤딩 텍스트 |
+| `level` | number | 1–6, HTML h1–h6과 매칭 |
 <!-- /gen:props -->
 
 ```yaml
@@ -26,10 +26,10 @@ heading:
 옵션 강조 tone이 있는 인라인 또는 블록 텍스트.
 
 <!-- gen:props type=text -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `value` | string | Text content |
-| `tone` | `"muted"` \| `"strong"` \| `"accent"` | Emphasis style |
+| `value` | string | 텍스트 내용 |
+| `tone` | `"muted"` \| `"strong"` \| `"accent"` | 강조 스타일 |
 <!-- /gen:props -->
 
 ```yaml
@@ -43,10 +43,10 @@ text:
 이미지 플레이스홀더. `src`/`alt`를 받지만 실제 이미지는 가져오지 않습니다 — mid-fi 스케치 도구라서 렌더러가 아닙니다.
 
 <!-- gen:props type=image -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `src` | string | Image URL (shown in hover/title only) |
-| `alt` | string | Alt text |
+| `src` | string | 이미지 URL (호버/title에만 표시) |
+| `alt` | string | Alt 텍스트 |
 <!-- /gen:props -->
 
 ```yaml
@@ -62,10 +62,10 @@ image:
 작은 아이콘 마커. v0.2에서는 아이콘 크기 박스 안의 텍스트 라벨 (Obsidian의 Lucide 아이콘은 아직 직접 연결 안 됨).
 
 <!-- gen:props type=icon -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `name` | string | Icon identifier text |
-| `size` | number | Box size in pixels |
+| `name` | string | 아이콘 식별자 텍스트 |
+| `size` | number | 박스 크기 (픽셀) |
 <!-- /gen:props -->
 
 ```yaml
@@ -79,10 +79,10 @@ icon:
 `name`에서 이니셜을 도출한 원형 아바타.
 
 <!-- gen:props type=avatar -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `name` | string | Display name — initials are derived from it |
-| `size` | number | Diameter in pixels |
+| `name` | string | 표시 이름 — 이니셜이 여기서 도출됨 |
+| `size` | number | 지름 (픽셀) |
 <!-- /gen:props -->
 
 ```yaml
@@ -96,10 +96,10 @@ avatar:
 variant가 있는 작은 상태 뱃지.
 
 <!-- gen:props type=badge -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `label` | string | Badge text |
-| `variant` | `"default"` \| `"primary"` \| `"success"` \| `"warning"` \| `"danger"` | Visual style |
+| `label` | string | 뱃지 텍스트 |
+| `variant` | `"default"` \| `"primary"` \| `"success"` \| `"warning"` \| `"danger"` | 시각 스타일 |
 <!-- /gen:props -->
 
 ```yaml
@@ -117,9 +117,9 @@ badge:
 태그 모양 라벨 (주제나 키워드). `badge`보다 단순함 — variant 없고 중립적.
 
 <!-- gen:props type=tag -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `label` | string | Tag text |
+| `label` | string | 태그 텍스트 |
 <!-- /gen:props -->
 
 ```yaml
@@ -136,9 +136,9 @@ row:
 키보드 단축키 표시. 각 키를 `<kbd>` 스타일 박스에 넣고 `+`로 연결.
 
 <!-- gen:props type=kbd -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `keys` | string[] | Keys in the shortcut |
+| `keys` | string[] | 단축키의 키들 |
 <!-- /gen:props -->
 
 ```yaml

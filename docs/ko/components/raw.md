@@ -7,10 +7,10 @@
 ## 프롭
 
 <!-- gen:props type=raw -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `html` | string | Sanitized HTML (piped through sanitize-html) |
-| `text` | string | Plain text — textContent only |
+| `html` | string | sanitize된 HTML (sanitize-html 통과) |
+| `text` | string | 순수 텍스트 — textContent만 |
 <!-- /gen:props -->
 
 그리고 모든 [공통 프롭(base props)](../yaml-reference.md#공통-프롭-base-props). `html`과 `text`를 둘 다 주면 `html`이 이깁니다.

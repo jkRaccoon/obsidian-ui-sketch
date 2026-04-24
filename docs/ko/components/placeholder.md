@@ -11,10 +11,10 @@
 러프한 실루엣 힌트가 있는 데이터 시각화 플레이스홀더.
 
 <!-- gen:props type=chart -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `kind` | `"bar"` \| `"line"` \| `"pie"` | Shape to suggest |
-| `label` | string | Caption shown on or below the chart |
+| `kind` | `"bar"` \| `"line"` \| `"pie"` | 제안할 모양 |
+| `label` | string | 차트 위/아래에 표시되는 캡션 |
 <!-- /gen:props -->
 
 ```yaml
@@ -30,7 +30,7 @@ chart:
 지도 플레이스홀더 — "MAP" 뱃지가 있는 음영 사각형.
 
 <!-- gen:props type=map -->
-_No component-specific props — accepts [base props](../yaml-reference.md#base-props) only._
+_컴포넌트별 프롭 없음 — [공통 프롭(base props)](../yaml-reference.md#공통-프롭-base-props)만 받습니다._
 <!-- /gen:props -->
 
 ```yaml
@@ -45,7 +45,7 @@ map:
 비디오 플레이스홀더 — ▶ 재생 아이콘과 "VIDEO" 뱃지가 있는 음영 사각형.
 
 <!-- gen:props type=video -->
-_No component-specific props — accepts [base props](../yaml-reference.md#base-props) only._
+_컴포넌트별 프롭 없음 — [공통 프롭(base props)](../yaml-reference.md#공통-프롭-base-props)만 받습니다._
 <!-- /gen:props -->
 
 ```yaml
@@ -60,9 +60,9 @@ video:
 일반적인 라벨 박스 — 특정 카테고리에 안 맞는 뭐든 넣을 수 있습니다.
 
 <!-- gen:props type=placeholder -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `label` | string | Caption text shown centered |
+| `label` | string | 중앙에 표시되는 캡션 텍스트 |
 <!-- /gen:props -->
 
 ```yaml

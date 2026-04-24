@@ -9,10 +9,10 @@
 헤더와 행이 있는 단순 데이터 표. 모든 값은 텍스트로 렌더링.
 
 <!-- gen:props type=table -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `columns` | string[] | Column header labels |
-| `rows` | string[][] | Each row is an array of strings aligned 1:1 with columns |
+| `columns` | string[] | 컬럼 헤더 라벨 |
+| `rows` | string[][] | 각 행은 columns와 1:1 정렬된 문자열 배열 |
 <!-- /gen:props -->
 
 ```yaml
@@ -29,10 +29,10 @@ table:
 글머리 또는 번호 리스트.
 
 <!-- gen:props type=list -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `items` | string[] | List entries |
-| `ordered` | boolean | true for numbered (ol), otherwise bulleted (ul) |
+| `items` | string[] | 리스트 항목 |
+| `ordered` | boolean | true면 번호 (ol), false면 글머리 (ul) |
 <!-- /gen:props -->
 
 ```yaml
@@ -49,9 +49,9 @@ list:
 중첩 계층 리스트. 각 항목은 `label`과 옵션 `children` (재귀적).
 
 <!-- gen:props type=tree -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `items` | object[] | Top-level tree entries; each has label and optional children |
+| `items` | object[] | 최상위 트리 항목; 각각 label과 옵션 children |
 <!-- /gen:props -->
 
 ```yaml
@@ -77,9 +77,9 @@ tree:
 키-값 쌍 리스트 — 설정 요약이나 객체 인스펙션에 좋습니다.
 
 <!-- gen:props type=kv-list -->
-| Prop | Type | Description |
+| 프롭 | 타입 | 설명 |
 |---|---|---|
-| `items` | [string, string][] | Array of [key, value] pairs |
+| `items` | [string, string][] | [키, 값] 쌍 배열 |
 <!-- /gen:props -->
 
 ```yaml
