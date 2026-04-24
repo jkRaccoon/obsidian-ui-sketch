@@ -55,6 +55,8 @@ screen:
                     - button: { label: "Save changes", variant: primary, note: "Writes to settings.json" }
 ```
 
+![Settings panel](../img/recipes/settings-panel.png)
+
 ## Pattern notes
 
 - **`pad:` on nested containers** gives you consistent 24px page gutters without hardcoding widths.

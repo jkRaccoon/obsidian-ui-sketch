@@ -44,6 +44,8 @@ screen:
       align: center
 ```
 
+![Mobile login form](../img/recipes/login-form-1.png)
+
 ## Variations
 
 **Desktop signup with two columns** — keep the form centered in a fixed-width column using base-prop widths:
@@ -67,6 +69,8 @@ screen:
             flex: 1
             items: []
 ```
+
+![Desktop signup with gutters](../img/recipes/login-form-2.png)
 
 The two empty `col`s with `flex: 1` act as left/right gutters, centering the form in a responsive way.
 

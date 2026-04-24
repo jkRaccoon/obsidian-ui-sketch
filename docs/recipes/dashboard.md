@@ -26,6 +26,8 @@ screen:
           pad: 24
 ```
 
+![Dashboard — grid layout](../img/recipes/dashboard-1.png)
+
 To actually populate the `main` cell with multiple things, swap `container` for a single component, or fill the `main` area with a nested `col` using the flex model instead of grid.
 
 ## Flex variant (more layered content)
@@ -67,6 +69,8 @@ screen:
                     - button: { label: "Export CSV", variant: secondary }
                     - button: { label: "New report", variant: primary }
 ```
+
+![Dashboard — flex layout](../img/recipes/dashboard-2.png)
 
 ## When to use which
 
