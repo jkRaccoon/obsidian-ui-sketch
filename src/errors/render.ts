@@ -1,4 +1,5 @@
 import type { BlockError } from "./types";
+import type { ComponentError } from "./types";
 
 export function renderErrorBox(err: BlockError): HTMLElement {
   const el = document.createElement("div");
@@ -16,6 +17,30 @@ export function renderErrorBox(err: BlockError): HTMLElement {
     body.textContent = `${err.message} at "${err.path}"`;
   }
   el.appendChild(body);
+  return el;
+}
+
+export function renderInlineError(err: ComponentError): HTMLElement {
+  const el = document.createElement("div");
+  el.className = "uis-error uis-error--inline";
+
+  const title = document.createElement("div");
+  title.className = "uis-error__title";
+  title.textContent = `⚠ ${err.componentType}: ${err.message}`;
+  el.appendChild(title);
+
+  if (err.suggestion) {
+    const hint = document.createElement("div");
+    hint.className = "uis-error__hint";
+    hint.textContent = `Did you mean "${err.suggestion}"?`;
+    el.appendChild(hint);
+  }
+
+  const path = document.createElement("div");
+  path.className = "uis-error__body";
+  path.textContent = `at ${err.path}`;
+  el.appendChild(path);
+
   return el;
 }
 
