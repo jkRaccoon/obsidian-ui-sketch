@@ -1,9 +1,13 @@
+// src/components/registry.ts
+import type { ZodType } from "zod";
+
 export interface ComponentRenderCtx {
   muted?: boolean;
 }
 
 export interface ComponentDef {
   type: string;
+  schema?: ZodType<Record<string, unknown>>;
   render(props: Record<string, unknown>, ctx: ComponentRenderCtx): HTMLElement;
 }
 
