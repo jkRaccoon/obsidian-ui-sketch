@@ -1,6 +1,6 @@
 {
   "name": "obsidian-ui-sketch",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Render mid-fi web UI wireframes inside Obsidian notes from YAML.",
   "packageManager": "yarn@3.6.4",
