@@ -1226,7 +1226,6 @@ __metadata:
     happy-dom: ^13.0.0
     js-yaml: ^4.1.0
     obsidian: ^1.5.0
-    tslib: ^2.6.2
     typescript: ^5.3.3
     vitest: ^1.2.0
     zod: ^3.22.4
@@ -1567,13 +1566,6 @@ __metadata:
   version: 2.2.1
   resolution: "tinyspy@npm:2.2.1"
   checksum: 170d6232e87f9044f537b50b406a38fbfd6f79a261cd12b92879947bd340939a833a678632ce4f5c4a6feab4477e9c21cd43faac3b90b68b77dd0536c4149736
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.6.2":
-  version: 2.8.1
-  resolution: "tslib@npm:2.8.1"
-  checksum: e4aba30e632b8c8902b47587fd13345e2827fa639e7c3121074d5ee0880723282411a8838f830b55100cbe4517672f84a2472667d355b81e8af165a55dc6203a
   languageName: node
   linkType: hard
 
