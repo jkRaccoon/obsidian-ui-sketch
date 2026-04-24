@@ -12,8 +12,8 @@
 .uis-frame[data-background="transparent"] { background: transparent; border-color: transparent; }
 .uis-root { background: var(--background-primary); padding: 12px; border-radius: inherit; }
 
-.uis-compact .uis-frame,
-.uis-compact .uis-root { font-size: 0.875em; }
+.uis-frame.uis-compact,
+.uis-frame.uis-compact .uis-root { font-size: 0.875em; }
 
 /* ===== Flow / row / col / grid ===== */
 .uis-flow { display: flex; flex-direction: column; gap: 12px; }

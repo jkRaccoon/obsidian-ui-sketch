@@ -6,14 +6,12 @@ export interface UiSketchSettings {
   defaultViewport: ViewportKind;
   defaultTheme: "adaptive";
   compact: boolean;
-  verbose: boolean;
 }
 
 export const DEFAULT_SETTINGS: UiSketchSettings = {
   defaultViewport: "desktop",
   defaultTheme: "adaptive",
   compact: false,
-  verbose: false,
 };
 
 export interface SettingsHost extends Plugin {
@@ -38,7 +36,6 @@ export class UiSketchSettingTab extends PluginSettingTab {
         d.addOption("desktop", "Desktop")
           .addOption("tablet", "Tablet")
           .addOption("mobile", "Mobile")
-          .addOption("custom", "Custom")
           .setValue(this.host.settings.defaultViewport)
           .onChange(async (v) => {
             this.host.settings.defaultViewport = v as ViewportKind;
@@ -63,14 +60,5 @@ export class UiSketchSettingTab extends PluginSettingTab {
         }),
       );
 
-    new Setting(containerEl)
-      .setName("Verbose logging")
-      .setDesc("Print debug traces to developer console.")
-      .addToggle((tog) =>
-        tog.setValue(this.host.settings.verbose).onChange(async (v) => {
-          this.host.settings.verbose = v;
-          await this.host.saveSettings();
-        }),
-      );
   }
 }
