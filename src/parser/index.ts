@@ -16,7 +16,7 @@ export function parseDocument(source: string): ParseResult {
   if (trimmed === "") return { ok: true, doc: {} };
 
   try {
-    const doc = yaml.load(source, { schema: yaml.DEFAULT_SCHEMA });
+    const doc = yaml.load(source, { schema: yaml.DEFAULT_SCHEMA, maxAliasCount: 200 });
     if (doc === null || doc === undefined) return { ok: true, doc: {} };
     if (typeof doc !== "object" || Array.isArray(doc)) {
       return {
