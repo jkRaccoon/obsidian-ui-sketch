@@ -1,5 +1,7 @@
 # UI Sketch
 
+**English · [한국어](./README.ko.md)**
+
 > Render mid-fidelity web UI wireframes inside Obsidian notes — with YAML, not ASCII.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
