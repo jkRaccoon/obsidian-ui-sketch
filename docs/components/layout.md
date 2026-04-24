@@ -4,13 +4,15 @@ Surfaces and spacing primitives. Use these to group or separate content. For arr
 
 All components below accept the [base props](../yaml-reference.md#base-props) in addition to those listed.
 
+> Prop tables in this file are auto-generated from the live zod schemas by `yarn gen:docs`. Hand-editing inside `<!-- gen:props -->` blocks will be overwritten.
+
 ## `container`
 
 A neutral rectangular surface with optional padding. Useful when you need a wrapper with visible bounds.
 
-| Prop | Type | Description |
-|---|---|---|
-| *(no component-specific props)* | | Use `pad:` from base props to control inset |
+<!-- gen:props type=container -->
+_No component-specific props — accepts [base props](../yaml-reference.md#base-props) only._
+<!-- /gen:props -->
 
 ```yaml
 container:
@@ -23,10 +25,12 @@ container:
 
 Titled surface with optional body text — the default "content card" shape.
 
+<!-- gen:props type=card -->
 | Prop | Type | Description |
 |---|---|---|
 | `title` | string | Card heading |
 | `body` | string | Card body text |
+<!-- /gen:props -->
 
 ```yaml
 card:
@@ -38,9 +42,11 @@ card:
 
 A card-like surface with a distinct header bar — better for grouping a heading with arbitrary content.
 
+<!-- gen:props type=panel -->
 | Prop | Type | Description |
 |---|---|---|
 | `header` | string | Panel header text |
+<!-- /gen:props -->
 
 ```yaml
 panel:
@@ -53,12 +59,13 @@ panel:
 
 A thin horizontal or vertical rule. Great for visually breaking sections.
 
+<!-- gen:props type=divider -->
 | Prop | Type | Description |
 |---|---|---|
-| `orientation` | `"horizontal"` \| `"vertical"` | Default: `horizontal` |
+| `orientation` | `"horizontal"` \| `"vertical"` | Direction of the rule |
+<!-- /gen:props -->
 
 ```yaml
-# Section separator
 screen:
   - heading: { text: "Profile" }
   - divider: {}
@@ -69,9 +76,11 @@ screen:
 
 Invisible gap — forces spacing where `gap:` on the parent `row`/`col` isn't enough.
 
+<!-- gen:props type=spacer -->
 | Prop | Type | Description |
 |---|---|---|
 | `size` | number | Gap size in pixels |
+<!-- /gen:props -->
 
 ```yaml
 col:

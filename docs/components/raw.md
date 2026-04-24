@@ -6,12 +6,14 @@ Prefer builtin components when possible. `raw:` is intentionally mid-fi; richer 
 
 ## Props
 
+<!-- gen:props type=raw -->
 | Prop | Type | Description |
 |---|---|---|
-| `html` | string | Sanitized HTML content. If both `html` and `text` are provided, `html` wins. |
-| `text` | string | Plain text — appended with `textContent` (no HTML parsing at all). |
+| `html` | string | Sanitized HTML (piped through sanitize-html) |
+| `text` | string | Plain text — textContent only |
+<!-- /gen:props -->
 
-Plus all [base props](../yaml-reference.md#base-props).
+Plus all [base props](../yaml-reference.md#base-props). If both `html` and `text` are provided, `html` wins.
 
 ## Allowed tags
 

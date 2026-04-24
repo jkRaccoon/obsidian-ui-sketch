@@ -3,8 +3,8 @@ import type { ComponentDef } from "./registry";
 import { BasePropsSchema } from "@/schema/base";
 
 export const CardSchema = BasePropsSchema.extend({
-  title: z.string().optional(),
-  body: z.string().optional(),
+  title: z.string().optional().describe("Card heading"),
+  body: z.string().optional().describe("Card body text"),
 }).passthrough();
 
 export const CardDef: ComponentDef = {
