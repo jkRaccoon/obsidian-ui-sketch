@@ -8,7 +8,7 @@ Obsidian community plugin that renders mid-fidelity web UI wireframes from YAML 
 
 ## Commands
 
-Package manager is **yarn 3** (`packageManager` pinned in `package.json`; `.yarnrc.yml` uses `nodeLinker: node-modules`). Requires Node 18+.
+Package manager is **yarn 1.x** (classic). The lockfile is in yarn 1 format so both yarn 1 and yarn 3 (via corepack) can install it. The `packageManager` field in `package.json` was removed so the Obsidian community plugin review bot (which doesn't run corepack) can install with its global yarn 1.22. Requires Node 18+.
 
 ```bash
 yarn dev              # esbuild watch (sourcemaps, no minify) → main.js

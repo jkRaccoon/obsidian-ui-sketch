@@ -3,7 +3,6 @@
   "version": "0.2.2",
   "private": true,
   "description": "Render mid-fi web UI wireframes inside Obsidian notes from YAML.",
-  "packageManager": "yarn@3.6.4",
   "scripts": {
     "dev": "node esbuild.config.mjs",
     "build": "tsc --noEmit && node esbuild.config.mjs production",
