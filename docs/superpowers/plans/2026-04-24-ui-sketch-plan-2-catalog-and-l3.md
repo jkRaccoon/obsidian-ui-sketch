@@ -413,13 +413,16 @@ git commit -m "feat(renderer): depth and node-count safety guards"
 Find the line in `parseDocument`:
 
 ```ts
-const doc = yaml.load(source, { schema: yaml.DEFAULT_SCHEMA });
+const doc = yaml.load(source, { schema: yaml.DEFAULT_SCHEMA, maxAliasCount: 200 });
 ```
 
-Replace with:
+Replace with (js-yaml 4.x does not implement maxAliasCount — the option is silently ignored, verified against node_modules/js-yaml/lib/loader.js):
 
 ```ts
-const doc = yaml.load(source, { schema: yaml.DEFAULT_SCHEMA, maxAliasCount: 200 });
+// js-yaml 4.x does not implement maxAliasCount — the option is silently ignored
+// (verified against node_modules/js-yaml/lib/loader.js). Alias-bomb defense is
+// therefore provided downstream by renderer/safety.ts (MAX_NODES=5000).
+const doc = yaml.load(source, { schema: yaml.DEFAULT_SCHEMA });
 ```
 
 - [ ] **Step 2: Run existing parser tests — they must still pass.**
@@ -431,7 +434,7 @@ Expected: all parser tests pass (3 from Plan 1 + 4 from the edge_cases file if p
 
 ```bash
 git add src/parser/index.ts
-git commit -m "feat(parser): cap maxAliasCount at 200 to prevent alias bomb"
+git commit -m "docs(parser): clarify alias-bomb defense is in safety.ts"
 ```
 
 ---

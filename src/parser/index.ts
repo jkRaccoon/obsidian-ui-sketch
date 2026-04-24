@@ -16,10 +16,9 @@ export function parseDocument(source: string): ParseResult {
   if (trimmed === "") return { ok: true, doc: {} };
 
   try {
-    // maxAliasCount: 200 — guards against alias-bomb payloads (yaml-bomb DOS).
-    // Cast needed because @types/js-yaml LoadOptions does not declare maxAliasCount
-    // even though js-yaml passes unknown options through to its loader state.
-    const doc = yaml.load(source, { schema: yaml.DEFAULT_SCHEMA, maxAliasCount: 200 } as yaml.LoadOptions);
+    // Note: js-yaml 4.x does not implement maxAliasCount. Alias-bomb defense is
+    // enforced downstream by renderer/safety.ts (MAX_NODES=5000).
+    const doc = yaml.load(source, { schema: yaml.DEFAULT_SCHEMA });
     if (doc === null || doc === undefined) return { ok: true, doc: {} };
     if (typeof doc !== "object" || Array.isArray(doc)) {
       return {
