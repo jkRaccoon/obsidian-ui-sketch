@@ -1,0 +1,31 @@
+# Jekyll config for the GitHub Pages site served from /docs
+# See: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll
+
+title: UI Sketch
+description: Render mid-fidelity web UI wireframes inside Obsidian notes — with YAML, not ASCII.
+
+# Supported GitHub Pages theme — full-width banner + clean content.
+# https://github.com/pages-themes/cayman
+theme: jekyll-theme-cayman
+
+# Default GitHub Pages plugins (explicit for clarity)
+plugins:
+  - jekyll-relative-links  # turns `.md` links into the rendered URL
+  - jekyll-optional-front-matter  # lets .md files render without explicit --- front matter
+  - jekyll-readme-index    # serves README.md as the directory index
+  - jekyll-default-layout  # applies the theme layout to every page
+
+# Internal design docs — specs and implementation plans — are not for
+# public consumption. Keep them in the repo but skip rendering on Pages.
+exclude:
+  - superpowers/
+  - .gitignore
+
+# Relative-link plugin config: convert repo-style links to rendered URLs.
+relative_links:
+  enabled: true
+  collections: true
+
+# Don't process image binaries through Markdown; serve as static assets.
+include:
+  - img
