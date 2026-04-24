@@ -1,7 +1,15 @@
+import { z } from "zod";
 import type { ComponentDef } from "./registry";
+import { BasePropsSchema } from "@/schema/base";
+
+export const HeadingSchema = BasePropsSchema.extend({
+  text: z.string().optional(),
+  level: z.number().optional(),
+}).passthrough();
 
 export const HeadingDef: ComponentDef = {
   type: "heading",
+  schema: HeadingSchema,
   render(props) {
     const el = document.createElement("div");
     let level = typeof props.level === "number" ? Math.round(props.level) : 1;

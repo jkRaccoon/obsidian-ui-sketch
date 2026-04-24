@@ -1,7 +1,15 @@
+import { z } from "zod";
 import type { ComponentDef } from "./registry";
+import { BasePropsSchema } from "@/schema/base";
+
+export const CardSchema = BasePropsSchema.extend({
+  title: z.string().optional(),
+  body: z.string().optional(),
+}).passthrough();
 
 export const CardDef: ComponentDef = {
   type: "card",
+  schema: CardSchema,
   render(props) {
     const el = document.createElement("div");
     el.className = "uis-card";

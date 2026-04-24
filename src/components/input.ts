@@ -1,7 +1,15 @@
+import { z } from "zod";
 import type { ComponentDef } from "./registry";
+import { BasePropsSchema } from "@/schema/base";
+
+export const InputSchema = BasePropsSchema.extend({
+  placeholder: z.string().optional(),
+  value: z.string().optional(),
+}).passthrough();
 
 export const InputDef: ComponentDef = {
   type: "input",
+  schema: InputSchema,
   render(props) {
     const el = document.createElement("div");
     el.className = "uis-input";
