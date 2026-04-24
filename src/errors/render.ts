@@ -47,12 +47,19 @@ export function renderInlineError(err: ComponentError): HTMLElement {
 export function renderEmptyPlaceholder(): HTMLElement {
   const el = document.createElement("div");
   el.className = "uis-empty";
-  el.innerHTML = `
-    <div class="uis-empty__title">ui-sketch block is empty</div>
-    <pre class="uis-empty__example">viewport: desktop
+
+  const title = document.createElement("div");
+  title.className = "uis-empty__title";
+  title.textContent = "ui-sketch block is empty";
+  el.appendChild(title);
+
+  const example = document.createElement("pre");
+  example.className = "uis-empty__example";
+  example.textContent = `viewport: desktop
 screen:
   - navbar: { brand: "MyApp" }
-  - button: { label: "Click" }</pre>
-  `.trim();
+  - button: { label: "Click" }`;
+  el.appendChild(example);
+
   return el;
 }

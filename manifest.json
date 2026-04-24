@@ -1,10 +1,11 @@
 {
   "id": "ui-sketch",
   "name": "UI Sketch",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "minAppVersion": "1.5.0",
   "description": "Render mid-fi web UI wireframes in notes from YAML (44 components, inline errors, typo hints).",
   "author": "jikwangkim",
   "authorUrl": "https://github.com/jkRaccoon",
+  "fundingUrl": "https://github.com/sponsors/jkRaccoon",
   "isDesktopOnly": false
 }

@@ -37,6 +37,10 @@ export const RawDef: ComponentDef = {
     const el = document.createElement("div");
     el.className = "uis-raw";
     if (typeof props.html === "string") {
+      // innerHTML is intentional here: the input is always piped through
+      // sanitize-html with a strict allow-list (no <script>, no event handlers,
+      // no javascript: URLs). This is the plugin's documented escape hatch for
+      // authors who need lightweight inline markup inside a wireframe.
       el.innerHTML = sanitizeHtml(props.html, {
         allowedTags: ALLOWED_TAGS,
         allowedAttributes: ALLOWED_ATTRS,
