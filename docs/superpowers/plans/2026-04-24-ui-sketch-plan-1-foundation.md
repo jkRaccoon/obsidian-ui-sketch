@@ -515,7 +515,7 @@ git commit -m "feat(parser): parse YAML with line/col on errors"
 // src/schema/base.ts
 import { z } from "zod";
 
-export const BaseProps = z
+export const BasePropsSchema = z
   .object({
     id: z.string().optional(),
     w: z.union([z.number(), z.string()]).optional(),
@@ -527,7 +527,7 @@ export const BaseProps = z
   })
   .passthrough();
 
-export type BaseP = z.infer<typeof BaseProps>;
+export type BasePropsShape = z.infer<typeof BasePropsSchema>;
 ```
 
 - [ ] **Step 2: Typecheck**
@@ -2333,7 +2333,7 @@ export default class UiSketchPlugin extends Plugin {
 function applyDefaults(source: string, settings: UiSketchSettings): string {
   // If the block omits top-level viewport, prepend it from settings.
   // Kept minimal in v0.1 — rich merging is Plan 2 territory.
-  if (/^\s*viewport\s*:/m.test(source)) return source;
+  if (/^viewport\s*:/m.test(source)) return source;
   if (source.trim() === "") return source;
   return `viewport: ${settings.defaultViewport}\n${source}`;
 }
