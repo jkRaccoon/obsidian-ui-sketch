@@ -1,0 +1,12 @@
+viewport: tablet
+screen:
+  grid:
+    areas:
+      - "nav nav"
+      - "side main"
+    cols: "180px 1fr"
+    rows: "56px 1fr"
+    map:
+      nav:  { navbar: { brand: "Dash" } }
+      side: { card: { title: "Menu" } }
+      main: { card: { title: "Main" } }

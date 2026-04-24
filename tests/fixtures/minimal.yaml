@@ -1,0 +1,7 @@
+viewport: desktop
+screen:
+  - navbar: { brand: "MyApp", items: ["Home", "Docs"] }
+  - row:
+      gap: 12
+      items:
+        - card: { title: "Hi" }
