@@ -2,7 +2,7 @@
 
 **[English](../README.md) · 한국어**
 
-UI Sketch Obsidian 플러그인의 사용자 문서. 설치 및 개요는 [메인 README](../../README.ko.md) 참고.
+UI Sketch Obsidian 플러그인의 사용자 문서. 설치 및 개요는 [메인 README](https://github.com/jkRaccoon/obsidian-ui-sketch/blob/main/README.ko.md) 참고.
 
 ## 섹션
 

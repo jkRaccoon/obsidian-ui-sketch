@@ -1,6 +1,6 @@
 # UI Sketch
 
-**English · [한국어](./README.ko.md)**
+**English · [한국어](./README.ko.md)** · 📖 [**Full docs**](https://jkraccoon.github.io/obsidian-ui-sketch/)
 
 > Render mid-fidelity web UI wireframes inside Obsidian notes — with YAML, not ASCII.
 

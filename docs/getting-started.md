@@ -1,6 +1,6 @@
 # Getting Started
 
-Your first wireframe in five minutes. Assumes the plugin is already installed (see the [main README](../README.md#-quick-start) for install steps).
+Your first wireframe in five minutes. Assumes the plugin is already installed (see the [main README](https://github.com/jkRaccoon/obsidian-ui-sketch#readme) for install steps).
 
 ## 1. Create a code block
 

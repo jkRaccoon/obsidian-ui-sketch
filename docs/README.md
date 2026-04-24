@@ -2,7 +2,7 @@
 
 **English · [한국어](./ko/README.md)**
 
-User-facing reference for the UI Sketch Obsidian plugin. For installation and a quick overview, see the [main README](../README.md).
+User-facing reference for the UI Sketch Obsidian plugin. For installation and a quick overview, see the [main README](https://github.com/jkRaccoon/obsidian-ui-sketch#readme).
 
 ## Sections
 

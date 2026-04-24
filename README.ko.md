@@ -1,6 +1,6 @@
 # UI Sketch
 
-**[English](./README.md) · 한국어**
+**[English](./README.md) · 한국어** · 📖 [**전체 문서**](https://jkraccoon.github.io/obsidian-ui-sketch/ko/)
 
 > YAML로 Obsidian 노트 안에 중간 충실도 웹 UI 와이어프레임을 그립니다 — ASCII 박스 그만.
 
