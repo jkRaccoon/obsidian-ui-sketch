@@ -90,44 +90,37 @@ screen:
 
 ### 3. 더 들어가기
 
-사용 가능한 모든 44개 컴포넌트는 [**컴포넌트 카탈로그**](#-컴포넌트-카탈로그) 참고.
+전체 문서는 [**`docs/`**](./docs/README.md)에 있습니다 (영문):
+
+- [Getting Started](./docs/getting-started.md) — 5분 튜토리얼
+- [YAML Reference](./docs/yaml-reference.md) — 전체 문법
+- [Component Reference](./docs/components/README.md) — 44개 컴포넌트의 프롭 표와 예제
+- [Recipes](./docs/recipes/dashboard.md) — 자주 쓰는 화면 템플릿
+- [Troubleshooting](./docs/troubleshooting.md) — 에러 레벨과 대응법
 
 ---
 
 ## 🧩 컴포넌트 카탈로그
 
-**8개 카테고리 44개 컴포넌트 + 탈출구 하나.** 모든 컴포넌트는 타입별 프롭 위에 공통 프롭(`id`, `w`, `h`, `align`, `pad`, `note`, `muted`)을 받습니다.
+**8개 카테고리 44개 컴포넌트 + 탈출구 하나.** 모든 컴포넌트는 타입별 프롭 위에 공통 프롭(`id`, `w`, `h`, `align`, `pad`, `note`, `muted`)을 받습니다. 상세 프롭 표는 [Component Reference](./docs/components/README.md) 참고.
 
 | 카테고리 | 컴포넌트 |
 |---|---|
-| **레이아웃** | `container` · `card` · `panel` · `divider` · `spacer` |
-| **내비게이션** | `navbar` · `sidebar` · `tabs` · `breadcrumb` · `pagination` · `stepper` |
-| **기본 입력** | `button` · `input` · `textarea` · `select` · `checkbox` · `radio` |
-| **고급 입력** | `toggle` · `slider` · `date-picker` · `file-upload` · `search` |
-| **표시** | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `kbd` |
-| **피드백** | `alert` · `progress` · `toast` · `modal` · `skeleton` |
-| **데이터** | `table` · `list` · `tree` · `kv-list` |
-| **플레이스홀더** | `chart` · `map` · `video` · `placeholder` |
-| **탈출구** | `raw` (sanitize된 HTML) |
-
-### 공통 프롭 (모든 컴포넌트)
-
-```yaml
-some-component:
-  id: my-id          # 선택 식별자
-  w: 200             # 너비 — 숫자(px) 또는 문자열("50%")
-  h: 120             # 높이 — 동일
-  align: start       # start | center | end — 자기 정렬
-  pad: 12            # 패딩 — 숫자 또는 CSS 문자열
-  note: "TODO"       # 호버 툴팁 주석 (ⓘ 점 표시)
-  muted: true        # 강조 낮춤 (비활성 느낌)
-```
+| [**레이아웃**](./docs/components/layout.md) | `container` · `card` · `panel` · `divider` · `spacer` |
+| [**내비게이션**](./docs/components/navigation.md) | `navbar` · `sidebar` · `tabs` · `breadcrumb` · `pagination` · `stepper` |
+| [**기본 입력**](./docs/components/input-basic.md) | `button` · `input` · `textarea` · `select` · `checkbox` · `radio` |
+| [**고급 입력**](./docs/components/input-advanced.md) | `toggle` · `slider` · `date-picker` · `file-upload` · `search` |
+| [**표시**](./docs/components/display.md) | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `kbd` |
+| [**피드백**](./docs/components/feedback.md) | `alert` · `progress` · `toast` · `modal` · `skeleton` |
+| [**데이터**](./docs/components/data.md) | `table` · `list` · `tree` · `kv-list` |
+| [**플레이스홀더**](./docs/components/placeholder.md) | `chart` · `map` · `video` · `placeholder` |
+| [**탈출구**](./docs/components/raw.md) | `raw` (sanitize된 HTML) |
 
 ### 예시 몇 가지
 
 ```yaml
 alert:
-  severity: warning
+  severity: warn
   title: "Heads up"
   message: "Review before committing."
 
@@ -152,6 +145,8 @@ kbd:
 ---
 
 ## 📐 YAML 구조
+
+전체 문법은 [**YAML Reference**](./docs/yaml-reference.md) 참고. 간단 개요:
 
 최상위 키:
 
@@ -217,6 +212,8 @@ UI Sketch는 조용히 실패하지 않습니다. 항상 뭔가 대응 가능한
 - 최대 트리 깊이: **32**
 - 최대 노드 수: **블록당 5000**
 - `raw:` HTML은 항상 `sanitize-html`을 통과 — `<script>` 불가, 인라인 이벤트 핸들러 불가.
+
+자주 마주치는 문제와 해결법은 [**Troubleshooting**](./docs/troubleshooting.md) 참고.
 
 ---
 

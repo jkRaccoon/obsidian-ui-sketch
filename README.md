@@ -90,44 +90,37 @@ Switch to Reading view (`Ctrl/Cmd+E`). You'll see a rendered wireframe.
 
 ### 3. Go deeper
 
-See the [**Component Catalog**](#-component-catalog) for all 44 available components.
+Full docs live in [**`docs/`**](./docs/README.md):
+
+- [Getting Started](./docs/getting-started.md) — a 5-minute tutorial
+- [YAML Reference](./docs/yaml-reference.md) — complete syntax
+- [Component Reference](./docs/components/README.md) — prop tables & examples for all 44 components
+- [Recipes](./docs/recipes/dashboard.md) — copy-paste templates for common screens
+- [Troubleshooting](./docs/troubleshooting.md) — error levels & common fixes
 
 ---
 
 ## 🧩 Component Catalog
 
-**44 components across 8 categories, plus one escape hatch.** Every component accepts the base props (`id`, `w`, `h`, `align`, `pad`, `note`, `muted`) on top of its type-specific props.
+**44 components across 8 categories, plus one escape hatch.** Every component accepts the base props (`id`, `w`, `h`, `align`, `pad`, `note`, `muted`) on top of its type-specific props. For detailed prop tables, click through to the [Component Reference](./docs/components/README.md).
 
 | Category | Components |
 |---|---|
-| **Layout structure** | `container` · `card` · `panel` · `divider` · `spacer` |
-| **Navigation** | `navbar` · `sidebar` · `tabs` · `breadcrumb` · `pagination` · `stepper` |
-| **Basic input** | `button` · `input` · `textarea` · `select` · `checkbox` · `radio` |
-| **Advanced input** | `toggle` · `slider` · `date-picker` · `file-upload` · `search` |
-| **Display** | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `kbd` |
-| **Feedback** | `alert` · `progress` · `toast` · `modal` · `skeleton` |
-| **Data** | `table` · `list` · `tree` · `kv-list` |
-| **Placeholder** | `chart` · `map` · `video` · `placeholder` |
-| **Escape hatch** | `raw` (sanitized HTML) |
-
-### Common props (all components)
-
-```yaml
-some-component:
-  id: my-id          # optional identifier
-  w: 200             # width — number (px) or string ("50%")
-  h: 120             # height — same
-  align: start       # start | center | end — self-alignment
-  pad: 12            # padding — number or CSS string
-  note: "TODO"       # hover tooltip annotation (ⓘ dot appears)
-  muted: true        # reduce emphasis (de-activated look)
-```
+| [**Layout structure**](./docs/components/layout.md) | `container` · `card` · `panel` · `divider` · `spacer` |
+| [**Navigation**](./docs/components/navigation.md) | `navbar` · `sidebar` · `tabs` · `breadcrumb` · `pagination` · `stepper` |
+| [**Basic input**](./docs/components/input-basic.md) | `button` · `input` · `textarea` · `select` · `checkbox` · `radio` |
+| [**Advanced input**](./docs/components/input-advanced.md) | `toggle` · `slider` · `date-picker` · `file-upload` · `search` |
+| [**Display**](./docs/components/display.md) | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `kbd` |
+| [**Feedback**](./docs/components/feedback.md) | `alert` · `progress` · `toast` · `modal` · `skeleton` |
+| [**Data**](./docs/components/data.md) | `table` · `list` · `tree` · `kv-list` |
+| [**Placeholder**](./docs/components/placeholder.md) | `chart` · `map` · `video` · `placeholder` |
+| [**Escape hatch**](./docs/components/raw.md) | `raw` (sanitized HTML) |
 
 ### A few examples
 
 ```yaml
 alert:
-  severity: warning
+  severity: warn
   title: "Heads up"
   message: "Review before committing."
 
@@ -152,6 +145,8 @@ kbd:
 ---
 
 ## 📐 YAML structure
+
+See [**YAML Reference**](./docs/yaml-reference.md) for complete syntax. Quick overview:
 
 Top-level keys:
 
@@ -217,6 +212,8 @@ UI Sketch never silently fails. You always see something actionable.
 - Max tree depth: **32**
 - Max node count: **5000 per block**
 - `raw:` HTML is always piped through `sanitize-html` — no `<script>`, no inline event handlers.
+
+For common causes and fixes, see [**Troubleshooting**](./docs/troubleshooting.md).
 
 ---
 
