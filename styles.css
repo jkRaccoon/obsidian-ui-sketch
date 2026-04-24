@@ -1,6 +1,12 @@
 /* ===== Frame & root ===== */
+
+/* All plugin elements use border-box so widths like w:"100%" behave
+ * predictably even when the component has its own padding/border
+ * (button, card, panel, etc). Scoped to .uis-frame so it doesn't
+ * leak into the rest of the Obsidian UI. */
+.uis-frame, .uis-frame * { box-sizing: border-box; }
+
 .uis-frame {
-  box-sizing: border-box;
   max-width: 100%;
   margin: 0 auto;
   padding: 8px;

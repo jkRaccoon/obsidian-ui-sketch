@@ -6,7 +6,7 @@ Two-column settings screen: left sidebar of categories, right pane of settings. 
 viewport: desktop
 screen:
   - row:
-      gap: 0
+      gap: 24
       items:
         - col:
             flex: 0

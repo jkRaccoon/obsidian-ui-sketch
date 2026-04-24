@@ -38,7 +38,7 @@ screen:
                   tone: muted
               - spacer: { size: 20 }
               - panel: { header: "Example" }
-              - placeholder: { label: "```ui-sketch code block here...", h: 180 }
+              - placeholder: { label: "YAML code block here...", h: 180 }
               - spacer: { size: 16 }
               - heading: { level: 3, text: "Pattern notes" }
               - list:

@@ -6,7 +6,7 @@
 viewport: desktop
 screen:
   - row:
-      gap: 0
+      gap: 24
       items:
         - col:
             flex: 0

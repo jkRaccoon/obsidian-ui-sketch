@@ -22,7 +22,10 @@ const readmePath = path.join(repoRoot, "README.md");
 function extractUiSketchBlocks(mdPath: string): string[] {
   const content = fs.readFileSync(mdPath, "utf8");
   const blocks: string[] = [];
-  const re = /```ui-sketch\s*\n([\s\S]*?)```/g;
+  // Markdown fences sit at column 0; an embedded ``` inside a YAML string
+  // value is indented (or mid-line), so anchoring the closing fence to a
+  // line start with the /m flag avoids false early termination.
+  const re = /^```ui-sketch\s*\n([\s\S]*?)^```\s*$/gm;
   let m: RegExpExecArray | null;
   while ((m = re.exec(content)) !== null) blocks.push(m[1]);
   return blocks;
