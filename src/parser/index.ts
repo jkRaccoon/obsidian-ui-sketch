@@ -16,7 +16,10 @@ export function parseDocument(source: string): ParseResult {
   if (trimmed === "") return { ok: true, doc: {} };
 
   try {
-    const doc = yaml.load(source, { schema: yaml.DEFAULT_SCHEMA, maxAliasCount: 200 });
+    // maxAliasCount: 200 — guards against alias-bomb payloads (yaml-bomb DOS).
+    // Cast needed because @types/js-yaml LoadOptions does not declare maxAliasCount
+    // even though js-yaml passes unknown options through to its loader state.
+    const doc = yaml.load(source, { schema: yaml.DEFAULT_SCHEMA, maxAliasCount: 200 } as yaml.LoadOptions);
     if (doc === null || doc === undefined) return { ok: true, doc: {} };
     if (typeof doc !== "object" || Array.isArray(doc)) {
       return {
