@@ -15,14 +15,13 @@ screen:
               - panel:
                   header: "Confirm deletion"
                   w: 480
-              - container:
-                  pad: 20
-                  w: 480
-                  h: 220
+              - spacer: { size: 16 }
               - text:
                   value: "You're about to delete 3 files. This action can't be undone."
+                  w: 480
               - spacer: { size: 12 }
               - kv-list:
+                  w: 480
                   items:
                     - ["File 1", "Q1-report.pdf"]
                     - ["File 2", "budget-draft.xlsx"]
@@ -31,9 +30,11 @@ screen:
               - alert:
                   severity: warn
                   message: "Shared copies will be removed from your team as well."
+                  w: 480
               - spacer: { size: 16 }
               - row:
                   gap: 8
+                  w: 480
                   items:
                     - col: { flex: 1, items: [] }
                     - button: { label: "Cancel", variant: ghost }

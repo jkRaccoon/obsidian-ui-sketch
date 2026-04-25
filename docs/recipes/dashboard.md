@@ -22,13 +22,14 @@ screen:
           items: ["Overview", "Activity", "Reports", "API keys", "Team", "Support"]
           active: "Overview"
       main:
-        container:
-          pad: 24
+        chart:
+          kind: bar
+          label: "Active users (last 30 days)"
 ```
 
 ![Dashboard — grid layout](../img/recipes/dashboard-1.png)
 
-To actually populate the `main` cell with multiple things, swap `container` for a single component, or fill the `main` area with a nested `col` using the flex model instead of grid.
+`grid.map` only accepts a single component per area, so the `main` cell holds one chart placeholder here. To layer multiple components inside the main area (cards + chart + table), use the flex model below — `row`/`col` aren't valid in `grid.map`.
 
 ## Flex variant (more layered content)
 
@@ -41,7 +42,7 @@ screen:
       brand: "Ops Console"
       items: ["Dashboard", "Users", "Billing", "Settings"]
   - row:
-      gap: 0
+      gap: 24
       items:
         - col:
             flex: 0
@@ -60,12 +61,17 @@ screen:
                     - card: { title: "Revenue",   body: "$12,400" }
                     - card: { title: "New users", body: "342" }
                     - card: { title: "Churn",     body: "0.8%" }
-              - panel:
-                  header: "Recent activity"
-                  h: 280
+              - panel: { header: "Recent activity" }
+              - list:
+                  items:
+                    - "Ada Lovelace deployed v0.3.1 — 2 min ago"
+                    - "Ben Tanner invited 3 users to the Pro workspace — 18 min ago"
+                    - "Stripe webhook: invoice paid ($129) — 1 hour ago"
+                    - "Clara Kim opened incident INC-04 — 3 hours ago"
               - row:
                   gap: 12
                   items:
+                    - col: { flex: 1, items: [] }
                     - button: { label: "Export CSV", variant: secondary }
                     - button: { label: "New report", variant: primary }
 ```

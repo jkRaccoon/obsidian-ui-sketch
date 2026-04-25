@@ -38,9 +38,8 @@ screen:
             flex: 1
             items:
               - panel: { header: "About" }
-              - container:
-                  pad: 16
               - kv-list:
+                  pad: 12
                   items:
                     - ["Email",        "ada@example.com"]
                     - ["Employee ID",  "E-00128"]
@@ -53,6 +52,7 @@ screen:
             items:
               - panel: { header: "Recent activity" }
               - list:
+                  pad: 12
                   items:
                     - "Pushed 3 commits to main (2 min ago)"
                     - "Approved PR #124 in platform-api (1 hour ago)"

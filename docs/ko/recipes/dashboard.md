@@ -22,13 +22,14 @@ screen:
           items: ["Overview", "Activity", "Reports", "API keys", "Team", "Support"]
           active: "Overview"
       main:
-        container:
-          pad: 24
+        chart:
+          kind: bar
+          label: "Active users (last 30 days)"
 ```
 
 ![대시보드 — grid 레이아웃](../../img/recipes/dashboard-1.png)
 
-`main` 셀에 여러 개를 실제로 채우려면 `container`를 단일 컴포넌트로 바꾸거나, grid 대신 flex 모델로 `main` 영역 안에 `col`을 중첩하세요.
+`grid.map`은 영역당 단일 컴포넌트만 받으므로, 여기서는 `main` 셀에 차트 placeholder 하나만 두었습니다. 메인 영역 안에 여러 컴포넌트(카드 + 차트 + 테이블)를 쌓으려면 아래의 flex 모델을 쓰세요 — `grid.map`에서는 `row`/`col`이 유효하지 않습니다.
 
 ## Flex 변형 (더 계층화된 콘텐츠)
 
@@ -41,7 +42,7 @@ screen:
       brand: "Ops Console"
       items: ["Dashboard", "Users", "Billing", "Settings"]
   - row:
-      gap: 0
+      gap: 24
       items:
         - col:
             flex: 0
@@ -60,12 +61,17 @@ screen:
                     - card: { title: "Revenue",   body: "$12,400" }
                     - card: { title: "New users", body: "342" }
                     - card: { title: "Churn",     body: "0.8%" }
-              - panel:
-                  header: "Recent activity"
-                  h: 280
+              - panel: { header: "Recent activity" }
+              - list:
+                  items:
+                    - "Ada Lovelace deployed v0.3.1 — 2 min ago"
+                    - "Ben Tanner invited 3 users to the Pro workspace — 18 min ago"
+                    - "Stripe webhook: invoice paid ($129) — 1 hour ago"
+                    - "Clara Kim opened incident INC-04 — 3 hours ago"
               - row:
                   gap: 12
                   items:
+                    - col: { flex: 1, items: [] }
                     - button: { label: "Export CSV", variant: secondary }
                     - button: { label: "New report", variant: primary }
 ```
