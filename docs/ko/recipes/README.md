@@ -40,4 +40,4 @@
 
 ## 스크린샷 생성 방식
 
-각 레시피의 스크린샷은 `yarn gen:screenshots` 로 YAML 블록에서 자동 생성됩니다 (Obsidian CSS 변수 디폴트가 주입된 헤드리스 Chromium). 새 레시피를 기여하려면 여기에 `.md` 파일에 ```ui-sketch 블록 하나를 넣고 스크립트 실행 — PNG가 `docs/img/recipes/` 에 자동 저장됩니다.
+각 레시피의 스크린샷은 `npm run gen:screenshots` 로 YAML 블록에서 자동 생성됩니다 (Obsidian CSS 변수 디폴트가 주입된 헤드리스 Chromium). 새 레시피를 기여하려면 여기에 `.md` 파일에 ```ui-sketch 블록 하나를 넣고 스크립트 실행 — PNG가 `docs/img/recipes/` 에 자동 저장됩니다.

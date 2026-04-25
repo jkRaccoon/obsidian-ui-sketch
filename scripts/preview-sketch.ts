@@ -4,8 +4,8 @@
 // opening Obsidian. Useful when iterating on layout or alignment.
 //
 // Usage:
-//   yarn preview <yaml-file> [out-png]
-//   yarn preview - [out-png]           # read YAML from stdin
+//   npm run preview <yaml-file> [out-png]
+//   npm run preview - [out-png]           # read YAML from stdin
 //
 // Default output path is ./preview.png in the repo root.
 
@@ -18,7 +18,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
 
 function usage(): never {
-  console.error("Usage: yarn preview <yaml-file | -> [out-png]");
+  console.error("Usage: npm run preview <yaml-file | -> [out-png]");
   console.error("  '-' as <yaml-file> reads YAML from stdin");
   console.error("  default out-png is ./preview.png");
   process.exit(1);

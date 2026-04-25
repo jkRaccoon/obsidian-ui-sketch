@@ -255,13 +255,13 @@ UI Sketch는 조용히 실패하지 않습니다. 항상 뭔가 대응 가능한
 ## 🛠️ 개발
 
 ```bash
-# Node 18+ 와 yarn 필요
-yarn install
+# Node 18+ 필요
+npm install
 
-yarn dev        # esbuild watch 모드
-yarn test       # vitest (happy-dom)
-yarn typecheck  # tsc --noEmit
-yarn build      # 프로덕션 번들 → main.js
+npm run dev        # esbuild watch 모드
+npm test           # vitest (happy-dom)
+npm run typecheck  # tsc --noEmit
+npm run build      # 프로덕션 번들 → main.js
 ```
 
 저장소 루트 플러그인 파일:

@@ -4,7 +4,7 @@
 
 모든 컴포넌트는 아래 나열된 프롭 외에 [공통 프롭(base props)](../yaml-reference.md#공통-프롭-base-props)도 받습니다.
 
-> 이 파일의 프롭 표는 `yarn gen:docs`로 zod 스키마에서 자동 생성됩니다. `<!-- gen:props -->` 블록 안의 수동 편집은 덮어씌워집니다.
+> 이 파일의 프롭 표는 `npm run gen:docs`로 zod 스키마에서 자동 생성됩니다. `<!-- gen:props -->` 블록 안의 수동 편집은 덮어씌워집니다.
 
 ## `container`
 

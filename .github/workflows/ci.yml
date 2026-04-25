@@ -18,14 +18,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: npm ci
       - name: Typecheck
-        run: yarn typecheck
+        run: npm run typecheck
       - name: Test
-        run: yarn test
+        run: npm test
       - name: Build
-        run: yarn build
+        run: npm run build
 
   docs-sync:
     name: Component prop tables in sync
@@ -35,14 +36,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: yarn install --frozen-lockfile
+          cache: "npm"
+      - run: npm ci
       - name: Regenerate prop tables
-        run: yarn gen:docs
+        run: npm run gen:docs
       - name: Fail if prop tables drift from zod schemas
         run: |
           if ! git diff --exit-code docs/; then
             echo "::error::Component prop tables are out of sync with zod schemas."
-            echo "::error::Run 'yarn gen:docs' locally and commit the updated docs/**/components/*.md files."
+            echo "::error::Run 'npm run gen:docs' locally and commit the updated docs/**/components/*.md files."
             exit 1
           fi
 
@@ -54,11 +56,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: yarn install --frozen-lockfile
+          cache: "npm"
+      - run: npm ci
       - name: Install chromium
-        run: yarn playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium
       - name: Regenerate screenshots
-        run: yarn gen:screenshots
+        run: npm run gen:screenshots
       # Screenshots contain subtle anti-aliasing / font rendering differences
       # between macOS (local) and Linux (CI), so a strict byte-diff would be
       # too noisy. We only fail if the file *list* changed — i.e. a new
@@ -69,7 +72,7 @@ jobs:
           git show HEAD:docs/img/recipes/ 2>/dev/null | tail -n +3 | sort > /tmp/committed-list.txt || touch /tmp/committed-list.txt
           if ! diff -q /tmp/committed-list.txt /tmp/ci-list.txt > /dev/null; then
             echo "::error::Screenshot file list changed (recipe block added/removed without matching PNG)."
-            echo "::error::Run 'yarn gen:screenshots' locally and commit the updated PNGs."
+            echo "::error::Run 'npm run gen:screenshots' locally and commit the updated PNGs."
             diff /tmp/committed-list.txt /tmp/ci-list.txt || true
             exit 1
           fi

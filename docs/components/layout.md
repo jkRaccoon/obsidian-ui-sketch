@@ -4,7 +4,7 @@ Surfaces and spacing primitives. Use these to group or separate content. For arr
 
 All components below accept the [base props](../yaml-reference.md#base-props) in addition to those listed.
 
-> Prop tables in this file are auto-generated from the live zod schemas by `yarn gen:docs`. Hand-editing inside `<!-- gen:props -->` blocks will be overwritten.
+> Prop tables in this file are auto-generated from the live zod schemas by `npm run gen:docs`. Hand-editing inside `<!-- gen:props -->` blocks will be overwritten.
 
 ## `container`
 

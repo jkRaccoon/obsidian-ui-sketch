@@ -255,13 +255,13 @@ Open Settings → Community plugins → **UI Sketch**:
 ## 🛠️ Development
 
 ```bash
-# Requires Node 18+ and yarn
-yarn install
+# Requires Node 18+
+npm install
 
-yarn dev        # esbuild watch mode
-yarn test       # vitest (happy-dom)
-yarn typecheck  # tsc --noEmit
-yarn build      # production bundle → main.js
+npm run dev        # esbuild watch mode
+npm test           # vitest (happy-dom)
+npm run typecheck  # tsc --noEmit
+npm run build      # production bundle → main.js
 ```
 
 Plugin files at repo root:

@@ -4,7 +4,7 @@
 
 내재된 크기가 없으므로 `w`/`h`로 크기 지정 권장.
 
-> 프롭 표는 `yarn gen:docs`로 zod 스키마에서 자동 생성됩니다.
+> 프롭 표는 `npm run gen:docs`로 zod 스키마에서 자동 생성됩니다.
 
 ## `chart`
 

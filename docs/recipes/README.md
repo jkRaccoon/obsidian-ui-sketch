@@ -40,4 +40,4 @@ Displays heavy in tables, metrics, lists, and feeds.
 
 ## About the screenshots
 
-Each recipe's screenshot is auto-generated from its YAML block by `yarn gen:screenshots` (headless Chromium with Obsidian CSS variable defaults). To contribute a new recipe, add a `.md` file here with a single ```ui-sketch fenced block, then run the script — the PNG lands in `docs/img/recipes/`.
+Each recipe's screenshot is auto-generated from its YAML block by `npm run gen:screenshots` (headless Chromium with Obsidian CSS variable defaults). To contribute a new recipe, add a `.md` file here with a single ```ui-sketch fenced block, then run the script — the PNG lands in `docs/img/recipes/`.

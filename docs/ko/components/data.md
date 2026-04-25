@@ -2,7 +2,7 @@
 
 표, 리스트, 트리, 키-값 표시. 모두 아래 프롭 외에 [공통 프롭(base props)](../yaml-reference.md#공통-프롭-base-props)도 받습니다.
 
-> 프롭 표는 `yarn gen:docs`로 zod 스키마에서 자동 생성됩니다.
+> 프롭 표는 `npm run gen:docs`로 zod 스키마에서 자동 생성됩니다.
 
 ## `table`
 

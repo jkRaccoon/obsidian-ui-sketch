@@ -1,7 +1,7 @@
 // scripts/gen-component-docs.ts
 //
 // Regenerates the prop tables in docs/components/*.md from the live zod
-// schemas. Run with:  yarn gen:docs
+// schemas. Run with:  npm run gen:docs
 //
 // Each component-specific prop is read from the ComponentDef's zod schema.
 // Descriptions come from either a zod .describe() on the field, or the

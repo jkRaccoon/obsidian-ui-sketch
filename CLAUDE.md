@@ -8,20 +8,20 @@ Obsidian community plugin that renders mid-fidelity web UI wireframes from YAML 
 
 ## Commands
 
-Package manager is **yarn 1.x** (classic). The lockfile is in yarn 1 format so both yarn 1 and yarn 3 (via corepack) can install it. The `packageManager` field in `package.json` was removed so the Obsidian community plugin review bot (which doesn't run corepack) can install with its global yarn 1.22. Requires Node 18+.
+Package manager is **npm**, matching the `obsidian-sample-plugin` template. Requires Node 18+. Yarn 1 was tried first but emits a `url.parse()` deprecation warning under Node 24 (yarn 1 is unmaintained), which the Obsidian community plugin review bot reports as an install failure.
 
 ```bash
-yarn dev              # esbuild watch (sourcemaps, no minify) → main.js
-yarn build            # tsc --noEmit && esbuild production bundle → main.js
-yarn test             # vitest run (happy-dom environment)
-yarn test:watch       # vitest watch
-yarn typecheck        # tsc --noEmit
-yarn gen:docs         # regenerate docs/**/components/*.md prop tables from zod
-yarn gen:screenshots  # regenerate docs/img/**/*.png from recipe + hero YAML
-yarn preview <yaml>   # render one YAML file to ./preview.png (use '-' for stdin)
+npm run dev              # esbuild watch (sourcemaps, no minify) → main.js
+npm run build            # tsc --noEmit && esbuild production bundle → main.js
+npm test                 # vitest run (happy-dom environment)
+npm run test:watch       # vitest watch
+npm run typecheck        # tsc --noEmit
+npm run gen:docs         # regenerate docs/**/components/*.md prop tables from zod
+npm run gen:screenshots  # regenerate docs/img/**/*.png from recipe + hero YAML
+npm run preview <yaml>   # render one YAML file to ./preview.png (use '-' for stdin)
 ```
 
-Run a single test file or filter: `yarn test tests/components/button.test.ts` or `yarn test -t "renders a button"`.
+Run a single test file or filter: `npm test tests/components/button.test.ts` or `npm test -- -t "renders a button"`.
 
 The build step runs `tsc --noEmit` first — a type error fails the build. esbuild does not typecheck on its own.
 

@@ -5,7 +5,7 @@
 // headless Chromium page, then writes each result as a PNG under docs/img/.
 // The actual bundling + headless page harness lives in render-shared.ts.
 //
-// Run with: yarn gen:screenshots
+// Run with: npm run gen:screenshots
 
 import * as fs from "node:fs";
 import * as path from "node:path";
