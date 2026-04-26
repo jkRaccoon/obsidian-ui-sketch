@@ -45,7 +45,6 @@ function renderCol(n: ColNode, path: string): HTMLElement {
 export function renderGrid(n: GridNode, path = "screen"): HTMLElement {
   const el = document.createElement("div");
   el.className = "uis-grid";
-  el.style.display = "grid";
   el.style.gridTemplateAreas = n.areas.map((row) => `"${row}"`).join(" ");
   if (n.cols) el.style.gridTemplateColumns = n.cols;
   if (n.rows) el.style.gridTemplateRows = n.rows;
@@ -86,7 +85,7 @@ function renderComponent(n: ComponentNode, path: string): HTMLElement {
         path,
       });
     }
-    props = result.data as Record<string, unknown>;
+    props = result.data;
   }
 
   const inner = def.render(props, { muted: props.muted === true });

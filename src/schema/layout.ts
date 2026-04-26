@@ -28,7 +28,7 @@ export function parseLayoutArray(raw: unknown, path = "screen"): LayoutParseResu
       };
     }
     const key = keys[0];
-    const value = (entry as Record<string, unknown>)[key];
+    const value = entry[key];
     const child = parseEntry(key, value, subPath);
     if (!child.ok) return child;
     nodes.push(child.node);
@@ -38,7 +38,7 @@ export function parseLayoutArray(raw: unknown, path = "screen"): LayoutParseResu
 
 export function parseGrid(raw: unknown, path = "screen"): { ok: true; grid: GridNode } | { ok: false; error: LayoutParseError } {
   if (!isPlainObject(raw)) return { ok: false, error: { message: "grid must be an object", path } };
-  const { areas, cols, rows, map } = raw as Record<string, unknown>;
+  const { areas, cols, rows, map } = raw;
   if (!Array.isArray(areas) || !areas.every((a) => typeof a === "string")) {
     return { ok: false, error: { message: "grid.areas must be a string array", path: `${path}.areas` } };
   }
@@ -55,13 +55,14 @@ export function parseGrid(raw: unknown, path = "screen"): { ok: true; grid: Grid
       return { ok: false, error: { message: "map entry must have one key", path: `${path}.map.${name}` } };
     }
     const type = keys[0];
-    cMap[name] = { kind: "component", type, props: ((entry as Record<string, unknown>)[type] ?? {}) as Record<string, unknown> };
+    const inner = entry[type];
+    cMap[name] = { kind: "component", type, props: isPlainObject(inner) ? inner : {} };
   }
   return {
     ok: true,
     grid: {
       kind: "grid",
-      areas: areas as string[],
+      areas,
       cols: typeof cols === "string" ? cols : undefined,
       rows: typeof rows === "string" ? rows : undefined,
       map: cMap,
@@ -74,7 +75,7 @@ function parseEntry(key: string, value: unknown, path: string): { ok: true; node
     if (!isPlainObject(value)) {
       return { ok: false, error: { message: `${key} must be an object`, path } };
     }
-    const v = value as Record<string, unknown>;
+    const v = value;
     const items = parseLayoutArray(v.items ?? [], `${path}.items`);
     if (!items.ok) return items;
     const node = key === "row"
@@ -83,7 +84,7 @@ function parseEntry(key: string, value: unknown, path: string): { ok: true; node
     return { ok: true, node };
   }
   // anything else is a component entry
-  const props = isPlainObject(value) ? (value as Record<string, unknown>) : {};
+  const props = isPlainObject(value) ? value : {};
   const node: ComponentNode = { kind: "component", type: key, props };
   return { ok: true, node };
 }

@@ -18,7 +18,6 @@ export function applyFrame(inner: HTMLElement, doc: ValidatedDoc): HTMLElement {
   } else {
     frame.style.width = `${PRESET_WIDTH[doc.viewport]}px`;
   }
-  frame.style.maxWidth = "100%";
   const rootBox = document.createElement("div");
   rootBox.className = "uis-root";
   rootBox.appendChild(inner);

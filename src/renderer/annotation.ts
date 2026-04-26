@@ -6,7 +6,7 @@ export function wrapWithAnnotation(el: HTMLElement, note: string | undefined): H
   wrapper.appendChild(el);
   const dot = document.createElement("span");
   dot.className = "uis-note-dot";
-  dot.textContent = "i";
+  dot.textContent = "ℹ";
   dot.setAttribute("aria-hidden", "true");
   wrapper.appendChild(dot);
   return wrapper;

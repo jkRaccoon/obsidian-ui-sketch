@@ -1,6 +1,6 @@
 // src/schema/document.ts
 import type { ValidatedDoc, ViewportKind } from "@/types";
-import { parseLayoutArray, parseGrid, type LayoutParseError } from "./layout";
+import { parseLayoutArray, parseGrid } from "./layout";
 
 export interface StructureError {
   kind: "structure";

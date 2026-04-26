@@ -1,4 +1,3 @@
-import { z } from "zod";
 import type { ComponentDef } from "./registry";
 import { BasePropsSchema } from "@/schema/base";
 

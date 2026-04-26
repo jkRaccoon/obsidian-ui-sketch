@@ -50,7 +50,7 @@ export function renderEmptyPlaceholder(): HTMLElement {
 
   const title = document.createElement("div");
   title.className = "uis-empty__title";
-  title.textContent = "ui-sketch block is empty";
+  title.textContent = "Block is empty";
   el.appendChild(title);
 
   const example = document.createElement("pre");

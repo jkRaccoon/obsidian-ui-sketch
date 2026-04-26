@@ -27,7 +27,6 @@ export class UiSketchSettingTab extends PluginSettingTab {
   display(): void {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.createEl("h2", { text: "UI Sketch" });
 
     new Setting(containerEl)
       .setName("Default viewport")
@@ -45,7 +44,7 @@ export class UiSketchSettingTab extends PluginSettingTab {
 
     new Setting(containerEl)
       .setName("Default theme")
-      .setDesc("v0.1 only supports 'adaptive'.")
+      .setDesc("Only 'adaptive' is supported in v0.1.")
       .addText((t) => {
         t.setDisabled(true).setValue(this.host.settings.defaultTheme);
       });
