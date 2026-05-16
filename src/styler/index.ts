@@ -7,8 +7,7 @@ const PRESET_WIDTH: Record<Exclude<ViewportKind, "custom">, number> = {
 };
 
 export function applyFrame(inner: HTMLElement, doc: ValidatedDoc): HTMLElement {
-  const frame = document.createElement("div");
-  frame.className = "uis-frame";
+  const frame = createDiv({ cls: "uis-frame" });
   frame.setAttribute("data-viewport", doc.viewport);
   frame.setAttribute("data-theme", doc.theme);
   frame.setAttribute("data-background", doc.background);
@@ -18,9 +17,7 @@ export function applyFrame(inner: HTMLElement, doc: ValidatedDoc): HTMLElement {
   } else {
     frame.style.width = `${PRESET_WIDTH[doc.viewport]}px`;
   }
-  const rootBox = document.createElement("div");
-  rootBox.className = "uis-root";
+  const rootBox = frame.createDiv({ cls: "uis-root" });
   rootBox.appendChild(inner);
-  frame.appendChild(rootBox);
   return frame;
 }

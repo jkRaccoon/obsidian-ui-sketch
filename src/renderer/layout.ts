@@ -6,8 +6,7 @@ import { renderInlineError } from "@/errors/render";
 import { suggestType } from "@/schema/suggestions";
 
 export function renderLayoutNodes(nodes: LayoutNode[], path = "screen"): HTMLElement {
-  const root = document.createElement("div");
-  root.className = "uis-flow";
+  const root = createDiv({ cls: "uis-flow" });
   nodes.forEach((n, i) => root.appendChild(renderNode(n, `${path}[${i}]`)));
   return root;
 }
@@ -23,16 +22,14 @@ export function renderNode(n: LayoutNode, path: string): HTMLElement {
 }
 
 function renderRow(n: RowNode, path: string): HTMLElement {
-  const el = document.createElement("div");
-  el.className = "uis-row";
+  const el = createDiv({ cls: "uis-row" });
   if (typeof n.gap === "number") el.style.gap = `${n.gap}px`;
   n.items.forEach((child, i) => el.appendChild(renderNode(child, `${path}.items[${i}]`)));
   return el;
 }
 
 function renderCol(n: ColNode, path: string): HTMLElement {
-  const el = document.createElement("div");
-  el.className = "uis-col";
+  const el = createDiv({ cls: "uis-col" });
   if (typeof n.flex === "number") {
     // flex:0 means "size to content" — a fixed-width sidebar shouldn't
     // collapse to 0 or shrink. flex>0 keeps the classic grow/shrink behavior.
@@ -43,17 +40,14 @@ function renderCol(n: ColNode, path: string): HTMLElement {
 }
 
 export function renderGrid(n: GridNode, path = "screen"): HTMLElement {
-  const el = document.createElement("div");
-  el.className = "uis-grid";
+  const el = createDiv({ cls: "uis-grid" });
   el.style.gridTemplateAreas = n.areas.map((row) => `"${row}"`).join(" ");
   if (n.cols) el.style.gridTemplateColumns = n.cols;
   if (n.rows) el.style.gridTemplateRows = n.rows;
   for (const [name, node] of Object.entries(n.map)) {
-    const cell = document.createElement("div");
-    cell.className = "uis-grid__cell";
+    const cell = el.createDiv({ cls: "uis-grid__cell" });
     cell.style.gridArea = name;
     cell.appendChild(renderComponent(node, `${path}.map.${name}`));
-    el.appendChild(cell);
   }
   return el;
 }
@@ -103,8 +97,5 @@ function applyBaseLayout(el: HTMLElement, props: Record<string, unknown>): void 
 }
 
 function placeholder(message: string): HTMLElement {
-  const el = document.createElement("div");
-  el.className = "uis-unknown";
-  el.textContent = message;
-  return el;
+  return createDiv({ cls: "uis-unknown", text: message });
 }
