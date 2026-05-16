@@ -11,18 +11,11 @@ export const CheckboxDef: ComponentDef = {
   type: "checkbox",
   schema: CheckboxSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-checkbox";
+    const el = createDiv({ cls: "uis-checkbox" });
     if (props.checked === true) el.className += " uis-checkbox--checked";
-    const box = document.createElement("span");
-    box.className = "uis-checkbox__box";
-    box.textContent = props.checked === true ? "✓" : "";
-    el.appendChild(box);
+    el.createSpan({ cls: "uis-checkbox__box", text: props.checked === true ? "✓" : "" });
     if (typeof props.label === "string") {
-      const label = document.createElement("span");
-      label.className = "uis-checkbox__label";
-      label.textContent = props.label;
-      el.appendChild(label);
+      el.createSpan({ cls: "uis-checkbox__label", text: props.label });
     }
     return el;
   },

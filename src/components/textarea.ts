@@ -12,20 +12,13 @@ export const TextareaDef: ComponentDef = {
   type: "textarea",
   schema: TextareaSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-textarea";
+    const el = createDiv({ cls: "uis-textarea" });
     const rows = typeof props.rows === "number" ? props.rows : 3;
     el.style.minHeight = `${rows * 18 + 16}px`;
     if (typeof props.value === "string" && props.value.length > 0) {
-      const v = document.createElement("div");
-      v.className = "uis-textarea__value";
-      v.textContent = props.value;
-      el.appendChild(v);
+      el.createDiv({ cls: "uis-textarea__value", text: props.value });
     } else if (typeof props.placeholder === "string") {
-      const p = document.createElement("div");
-      p.className = "uis-textarea__placeholder";
-      p.textContent = props.placeholder;
-      el.appendChild(p);
+      el.createDiv({ cls: "uis-textarea__placeholder", text: props.placeholder });
     }
     return el;
   },

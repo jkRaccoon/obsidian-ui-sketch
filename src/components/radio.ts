@@ -11,17 +11,11 @@ export const RadioDef: ComponentDef = {
   type: "radio",
   schema: RadioSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-radio";
+    const el = createDiv({ cls: "uis-radio" });
     if (props.selected === true) el.className += " uis-radio--selected";
-    const circle = document.createElement("span");
-    circle.className = "uis-radio__circle";
-    el.appendChild(circle);
+    el.createSpan({ cls: "uis-radio__circle" });
     if (typeof props.label === "string") {
-      const label = document.createElement("span");
-      label.className = "uis-radio__label";
-      label.textContent = props.label;
-      el.appendChild(label);
+      el.createSpan({ cls: "uis-radio__label", text: props.label });
     }
     return el;
   },

@@ -10,16 +10,9 @@ export const FileUploadDef: ComponentDef = {
   type: "file-upload",
   schema: FileUploadSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-file-upload";
-    const icon = document.createElement("span");
-    icon.className = "uis-file-upload__icon";
-    icon.textContent = "⬆";
-    el.appendChild(icon);
-    const label = document.createElement("span");
-    label.className = "uis-file-upload__label";
-    label.textContent = typeof props.label === "string" ? props.label : "Drop files or click to upload";
-    el.appendChild(label);
+    const el = createDiv({ cls: "uis-file-upload" });
+    el.createSpan({ cls: "uis-file-upload__icon", text: "⬆" });
+    el.createSpan({ cls: "uis-file-upload__label", text: typeof props.label === "string" ? props.label : "Drop files or click to upload" });
     return el;
   },
 };

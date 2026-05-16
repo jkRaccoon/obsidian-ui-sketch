@@ -12,21 +12,15 @@ export const SelectDef: ComponentDef = {
   type: "select",
   schema: SelectSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-select";
-    const label = document.createElement("div");
-    label.className = "uis-select__label";
+    const el = createDiv({ cls: "uis-select" });
+    const label = el.createDiv({ cls: "uis-select__label" });
     if (typeof props.value === "string" && props.value.length > 0) {
       label.textContent = props.value;
     } else if (typeof props.placeholder === "string") {
       label.className += " uis-select__placeholder";
       label.textContent = props.placeholder;
     }
-    el.appendChild(label);
-    const chevron = document.createElement("span");
-    chevron.className = "uis-select__chevron";
-    chevron.textContent = "▼";
-    el.appendChild(chevron);
+    el.createSpan({ cls: "uis-select__chevron", text: "▼" });
     return el;
   },
 };

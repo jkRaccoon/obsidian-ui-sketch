@@ -11,18 +11,11 @@ export const InputDef: ComponentDef = {
   type: "input",
   schema: InputSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-input";
+    const el = createDiv({ cls: "uis-input" });
     if (typeof props.value === "string" && props.value.length > 0) {
-      const v = document.createElement("div");
-      v.className = "uis-input__value";
-      v.textContent = props.value;
-      el.appendChild(v);
+      el.createDiv({ cls: "uis-input__value", text: props.value });
     } else if (typeof props.placeholder === "string") {
-      const p = document.createElement("div");
-      p.className = "uis-input__placeholder";
-      p.textContent = props.placeholder;
-      el.appendChild(p);
+      el.createDiv({ cls: "uis-input__placeholder", text: props.placeholder });
     }
     return el;
   },
