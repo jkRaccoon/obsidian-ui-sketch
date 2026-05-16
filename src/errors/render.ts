@@ -2,64 +2,53 @@ import type { BlockError } from "./types";
 import type { ComponentError } from "./types";
 
 export function renderErrorBox(err: BlockError): HTMLElement {
-  const el = document.createElement("div");
-  el.className = "uis-error";
-  const title = document.createElement("div");
-  title.className = "uis-error__title";
-  title.textContent = err.kind === "yaml" ? "YAML parse error" : "Wireframe structure error";
-  el.appendChild(title);
-  const body = document.createElement("div");
-  body.className = "uis-error__body";
+  const el = createDiv({ cls: "uis-error" });
+  el.createDiv({
+    cls: "uis-error__title",
+    text: err.kind === "yaml" ? "YAML parse error" : "Wireframe structure error",
+  });
+  const body = el.createDiv({ cls: "uis-error__body" });
   if (err.kind === "yaml") {
     const loc = err.loc ? ` (line ${err.loc.line}, col ${err.loc.col})` : "";
     body.textContent = `${err.message}${loc}`;
   } else {
     body.textContent = `${err.message} at "${err.path}"`;
   }
-  el.appendChild(body);
   return el;
 }
 
 export function renderInlineError(err: ComponentError): HTMLElement {
-  const el = document.createElement("div");
-  el.className = "uis-error uis-error--inline";
+  const el = createDiv({ cls: "uis-error uis-error--inline" });
 
-  const title = document.createElement("div");
-  title.className = "uis-error__title";
-  title.textContent = `⚠ ${err.componentType}: ${err.message}`;
-  el.appendChild(title);
+  el.createDiv({
+    cls: "uis-error__title",
+    text: `⚠ ${err.componentType}: ${err.message}`,
+  });
 
   if (err.suggestion) {
-    const hint = document.createElement("div");
-    hint.className = "uis-error__hint";
-    hint.textContent = `Did you mean "${err.suggestion}"?`;
-    el.appendChild(hint);
+    el.createDiv({
+      cls: "uis-error__hint",
+      text: `Did you mean "${err.suggestion}"?`,
+    });
   }
 
-  const path = document.createElement("div");
-  path.className = "uis-error__body";
-  path.textContent = `at ${err.path}`;
-  el.appendChild(path);
+  el.createDiv({ cls: "uis-error__body", text: `at ${err.path}` });
 
   return el;
 }
 
 export function renderEmptyPlaceholder(): HTMLElement {
-  const el = document.createElement("div");
-  el.className = "uis-empty";
+  const el = createDiv({ cls: "uis-empty" });
 
-  const title = document.createElement("div");
-  title.className = "uis-empty__title";
-  title.textContent = "Block is empty";
-  el.appendChild(title);
+  el.createDiv({ cls: "uis-empty__title", text: "Block is empty" });
 
-  const example = document.createElement("pre");
-  example.className = "uis-empty__example";
-  example.textContent = `viewport: desktop
+  el.createEl("pre", {
+    cls: "uis-empty__example",
+    text: `viewport: desktop
 screen:
   - navbar: { brand: "MyApp" }
-  - button: { label: "Click" }`;
-  el.appendChild(example);
+  - button: { label: "Click" }`,
+  });
 
   return el;
 }
