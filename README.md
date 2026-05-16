@@ -87,13 +87,20 @@ Sketches scale from desktop to mobile with a single `viewport:` key:
 
 ### 1. Install
 
-**BRAT beta (recommended during early versions)**:
+**From Community plugins (recommended)**:
+1. Open Settings → **Community plugins** → **Browse**.
+2. Search for `UI Sketch` and click **Install**.
+3. Enable **UI Sketch** under Community plugins.
+
+You can also browse the plugin page on the [Obsidian Community directory](https://community.obsidian.md/).
+
+**From a pre-release / dev build (BRAT)**:
 1. Install the [BRAT](https://github.com/TfTHacker/obsidian42-brat) community plugin.
 2. BRAT → "Add Beta plugin" → `jkRaccoon/obsidian-ui-sketch`.
 3. Enable **UI Sketch** in Community plugins.
 
-**Manual**:
-1. Download `main.js`, `manifest.json`, and `styles.css` from [the latest release](https://github.com/jkRaccoon/obsidian-ui-sketch/releases).
+**Manual install**:
+1. Download `main.js`, `manifest.json`, and `styles.css` from [the latest release](https://github.com/jkRaccoon/obsidian-ui-sketch/releases). Release assets are signed with [GitHub artifact attestations](https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds) — you can verify provenance with `gh attestation verify main.js --repo jkRaccoon/obsidian-ui-sketch`.
 2. Copy them into `<your-vault>/.obsidian/plugins/ui-sketch/`.
 3. Enable the plugin in Settings.
 
@@ -289,8 +296,8 @@ src/
 ## 🗺️ Roadmap
 
 - **v0.1** (released) — Foundation: 10 components, L1/L2/L4 errors, viewport frames.
-- **v0.2** (current) — 44 components total, L3 inline errors + typo suggestions, safety caps, `raw:` + sanitize-html, zod schemas per component.
-- **v0.3** (planned) — Auto-generated component docs, canonical examples (`examples/`), README screenshots, GitHub Actions CI, Community Plugins submission.
+- **v0.2** (current) — 44 components total, L3 inline errors + typo suggestions, safety caps, `raw:` + sanitize-html, zod schemas per component, auto-generated component docs, recipe screenshots, signed release workflow (GitHub artifact attestation), Obsidian Community directory submission.
+- **v0.3** (planned) — Adoption of the official [`eslint-plugin-obsidianmd`](https://github.com/obsidianmd/eslint-plugin) ruleset (createDiv/createSpan helpers, `activeDocument` for popout windows, stricter style/DOM hygiene).
 - **Future ideas** — PNG/SVG export, multi-screen storyboards with connectors, reusable component definitions (partials), brand-color theme presets.
 
 See [`docs/superpowers/specs/`](./docs/superpowers/specs/) for the full design spec and [`docs/superpowers/plans/`](./docs/superpowers/plans/) for the implementation plans.

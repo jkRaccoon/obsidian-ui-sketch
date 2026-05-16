@@ -87,13 +87,20 @@ screen:
 
 ### 1. 설치
 
-**BRAT 베타 설치 (초기 버전 권장)**:
+**커뮤니티 플러그인에서 설치 (권장)**:
+1. 설정 → **커뮤니티 플러그인** → **둘러보기** 열기.
+2. `UI Sketch` 검색 후 **설치** 클릭.
+3. 커뮤니티 플러그인 목록에서 **UI Sketch** 활성화.
+
+[Obsidian Community 디렉토리](https://community.obsidian.md/)에서 플러그인 페이지를 직접 볼 수도 있습니다.
+
+**프리릴리스 / 개발 빌드 (BRAT)**:
 1. [BRAT](https://github.com/TfTHacker/obsidian42-brat) 커뮤니티 플러그인 설치.
 2. BRAT → "Add Beta plugin" → `jkRaccoon/obsidian-ui-sketch`.
 3. 커뮤니티 플러그인에서 **UI Sketch** 활성화.
 
 **수동 설치**:
-1. [최신 릴리스](https://github.com/jkRaccoon/obsidian-ui-sketch/releases)에서 `main.js`, `manifest.json`, `styles.css` 다운로드.
+1. [최신 릴리스](https://github.com/jkRaccoon/obsidian-ui-sketch/releases)에서 `main.js`, `manifest.json`, `styles.css` 다운로드. 릴리스 자산은 [GitHub artifact attestation](https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds)으로 서명되어 있어, `gh attestation verify main.js --repo jkRaccoon/obsidian-ui-sketch` 명령으로 출처 검증이 가능합니다.
 2. `<your-vault>/.obsidian/plugins/ui-sketch/`에 복사.
 3. 설정에서 플러그인 활성화.
 
@@ -289,8 +296,8 @@ src/
 ## 🗺️ 로드맵
 
 - **v0.1** (릴리스됨) — 기반: 10개 컴포넌트, L1/L2/L4 에러, viewport 프레임.
-- **v0.2** (현재) — 컴포넌트 총 44개, L3 인라인 에러 + 오타 제안, 안전 제한, `raw:` + sanitize-html, 컴포넌트별 zod 스키마.
-- **v0.3** (계획) — 자동 생성 컴포넌트 문서, 정규 예제 (`examples/`), README 스크린샷, GitHub Actions CI, 커뮤니티 플러그인 등록.
+- **v0.2** (현재) — 컴포넌트 총 44개, L3 인라인 에러 + 오타 제안, 안전 제한, `raw:` + sanitize-html, 컴포넌트별 zod 스키마, 자동 생성 컴포넌트 문서, 레시피 스크린샷, 서명된 릴리스 워크플로우(GitHub artifact attestation), Obsidian Community 디렉토리 등록.
+- **v0.3** (계획) — 공식 [`eslint-plugin-obsidianmd`](https://github.com/obsidianmd/eslint-plugin) 룰셋 적용 (createDiv/createSpan 헬퍼, 팝아웃 창 호환을 위한 `activeDocument`, 더 엄격한 스타일/DOM 규칙).
 - **이후 아이디어** — PNG/SVG 내보내기, 커넥터가 있는 다중 화면 스토리보드, 재사용 가능한 컴포넌트 정의 (partial), 브랜드 컬러 테마 프리셋.
 
 전체 설계 스펙은 [`docs/superpowers/specs/`](./docs/superpowers/specs/), 구현 플랜은 [`docs/superpowers/plans/`](./docs/superpowers/plans/) 참고.
