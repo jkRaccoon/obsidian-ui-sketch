@@ -15,7 +15,7 @@ export function parseLayoutArray(raw: unknown, path = "screen"): LayoutParseResu
   }
   const nodes: LayoutNode[] = [];
   for (let i = 0; i < raw.length; i++) {
-    const entry = raw[i];
+    const entry: unknown = raw[i];
     const subPath = `${path}[${i}]`;
     if (!isPlainObject(entry)) {
       return { ok: false, error: { message: "entry must be an object", path: subPath } };
