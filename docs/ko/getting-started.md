@@ -1,6 +1,6 @@
 # 시작하기
 
-5분 안에 첫 와이어프레임을 만들어봅시다. 플러그인이 이미 설치되어 있다고 가정합니다 (설치 방법은 [메인 README](https://github.com/jkRaccoon/obsidian-ui-sketch/blob/main/README.ko.md) 참고).
+5분 안에 첫 와이어프레임을 만들어봅시다. 플러그인이 이미 설치되어 있다고 가정합니다 (설치 방법은 [메인 README의 한국어 섹션](../../README.md#한국어) 참고).
 
 ## 1. 코드 블록 만들기
 
