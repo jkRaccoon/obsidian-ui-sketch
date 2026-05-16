@@ -34,8 +34,7 @@ export const RawDef: ComponentDef = {
   type: "raw",
   schema: RawSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-raw";
+    const el = createDiv({ cls: "uis-raw" });
     if (typeof props.html === "string") {
       // Input is piped through sanitize-html (strict allow-list — no <script>,
       // no event handlers, no javascript: URLs), then parsed via DOMParser and

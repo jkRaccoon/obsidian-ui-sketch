@@ -11,16 +11,14 @@ export const TabsDef: ComponentDef = {
   type: "tabs",
   schema: TabsSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-tabs";
+    const el = createDiv({ cls: "uis-tabs" });
     const items = Array.isArray(props.items) ? (props.items as string[]) : [];
     const active = props.active;
     items.forEach((label, i) => {
-      const tab = document.createElement("div");
-      tab.className = "uis-tabs__item";
-      if (active === label || active === i) tab.className += " uis-tabs__item--active";
-      tab.textContent = label;
-      el.appendChild(tab);
+      const cls = active === label || active === i
+        ? "uis-tabs__item uis-tabs__item--active"
+        : "uis-tabs__item";
+      el.createDiv({ cls, text: label });
     });
     return el;
   },

@@ -7,16 +7,9 @@ export const VideoDef: ComponentDef = {
   type: "video",
   schema: VideoSchema,
   render() {
-    const el = document.createElement("div");
-    el.className = "uis-video";
-    const play = document.createElement("span");
-    play.className = "uis-video__play";
-    play.textContent = "▶";
-    el.appendChild(play);
-    const badge = document.createElement("span");
-    badge.className = "uis-video__badge";
-    badge.textContent = "VIDEO";
-    el.appendChild(badge);
+    const el = createDiv({ cls: "uis-video" });
+    el.createSpan({ cls: "uis-video__play", text: "▶" });
+    el.createSpan({ cls: "uis-video__badge", text: "VIDEO" });
     return el;
   },
 };

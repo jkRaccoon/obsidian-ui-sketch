@@ -11,22 +11,12 @@ export const PaginationDef: ComponentDef = {
   type: "pagination",
   schema: PaginationSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-pagination";
-    const prev = document.createElement("span");
-    prev.className = "uis-pagination__prev";
-    prev.textContent = "‹";
-    el.appendChild(prev);
-    const label = document.createElement("span");
-    label.className = "uis-pagination__label";
+    const el = createDiv({ cls: "uis-pagination" });
+    el.createSpan({ cls: "uis-pagination__prev", text: "‹" });
     const c = typeof props.current === "number" ? props.current : 1;
     const t = typeof props.total === "number" ? props.total : 1;
-    label.textContent = `${c} / ${t}`;
-    el.appendChild(label);
-    const next = document.createElement("span");
-    next.className = "uis-pagination__next";
-    next.textContent = "›";
-    el.appendChild(next);
+    el.createSpan({ cls: "uis-pagination__label", text: `${c} / ${t}` });
+    el.createSpan({ cls: "uis-pagination__next", text: "›" });
     return el;
   },
 };

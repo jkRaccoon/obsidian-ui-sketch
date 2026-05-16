@@ -7,12 +7,8 @@ export const MapDef: ComponentDef = {
   type: "map",
   schema: MapSchema,
   render() {
-    const el = document.createElement("div");
-    el.className = "uis-map";
-    const badge = document.createElement("div");
-    badge.className = "uis-map__badge";
-    badge.textContent = "MAP";
-    el.appendChild(badge);
+    const el = createDiv({ cls: "uis-map" });
+    el.createDiv({ cls: "uis-map__badge", text: "MAP" });
     return el;
   },
 };

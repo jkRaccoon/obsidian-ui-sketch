@@ -12,17 +12,10 @@ export const ChartDef: ComponentDef = {
   schema: ChartSchema,
   render(props) {
     const kind = typeof props.kind === "string" ? props.kind : "bar";
-    const el = document.createElement("div");
-    el.className = `uis-chart uis-chart--${kind}`;
-    const badge = document.createElement("div");
-    badge.className = "uis-chart__badge";
-    badge.textContent = `${kind.toUpperCase()} CHART`;
-    el.appendChild(badge);
+    const el = createDiv({ cls: `uis-chart uis-chart--${kind}` });
+    el.createDiv({ cls: "uis-chart__badge", text: `${kind.toUpperCase()} CHART` });
     if (typeof props.label === "string") {
-      const lbl = document.createElement("div");
-      lbl.className = "uis-chart__label";
-      lbl.textContent = props.label;
-      el.appendChild(lbl);
+      el.createDiv({ cls: "uis-chart__label", text: props.label });
     }
     return el;
   },

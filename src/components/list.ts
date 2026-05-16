@@ -12,13 +12,10 @@ export const ListDef: ComponentDef = {
   schema: ListSchema,
   render(props) {
     const ordered = props.ordered === true;
-    const el = document.createElement(ordered ? "ol" : "ul");
-    el.className = "uis-list";
+    const el = createEl(ordered ? "ol" : "ul", { cls: "uis-list" });
     const items = Array.isArray(props.items) ? (props.items as string[]) : [];
     for (const raw of items) {
-      const li = document.createElement("li");
-      li.textContent = String(raw);
-      el.appendChild(li);
+      el.createEl("li", { text: String(raw) });
     }
     return el;
   },

@@ -12,16 +12,14 @@ export const SidebarDef: ComponentDef = {
   type: "sidebar",
   schema: SidebarSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-sidebar";
+    const el = createDiv({ cls: "uis-sidebar" });
     const items = Array.isArray(props.items) ? (props.items as string[]) : [];
     const active = props.active;
     items.forEach((label, i) => {
-      const item = document.createElement("div");
-      item.className = "uis-sidebar__item";
-      if (active === label || active === i) item.className += " uis-sidebar__item--active";
-      item.textContent = label;
-      el.appendChild(item);
+      const cls = active === label || active === i
+        ? "uis-sidebar__item uis-sidebar__item--active"
+        : "uis-sidebar__item";
+      el.createDiv({ cls, text: label });
     });
     return el;
   },

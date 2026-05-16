@@ -11,32 +11,23 @@ export const TableDef: ComponentDef = {
   type: "table",
   schema: TableSchema,
   render(props) {
-    const el = document.createElement("table");
-    el.className = "uis-table";
+    const el = createEl("table", { cls: "uis-table" });
     const columns = Array.isArray(props.columns) ? (props.columns as string[]) : [];
     const rows = Array.isArray(props.rows) ? (props.rows as string[][]) : [];
     if (columns.length > 0) {
-      const thead = document.createElement("thead");
-      const tr = document.createElement("tr");
+      const thead = el.createEl("thead");
+      const tr = thead.createEl("tr");
       for (const c of columns) {
-        const th = document.createElement("th");
-        th.textContent = c;
-        tr.appendChild(th);
+        tr.createEl("th", { text: c });
       }
-      thead.appendChild(tr);
-      el.appendChild(thead);
     }
-    const tbody = document.createElement("tbody");
+    const tbody = el.createEl("tbody");
     for (const row of rows) {
-      const tr = document.createElement("tr");
+      const tr = tbody.createEl("tr");
       for (const cell of row) {
-        const td = document.createElement("td");
-        td.textContent = String(cell);
-        tr.appendChild(td);
+        tr.createEl("td", { text: String(cell) });
       }
-      tbody.appendChild(tr);
     }
-    el.appendChild(tbody);
     return el;
   },
 };

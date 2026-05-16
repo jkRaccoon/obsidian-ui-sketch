@@ -11,23 +11,16 @@ export const StepperDef: ComponentDef = {
   type: "stepper",
   schema: StepperSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-stepper";
+    const el = createDiv({ cls: "uis-stepper" });
     const items = Array.isArray(props.items) ? (props.items as string[]) : [];
     const active = typeof props.active === "number" ? props.active : -1;
     items.forEach((label, i) => {
-      const step = document.createElement("div");
-      step.className = "uis-stepper__step";
-      if (i === active) step.className += " uis-stepper__step--active";
-      const circle = document.createElement("span");
-      circle.className = "uis-stepper__num";
-      circle.textContent = String(i + 1);
-      step.appendChild(circle);
-      const text = document.createElement("span");
-      text.className = "uis-stepper__label";
-      text.textContent = label;
-      step.appendChild(text);
-      el.appendChild(step);
+      const cls = i === active
+        ? "uis-stepper__step uis-stepper__step--active"
+        : "uis-stepper__step";
+      const step = el.createDiv({ cls });
+      step.createSpan({ cls: "uis-stepper__num", text: String(i + 1) });
+      step.createSpan({ cls: "uis-stepper__label", text: label });
     });
     return el;
   },

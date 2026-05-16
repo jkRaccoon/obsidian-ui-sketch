@@ -18,17 +18,11 @@ export const TreeSchema = BasePropsSchema.extend({
 }).passthrough();
 
 function renderItem(item: TreeItem): HTMLElement {
-  const el = document.createElement("div");
-  el.className = "uis-tree__node";
-  const label = document.createElement("span");
-  label.className = "uis-tree__label";
-  label.textContent = item.label ?? "";
-  el.appendChild(label);
+  const el = createDiv({ cls: "uis-tree__node" });
+  el.createSpan({ cls: "uis-tree__label", text: item.label ?? "" });
   if (Array.isArray(item.children) && item.children.length > 0) {
-    const children = document.createElement("div");
-    children.className = "uis-tree__children";
+    const children = el.createDiv({ cls: "uis-tree__children" });
     for (const child of item.children) children.appendChild(renderItem(child));
-    el.appendChild(children);
   }
   return el;
 }
@@ -37,8 +31,7 @@ export const TreeDef: ComponentDef = {
   type: "tree",
   schema: TreeSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-tree";
+    const el = createDiv({ cls: "uis-tree" });
     const items = Array.isArray(props.items) ? (props.items as TreeItem[]) : [];
     for (const item of items) el.appendChild(renderItem(item));
     return el;

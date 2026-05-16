@@ -11,12 +11,8 @@ export const ImageDef: ComponentDef = {
   type: "image",
   schema: ImageSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-image";
-    const label = document.createElement("span");
-    label.className = "uis-image__label";
-    label.textContent = typeof props.alt === "string" && props.alt.length > 0 ? props.alt : "IMG";
-    el.appendChild(label);
+    const el = createDiv({ cls: "uis-image" });
+    el.createSpan({ cls: "uis-image__label", text: typeof props.alt === "string" && props.alt.length > 0 ? props.alt : "IMG" });
     return el;
   },
 };

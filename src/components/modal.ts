@@ -11,19 +11,12 @@ export const ModalDef: ComponentDef = {
   type: "modal",
   schema: ModalSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-modal";
+    const el = createDiv({ cls: "uis-modal" });
     if (typeof props.title === "string") {
-      const t = document.createElement("div");
-      t.className = "uis-modal__title";
-      t.textContent = props.title;
-      el.appendChild(t);
+      el.createDiv({ cls: "uis-modal__title", text: props.title });
     }
     if (typeof props.body === "string") {
-      const b = document.createElement("div");
-      b.className = "uis-modal__body";
-      b.textContent = props.body;
-      el.appendChild(b);
+      el.createDiv({ cls: "uis-modal__body", text: props.body });
     }
     return el;
   },

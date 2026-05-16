@@ -11,22 +11,14 @@ export const ProgressDef: ComponentDef = {
   type: "progress",
   schema: ProgressSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-progress";
+    const el = createDiv({ cls: "uis-progress" });
     const raw = typeof props.value === "number" ? props.value : 0;
     const pct = Math.max(0, Math.min(100, raw));
-    const track = document.createElement("div");
-    track.className = "uis-progress__track";
-    const fill = document.createElement("div");
-    fill.className = "uis-progress__fill";
+    const track = el.createDiv({ cls: "uis-progress__track" });
+    const fill = track.createDiv({ cls: "uis-progress__fill" });
     fill.style.width = `${pct}%`;
-    track.appendChild(fill);
-    el.appendChild(track);
     if (typeof props.label === "string") {
-      const lbl = document.createElement("div");
-      lbl.className = "uis-progress__label";
-      lbl.textContent = props.label;
-      el.appendChild(lbl);
+      el.createDiv({ cls: "uis-progress__label", text: props.label });
     }
     return el;
   },

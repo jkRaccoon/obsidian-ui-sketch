@@ -11,19 +11,12 @@ export const CardDef: ComponentDef = {
   type: "card",
   schema: CardSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-card";
+    const el = createDiv({ cls: "uis-card" });
     if (typeof props.title === "string") {
-      const t = document.createElement("div");
-      t.className = "uis-card__title";
-      t.textContent = props.title;
-      el.appendChild(t);
+      el.createDiv({ cls: "uis-card__title", text: props.title });
     }
     if (typeof props.body === "string") {
-      const b = document.createElement("div");
-      b.className = "uis-card__body";
-      b.textContent = props.body;
-      el.appendChild(b);
+      el.createDiv({ cls: "uis-card__body", text: props.body });
     }
     return el;
   },

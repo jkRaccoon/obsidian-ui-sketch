@@ -10,13 +10,9 @@ export const PanelDef: ComponentDef = {
   type: "panel",
   schema: PanelSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-panel";
+    const el = createDiv({ cls: "uis-panel" });
     if (typeof props.header === "string") {
-      const h = document.createElement("div");
-      h.className = "uis-panel__header";
-      h.textContent = props.header;
-      el.appendChild(h);
+      el.createDiv({ cls: "uis-panel__header", text: props.header });
     }
     return el;
   },

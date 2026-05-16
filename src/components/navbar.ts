@@ -11,25 +11,16 @@ export const NavbarDef: ComponentDef = {
   type: "navbar",
   schema: NavbarSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-navbar";
+    const el = createDiv({ cls: "uis-navbar" });
     if (typeof props.brand === "string") {
-      const b = document.createElement("div");
-      b.className = "uis-navbar__brand";
-      b.textContent = props.brand;
-      el.appendChild(b);
+      el.createDiv({ cls: "uis-navbar__brand", text: props.brand });
     }
     const items = Array.isArray(props.items) ? props.items : [];
-    const list = document.createElement("div");
-    list.className = "uis-navbar__items";
+    const list = el.createDiv({ cls: "uis-navbar__items" });
     for (const raw of items) {
       const label = typeof raw === "string" ? raw : "";
-      const item = document.createElement("div");
-      item.className = "uis-navbar__item";
-      item.textContent = label;
-      list.appendChild(item);
+      list.createDiv({ cls: "uis-navbar__item", text: label });
     }
-    el.appendChild(list);
     return el;
   },
 };
