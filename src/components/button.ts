@@ -14,12 +14,10 @@ export const ButtonDef: ComponentDef = {
   type: "button",
   schema: ButtonSchema,
   render(props) {
-    const el = document.createElement("div");
     const variant =
       typeof props.variant === "string" && VARIANTS.has(props.variant) ? props.variant : "primary";
-    el.className = `uis-button uis-button--${variant}`;
     const label = typeof props.label === "string" ? props.label : "";
-    el.textContent = label;
+    const el = createDiv({ cls: `uis-button uis-button--${variant}`, text: label });
     el.setAttribute("role", "button");
     return el;
   },

@@ -18,13 +18,14 @@ export const AvatarDef: ComponentDef = {
   type: "avatar",
   schema: AvatarSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-avatar";
     const size = typeof props.size === "number" ? props.size : 32;
+    const el = createDiv({
+      cls: "uis-avatar",
+      text: initials(typeof props.name === "string" ? props.name : ""),
+    });
     el.style.width = `${size}px`;
     el.style.height = `${size}px`;
     el.style.lineHeight = `${size}px`;
-    el.textContent = initials(typeof props.name === "string" ? props.name : "");
     return el;
   },
 };

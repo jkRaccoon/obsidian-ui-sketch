@@ -10,9 +10,10 @@ export const PlaceholderDef: ComponentDef = {
   type: "placeholder",
   schema: PlaceholderSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-placeholder";
-    el.textContent = typeof props.label === "string" ? props.label : "";
+    const el = createDiv({
+      cls: "uis-placeholder",
+      text: typeof props.label === "string" ? props.label : "",
+    });
     return el;
   },
 };

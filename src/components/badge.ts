@@ -11,10 +11,11 @@ export const BadgeDef: ComponentDef = {
   type: "badge",
   schema: BadgeSchema,
   render(props) {
-    const el = document.createElement("span");
     const variant = typeof props.variant === "string" ? props.variant : "default";
-    el.className = `uis-badge uis-badge--${variant}`;
-    el.textContent = typeof props.label === "string" ? props.label : "";
+    const el = createSpan({
+      cls: `uis-badge uis-badge--${variant}`,
+      text: typeof props.label === "string" ? props.label : "",
+    });
     return el;
   },
 };

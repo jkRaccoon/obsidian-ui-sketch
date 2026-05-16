@@ -12,20 +12,13 @@ export const AlertDef: ComponentDef = {
   type: "alert",
   schema: AlertSchema,
   render(props) {
-    const el = document.createElement("div");
     const severity = typeof props.severity === "string" ? props.severity : "info";
-    el.className = `uis-alert uis-alert--${severity}`;
+    const el = createDiv({ cls: `uis-alert uis-alert--${severity}` });
     if (typeof props.title === "string") {
-      const t = document.createElement("div");
-      t.className = "uis-alert__title";
-      t.textContent = props.title;
-      el.appendChild(t);
+      el.createDiv({ cls: "uis-alert__title", text: props.title });
     }
     if (typeof props.message === "string") {
-      const m = document.createElement("div");
-      m.className = "uis-alert__message";
-      m.textContent = props.message;
-      el.appendChild(m);
+      el.createDiv({ cls: "uis-alert__message", text: props.message });
     }
     return el;
   },

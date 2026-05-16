@@ -10,20 +10,13 @@ export const KbdDef: ComponentDef = {
   type: "kbd",
   schema: KbdSchema,
   render(props) {
-    const el = document.createElement("span");
-    el.className = "uis-kbd";
+    const el = createSpan({ cls: "uis-kbd" });
     const keys = Array.isArray(props.keys) ? (props.keys as string[]) : [];
     keys.forEach((k, i) => {
       if (i > 0) {
-        const plus = document.createElement("span");
-        plus.className = "uis-kbd__plus";
-        plus.textContent = "+";
-        el.appendChild(plus);
+        el.createSpan({ cls: "uis-kbd__plus", text: "+" });
       }
-      const cap = document.createElement("span");
-      cap.className = "uis-kbd__cap";
-      cap.textContent = k;
-      el.appendChild(cap);
+      el.createSpan({ cls: "uis-kbd__cap", text: k });
     });
     return el;
   },

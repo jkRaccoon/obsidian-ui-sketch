@@ -10,9 +10,10 @@ export const TagDef: ComponentDef = {
   type: "tag",
   schema: TagSchema,
   render(props) {
-    const el = document.createElement("span");
-    el.className = "uis-tag";
-    el.textContent = typeof props.label === "string" ? props.label : "";
+    const el = createSpan({
+      cls: "uis-tag",
+      text: typeof props.label === "string" ? props.label : "",
+    });
     return el;
   },
 };

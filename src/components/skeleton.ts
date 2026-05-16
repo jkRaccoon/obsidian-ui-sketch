@@ -11,8 +11,7 @@ export const SkeletonDef: ComponentDef = {
   type: "skeleton",
   schema: SkeletonSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-skeleton";
+    const el = createDiv({ cls: "uis-skeleton" });
     const w = props.width;
     const h = props.height;
     if (typeof w === "number") el.style.width = `${w}px`;

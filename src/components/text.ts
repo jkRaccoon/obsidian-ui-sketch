@@ -13,12 +13,13 @@ export const TextDef: ComponentDef = {
   type: "text",
   schema: TextSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-text";
+    const el = createDiv({
+      cls: "uis-text",
+      text: typeof props.value === "string" ? props.value : "",
+    });
     if (typeof props.tone === "string" && TONES.has(props.tone)) {
       el.className += ` uis-text--${props.tone}`;
     }
-    el.textContent = typeof props.value === "string" ? props.value : "";
     return el;
   },
 };

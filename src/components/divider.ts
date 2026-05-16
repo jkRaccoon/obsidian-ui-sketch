@@ -10,8 +10,7 @@ export const DividerDef: ComponentDef = {
   type: "divider",
   schema: DividerSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-divider";
+    const el = createDiv({ cls: "uis-divider" });
     if (props.orientation === "vertical") el.className += " uis-divider--vertical";
     return el;
   },

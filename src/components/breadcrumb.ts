@@ -10,20 +10,13 @@ export const BreadcrumbDef: ComponentDef = {
   type: "breadcrumb",
   schema: BreadcrumbSchema,
   render(props) {
-    const el = document.createElement("div");
-    el.className = "uis-breadcrumb";
+    const el = createDiv({ cls: "uis-breadcrumb" });
     const items = Array.isArray(props.items) ? (props.items as string[]) : [];
     items.forEach((label, i) => {
       if (i > 0) {
-        const sep = document.createElement("span");
-        sep.className = "uis-breadcrumb__sep";
-        sep.textContent = "›";
-        el.appendChild(sep);
+        el.createSpan({ cls: "uis-breadcrumb__sep", text: "›" });
       }
-      const item = document.createElement("span");
-      item.className = "uis-breadcrumb__item";
-      item.textContent = label;
-      el.appendChild(item);
+      el.createSpan({ cls: "uis-breadcrumb__item", text: label });
     });
     return el;
   },
