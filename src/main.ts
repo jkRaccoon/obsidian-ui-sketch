@@ -14,7 +14,7 @@ export default class UiSketchPlugin extends Plugin {
     this.registerMarkdownCodeBlockProcessor("ui-sketch", (source, el) => {
       const frame = renderSource(applyDefaults(source, this.settings));
       if (this.settings.compact) frame.classList.add("uis-compact");
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         el.replaceChildren(frame);
       });
     });
