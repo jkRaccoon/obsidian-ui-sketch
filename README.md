@@ -126,12 +126,12 @@ A single `viewport:` key flips between desktop, tablet, and mobile:
 
 ### 1. Install
 
-**From Community plugins (recommended)**:
-1. Open Settings → **Community plugins** → **Browse**.
-2. Search for `UI Sketch` and click **Install**.
-3. Enable **UI Sketch** under Community plugins.
+**One-click from Obsidian Community (recommended)**:
+1. Open the plugin page: **[community.obsidian.md/plugins/ui-sketch](https://community.obsidian.md/plugins/ui-sketch)**.
+2. Click the **Add** button — Obsidian opens and installs UI Sketch automatically.
+3. Enable **UI Sketch** under Settings → Community plugins.
 
-The plugin page is also browsable on the [Obsidian Community directory](https://community.obsidian.md/).
+**From inside Obsidian** — Settings → **Community plugins** → **Browse** → search `UI Sketch` → **Install** → enable.
 
 **Pre-release / dev build (BRAT)**:
 1. Install the [BRAT](https://github.com/TfTHacker/obsidian42-brat) community plugin.
@@ -451,12 +451,12 @@ screen:
 
 ### 1. 설치
 
-**커뮤니티 플러그인에서 설치 (권장)**:
-1. 설정 → **커뮤니티 플러그인** → **둘러보기** 열기.
-2. `UI Sketch` 검색 후 **설치** 클릭.
-3. 커뮤니티 플러그인 목록에서 **UI Sketch** 활성화.
+**Obsidian Community 페이지에서 한 번에 설치 (권장)**:
+1. 플러그인 페이지 열기: **[community.obsidian.md/plugins/ui-sketch](https://community.obsidian.md/plugins/ui-sketch)**.
+2. **추가(Add)** 버튼 클릭 — Obsidian이 열리고 UI Sketch가 자동으로 설치됩니다.
+3. 설정 → 커뮤니티 플러그인에서 **UI Sketch** 활성화.
 
-[Obsidian Community 디렉토리](https://community.obsidian.md/)에서 플러그인 페이지를 직접 볼 수도 있습니다.
+**Obsidian 안에서 직접** — 설정 → **커뮤니티 플러그인** → **둘러보기** → `UI Sketch` 검색 → **설치** → 활성화.
 
 **프리릴리스 / 개발 빌드 (BRAT)**:
 1. [BRAT](https://github.com/TfTHacker/obsidian42-brat) 커뮤니티 플러그인 설치.
