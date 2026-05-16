@@ -16,9 +16,7 @@ export const IconDef: ComponentDef = {
       cls: "uis-icon",
       text: typeof props.name === "string" && props.name.length > 0 ? props.name[0] : "?",
     });
-    el.style.width = `${size}px`;
-    el.style.height = `${size}px`;
-    el.style.lineHeight = `${size}px`;
+    el.setCssStyles({ width: `${size}px`, height: `${size}px`, lineHeight: `${size}px` });
     return el;
   },
 };

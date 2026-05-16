@@ -23,7 +23,7 @@ export function renderNode(n: LayoutNode, path: string): HTMLElement {
 
 function renderRow(n: RowNode, path: string): HTMLElement {
   const el = createDiv({ cls: "uis-row" });
-  if (typeof n.gap === "number") el.style.gap = `${n.gap}px`;
+  if (typeof n.gap === "number") el.setCssStyles({ gap: `${n.gap}px` });
   n.items.forEach((child, i) => el.appendChild(renderNode(child, `${path}.items[${i}]`)));
   return el;
 }
@@ -33,7 +33,7 @@ function renderCol(n: ColNode, path: string): HTMLElement {
   if (typeof n.flex === "number") {
     // flex:0 means "size to content" — a fixed-width sidebar shouldn't
     // collapse to 0 or shrink. flex>0 keeps the classic grow/shrink behavior.
-    el.style.flex = n.flex === 0 ? "0 0 auto" : `${n.flex} 1 0`;
+    el.setCssStyles({ flex: n.flex === 0 ? "0 0 auto" : `${n.flex} 1 0` });
   }
   n.items.forEach((child, i) => el.appendChild(renderNode(child, `${path}.items[${i}]`)));
   return el;
@@ -41,12 +41,15 @@ function renderCol(n: ColNode, path: string): HTMLElement {
 
 export function renderGrid(n: GridNode, path = "screen"): HTMLElement {
   const el = createDiv({ cls: "uis-grid" });
-  el.style.gridTemplateAreas = n.areas.map((row) => `"${row}"`).join(" ");
-  if (n.cols) el.style.gridTemplateColumns = n.cols;
-  if (n.rows) el.style.gridTemplateRows = n.rows;
+  const gridStyles: Partial<CSSStyleDeclaration> = {
+    gridTemplateAreas: n.areas.map((row) => `"${row}"`).join(" "),
+  };
+  if (n.cols) gridStyles.gridTemplateColumns = n.cols;
+  if (n.rows) gridStyles.gridTemplateRows = n.rows;
+  el.setCssStyles(gridStyles);
   for (const [name, node] of Object.entries(n.map)) {
     const cell = el.createDiv({ cls: "uis-grid__cell" });
-    cell.style.gridArea = name;
+    cell.setCssStyles({ gridArea: name });
     cell.appendChild(renderComponent(node, `${path}.map.${name}`));
   }
   return el;
@@ -88,11 +91,13 @@ function renderComponent(n: ComponentNode, path: string): HTMLElement {
 }
 
 function applyBaseLayout(el: HTMLElement, props: Record<string, unknown>): void {
-  if (typeof props.w === "number") el.style.width = `${props.w}px`;
-  else if (typeof props.w === "string") el.style.width = props.w;
-  if (typeof props.h === "number") el.style.height = `${props.h}px`;
-  else if (typeof props.h === "string") el.style.height = props.h;
-  if (typeof props.align === "string") el.style.alignSelf = props.align;
+  const styles: Partial<CSSStyleDeclaration> = {};
+  if (typeof props.w === "number") styles.width = `${props.w}px`;
+  else if (typeof props.w === "string") styles.width = props.w;
+  if (typeof props.h === "number") styles.height = `${props.h}px`;
+  else if (typeof props.h === "string") styles.height = props.h;
+  if (typeof props.align === "string") styles.alignSelf = props.align;
+  if (Object.keys(styles).length > 0) el.setCssStyles(styles);
   if (props.muted === true) el.classList.add("uis-muted");
 }
 

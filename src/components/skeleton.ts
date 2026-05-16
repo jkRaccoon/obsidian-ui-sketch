@@ -14,10 +14,12 @@ export const SkeletonDef: ComponentDef = {
     const el = createDiv({ cls: "uis-skeleton" });
     const w = props.width;
     const h = props.height;
-    if (typeof w === "number") el.style.width = `${w}px`;
-    else if (typeof w === "string") el.style.width = w;
-    if (typeof h === "number") el.style.height = `${h}px`;
-    else if (typeof h === "string") el.style.height = h;
+    const styles: Partial<CSSStyleDeclaration> = {};
+    if (typeof w === "number") styles.width = `${w}px`;
+    else if (typeof w === "string") styles.width = w;
+    if (typeof h === "number") styles.height = `${h}px`;
+    else if (typeof h === "string") styles.height = h;
+    if (Object.keys(styles).length > 0) el.setCssStyles(styles);
     return el;
   },
 };

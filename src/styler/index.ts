@@ -12,10 +12,12 @@ export function applyFrame(inner: HTMLElement, doc: ValidatedDoc): HTMLElement {
   frame.setAttribute("data-theme", doc.theme);
   frame.setAttribute("data-background", doc.background);
   if (doc.viewport === "custom") {
-    if (typeof doc.width === "number") frame.style.width = `${doc.width}px`;
-    if (typeof doc.height === "number") frame.style.height = `${doc.height}px`;
+    const styles: Partial<CSSStyleDeclaration> = {};
+    if (typeof doc.width === "number") styles.width = `${doc.width}px`;
+    if (typeof doc.height === "number") styles.height = `${doc.height}px`;
+    if (Object.keys(styles).length > 0) frame.setCssStyles(styles);
   } else {
-    frame.style.width = `${PRESET_WIDTH[doc.viewport]}px`;
+    frame.setCssStyles({ width: `${PRESET_WIDTH[doc.viewport]}px` });
   }
   const rootBox = frame.createDiv({ cls: "uis-root" });
   rootBox.appendChild(inner);

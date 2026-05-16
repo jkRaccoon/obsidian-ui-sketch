@@ -9,8 +9,10 @@ export const ContainerDef: ComponentDef = {
   render(props) {
     const el = createDiv({ cls: "uis-container" });
     const pad = props.pad;
-    if (typeof pad === "number") el.style.padding = `${pad}px`;
-    else if (typeof pad === "string") el.style.padding = pad;
+    const styles: Partial<CSSStyleDeclaration> = {};
+    if (typeof pad === "number") styles.padding = `${pad}px`;
+    else if (typeof pad === "string") styles.padding = pad;
+    if (Object.keys(styles).length > 0) el.setCssStyles(styles);
     return el;
   },
 };

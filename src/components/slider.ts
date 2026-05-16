@@ -19,7 +19,7 @@ export const SliderDef: ComponentDef = {
     const pct = max === min ? 0 : Math.max(0, Math.min(100, ((value - min) / (max - min)) * 100));
     el.createSpan({ cls: "uis-slider__track" });
     const thumb = el.createSpan({ cls: "uis-slider__thumb" });
-    thumb.style.left = `${pct}%`;
+    thumb.setCssStyles({ left: `${pct}%` });
     return el;
   },
 };

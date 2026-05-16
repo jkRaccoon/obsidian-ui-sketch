@@ -16,7 +16,7 @@ export const ProgressDef: ComponentDef = {
     const pct = Math.max(0, Math.min(100, raw));
     const track = el.createDiv({ cls: "uis-progress__track" });
     const fill = track.createDiv({ cls: "uis-progress__fill" });
-    fill.style.width = `${pct}%`;
+    fill.setCssStyles({ width: `${pct}%` });
     if (typeof props.label === "string") {
       el.createDiv({ cls: "uis-progress__label", text: props.label });
     }

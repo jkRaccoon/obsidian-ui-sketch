@@ -12,8 +12,7 @@ export const SpacerDef: ComponentDef = {
   render(props) {
     const el = createDiv({ cls: "uis-spacer" });
     const size = typeof props.size === "number" ? props.size : 16;
-    el.style.minHeight = `${size}px`;
-    el.style.minWidth = `${size}px`;
+    el.setCssStyles({ minHeight: `${size}px`, minWidth: `${size}px` });
     return el;
   },
 };

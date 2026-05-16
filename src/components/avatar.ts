@@ -23,9 +23,7 @@ export const AvatarDef: ComponentDef = {
       cls: "uis-avatar",
       text: initials(typeof props.name === "string" ? props.name : ""),
     });
-    el.style.width = `${size}px`;
-    el.style.height = `${size}px`;
-    el.style.lineHeight = `${size}px`;
+    el.setCssStyles({ width: `${size}px`, height: `${size}px`, lineHeight: `${size}px` });
     return el;
   },
 };
