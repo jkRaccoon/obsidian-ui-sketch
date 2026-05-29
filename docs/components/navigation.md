@@ -8,13 +8,14 @@ All components accept the [base props](../yaml-reference.md#base-props) in addit
 
 ## `navbar`
 
-Top navigation bar with a brand and menu items.
+Top navigation bar with a brand, menu items (each a string or an object with optional `children` dropdowns), and right-aligned `actions`.
 
 <!-- gen:props type=navbar -->
 | Prop | Type | Description |
 |---|---|---|
 | `brand` | string | Brand/logo text (left side) |
-| `items` | string[] | Menu items (right side) |
+| `items` | string \| object[] | Menu items — a string, or { label, icon, active, open, children } |
+| `actions` | object[] | Right-aligned slots — { icon }, { avatar }, or { label } |
 <!-- /gen:props -->
 
 ```yaml
@@ -23,21 +24,49 @@ navbar:
   items: ["Home", "Docs", "Pricing", "Blog"]
 ```
 
+Dropdowns (`open: true` renders the menu expanded), an active item, and right-aligned actions:
+
+```yaml
+navbar:
+  brand: "DashHub"
+  items:
+    - { label: "Home", active: true }
+    - { label: "Products", children: ["Catalog", "Pricing"], open: true }
+    - "Docs"
+  actions:
+    - { icon: "search" }
+    - { label: "Log in" }
+    - { avatar: "Kim Jane" }
+```
+
 ## `sidebar`
 
-Vertical navigation list. Commonly placed as the left column of a dashboard layout.
+Vertical navigation list. Commonly placed as the left column of a dashboard layout. Supports `{ section }` headers, item icons, one level of nesting via `children`, and a `collapsed` icon-rail.
 
 <!-- gen:props type=sidebar -->
 | Prop | Type | Description |
 |---|---|---|
-| `items` | string[] | Menu entries |
+| `items` | string \| object[] | Menu entries — a string, a { section } header, or { label, icon, active, children } |
 | `active` | string \| number | Active entry — label or zero-based index |
+| `collapsed` | boolean | Render as an icon-only rail |
 <!-- /gen:props -->
 
 ```yaml
 sidebar:
   items: ["Getting Started", "API", "FAQ"]
   active: "API"
+```
+
+Section headers, icons, and nested children:
+
+```yaml
+sidebar:
+  items:
+    - { section: "MAIN" }
+    - { label: "Overview", icon: "home", active: true }
+    - { label: "Docs", icon: "book", children: ["API", "FAQ"] }
+    - { section: "SETTINGS" }
+    - { label: "Billing", icon: "card" }
 ```
 
 ## `tabs`
