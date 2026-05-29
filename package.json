@@ -1,6 +1,6 @@
 {
   "name": "obsidian-ui-sketch",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "private": true,
   "description": "Sketch web UI wireframes from human-readable YAML inside Obsidian notes. 44 components, AI-friendly structure, theme-adaptive.",
   "scripts": {
