@@ -7,7 +7,7 @@ export const AvatarSchema = BasePropsSchema.extend({
   size: z.number().optional(),
 }).passthrough();
 
-function initials(name: string): string {
+export function initials(name: string): string {
   const parts = name.trim().split(/\s+/).filter(Boolean);
   if (parts.length === 0) return "?";
   if (parts.length === 1) return parts[0][0].toUpperCase();
