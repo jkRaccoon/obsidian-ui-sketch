@@ -25,4 +25,12 @@ describe("parseDocument", () => {
     if (!out.ok) return;
     expect(out.doc).toEqual({});
   });
+
+  it("rejects alias-bomb YAML at the parser level", () => {
+    const refs = Array.from({ length: 200 }, () => "*base").join(", ");
+    const out = parseDocument(`base: &base value\nrefs: [${refs}]`);
+    expect(out.ok).toBe(false);
+    if (out.ok) return;
+    expect(out.error.kind).toBe("yaml");
+  });
 });
