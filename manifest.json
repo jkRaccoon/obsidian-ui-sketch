@@ -1,7 +1,7 @@
 {
   "id": "ui-sketch",
   "name": "UI Sketch",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "minAppVersion": "1.5.0",
   "description": "Sketch web UI wireframes from human-readable YAML — 44 components, AI-friendly structure, rendered inline.",
   "author": "jikwangkim",
