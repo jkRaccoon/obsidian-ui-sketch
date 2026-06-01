@@ -13,9 +13,10 @@ export const KvListDef: ComponentDef = {
     const el = createDiv({ cls: "uis-kv" });
     const items = Array.isArray(props.items) ? (props.items as [string, string][]) : [];
     for (const [k, v] of items) {
-      const row = el.createDiv({ cls: "uis-kv__row" });
-      row.createSpan({ cls: "uis-kv__key", text: k });
-      row.createSpan({ cls: "uis-kv__val", text: v });
+      // key/val sit directly in the 2-col grid — no wrapper row, so we avoid
+      // `display: contents` (only partially supported on older Obsidian/Electron).
+      el.createSpan({ cls: "uis-kv__key", text: k });
+      el.createSpan({ cls: "uis-kv__val", text: v });
     }
     return el;
   },
