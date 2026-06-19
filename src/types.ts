@@ -40,6 +40,7 @@ export interface ValidatedDoc {
   height?: number;
   theme: "adaptive";
   background: "default" | "muted" | "transparent";
+  fit: "width" | "none";
   screen: LayoutNode[] | GridNode;
 }
 

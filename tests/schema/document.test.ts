@@ -37,4 +37,26 @@ describe("validate", () => {
     });
     expect(out.ok).toBe(true);
   });
+
+  it("defaults fit to width", () => {
+    const out = validate({ screen: [] });
+    expect(out.ok).toBe(true);
+    if (!out.ok) return;
+    expect(out.doc.fit).toBe("width");
+  });
+
+  it("accepts fit: none", () => {
+    const out = validate({ fit: "none", screen: [] });
+    expect(out.ok).toBe(true);
+    if (!out.ok) return;
+    expect(out.doc.fit).toBe("none");
+  });
+
+  it("rejects unknown fit", () => {
+    const out = validate({ fit: "cover", screen: [] });
+    expect(out.ok).toBe(false);
+    if (out.ok) return;
+    expect(out.error.kind).toBe("structure");
+    expect(out.error.path).toBe("fit");
+  });
 });
