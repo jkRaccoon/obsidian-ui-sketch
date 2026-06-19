@@ -6,6 +6,7 @@ const baseDoc = (override: Partial<ValidatedDoc> = {}): ValidatedDoc => ({
   viewport: "desktop",
   theme: "adaptive",
   background: "default",
+  fit: "width",
   screen: [],
   ...override,
 });

@@ -14,6 +14,7 @@ export type ValidateResult =
 
 const VIEWPORTS: ViewportKind[] = ["desktop", "tablet", "mobile", "custom"];
 const BACKGROUNDS = ["default", "muted", "transparent"] as const;
+const FITS = ["width", "none"] as const;
 
 export function validateDocument(raw: Record<string, unknown>): ValidateResult {
   const viewport = raw.viewport ?? "desktop";
@@ -39,6 +40,11 @@ export function validateDocument(raw: Record<string, unknown>): ValidateResult {
     return err("background must be one of default|muted|transparent", "background");
   }
 
+  const fit = raw.fit ?? "width";
+  if (typeof fit !== "string" || !(FITS as readonly string[]).includes(fit)) {
+    return err("fit must be one of width|none", "fit");
+  }
+
   if (!("screen" in raw)) {
     return err("screen is required", "screen");
   }
@@ -47,12 +53,12 @@ export function validateDocument(raw: Record<string, unknown>): ValidateResult {
   if (isGridShape(screenRaw)) {
     const g = parseGrid((screenRaw as Record<string, unknown>).grid, "screen");
     if (!g.ok) return err(g.error.message, g.error.path);
-    return ok({ viewport: v, width, height, theme: "adaptive", background: background as ValidatedDoc["background"], screen: g.grid });
+    return ok({ viewport: v, width, height, theme: "adaptive", background: background as ValidatedDoc["background"], fit: fit as ValidatedDoc["fit"], screen: g.grid });
   }
 
   const layout = parseLayoutArray(screenRaw, "screen");
   if (!layout.ok) return err(layout.error.message, layout.error.path);
-  return ok({ viewport: v, width, height, theme: "adaptive", background: background as ValidatedDoc["background"], screen: layout.nodes });
+  return ok({ viewport: v, width, height, theme: "adaptive", background: background as ValidatedDoc["background"], fit: fit as ValidatedDoc["fit"], screen: layout.nodes });
 }
 
 function isGridShape(x: unknown): boolean {
