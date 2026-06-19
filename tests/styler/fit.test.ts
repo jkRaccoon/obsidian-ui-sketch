@@ -1,5 +1,30 @@
 import { describe, it, expect } from "vitest";
-import { computeScale } from "@/styler/fit";
+import { wrapScaler, computeScale } from "@/styler/fit";
+import type { ValidatedDoc } from "@/types";
+
+const doc = (fit: "width" | "none"): ValidatedDoc => ({
+  viewport: "desktop",
+  theme: "adaptive",
+  background: "default",
+  fit,
+  screen: [],
+});
+
+describe("wrapScaler", () => {
+  it("wraps the frame in a scaler carrying data-fit", () => {
+    const frame = document.createElement("div");
+    frame.className = "uis-frame";
+    const scaler = wrapScaler(frame, doc("width"));
+    expect(scaler.className).toContain("uis-scaler");
+    expect(scaler.getAttribute("data-fit")).toBe("width");
+    expect(scaler.firstElementChild).toBe(frame);
+  });
+
+  it("reflects fit: none in data-fit", () => {
+    const scaler = wrapScaler(document.createElement("div"), doc("none"));
+    expect(scaler.getAttribute("data-fit")).toBe("none");
+  });
+});
 
 describe("computeScale", () => {
   it("shrinks when container is narrower than frame", () => {

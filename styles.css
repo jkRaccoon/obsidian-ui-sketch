@@ -4,10 +4,11 @@
  * predictably even when the component has its own padding/border
  * (button, card, panel, etc). Scoped to .uis-frame so it doesn't
  * leak into the rest of the Obsidian UI. */
+.uis-scaler { width: 100%; }
+.uis-scaler[data-fit="none"] { overflow-x: auto; }
 .uis-frame, .uis-frame * { box-sizing: border-box; }
 
 .uis-frame {
-  max-width: 100%;
   margin: 0 auto;
   padding: 8px;
   background: var(--background-secondary);

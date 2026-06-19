@@ -3,6 +3,7 @@ import { parseDocument } from "@/parser";
 import { validate } from "@/schema";
 import { renderLayoutNodes, renderGrid } from "./layout";
 import { applyFrame } from "@/styler";
+import { wrapScaler } from "@/styler/fit";
 import { renderErrorBox, renderEmptyPlaceholder } from "@/errors/render";
 import { countAndCheckDepth } from "./safety";
 import type { ValidatedDoc } from "@/types";
@@ -35,5 +36,5 @@ export function renderSource(source: string): HTMLElement {
   const inner = Array.isArray(doc.screen)
     ? renderLayoutNodes(doc.screen)
     : renderGrid(doc.screen);
-  return applyFrame(inner, doc);
+  return wrapScaler(applyFrame(inner, doc), doc);
 }
