@@ -83,15 +83,13 @@ class FitController extends MarkdownRenderChild {
     const frameHeight = frame.offsetHeight;
     const scale = computeScale(containerWidth, frameWidth);
     if (scale < 1) {
-      frame.style.transformOrigin = "top left";
-      frame.style.transform = `scale(${scale})`;
+      frame.setCssStyles({ transformOrigin: "top left", transform: `scale(${scale})` });
       // transform은 레이아웃 박스를 원본 크기로 남기므로, 아래 빈 공간을
       // 없애기 위해 scaler 높이를 축소된 높이로 맞춘다.
-      this.scaler.style.height = `${frameHeight * scale}px`;
+      this.scaler.setCssStyles({ height: `${frameHeight * scale}px` });
     } else {
-      frame.style.transform = "";
-      frame.style.transformOrigin = "";
-      this.scaler.style.height = "";
+      frame.setCssStyles({ transform: "", transformOrigin: "" });
+      this.scaler.setCssStyles({ height: "" });
     }
   }
 }

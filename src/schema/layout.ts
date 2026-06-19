@@ -39,7 +39,7 @@ export function parseLayoutArray(raw: unknown, path = "screen"): LayoutParseResu
 export function parseGrid(raw: unknown, path = "screen"): { ok: true; grid: GridNode } | { ok: false; error: LayoutParseError } {
   if (!isPlainObject(raw)) return { ok: false, error: { message: "grid must be an object", path } };
   const { areas, cols, rows, map } = raw;
-  if (!Array.isArray(areas) || !areas.every((a) => typeof a === "string")) {
+  if (!isStringArray(areas)) {
     return { ok: false, error: { message: "grid.areas must be a string array", path: `${path}.areas` } };
   }
   if (!isPlainObject(map)) {
@@ -91,4 +91,8 @@ function parseEntry(key: string, value: unknown, path: string): { ok: true; node
 
 function isPlainObject(x: unknown): x is Record<string, unknown> {
   return typeof x === "object" && x !== null && !Array.isArray(x);
+}
+
+function isStringArray(x: unknown): x is string[] {
+  return Array.isArray(x) && x.every((a) => typeof a === "string");
 }
