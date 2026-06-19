@@ -71,19 +71,23 @@ class FitController extends MarkdownRenderChild {
   private apply(frame: HTMLElement): void {
     const containerWidth = this.scaler.clientWidth;
     // height 보정이 scaler 크기를 바꿔 콜백이 재진입해도 폭은 그대로이므로
-    // 같은 폭이면 즉시 빠져나가 무한 루프를 막는다.
+    // 같은 폭이면 즉시 빠져나가 무한 루프를 막는다. 이 가드는 frame의
+    // 자연 폭이 블록 수명 동안 고정(viewport px)이라는 전제에 의존한다 —
+    // 컨테이너 폭만 바뀔 때 재계산하면 충분하다.
     if (containerWidth === this.lastWidth) return;
     this.lastWidth = containerWidth;
 
     // offsetWidth/offsetHeight는 transform의 영향을 받지 않는 자연 크기다.
+    // transform을 쓰기 전에 둘 다 미리 읽어 의도를 명확히 한다.
     const frameWidth = frame.offsetWidth;
+    const frameHeight = frame.offsetHeight;
     const scale = computeScale(containerWidth, frameWidth);
     if (scale < 1) {
       frame.style.transformOrigin = "top left";
       frame.style.transform = `scale(${scale})`;
       // transform은 레이아웃 박스를 원본 크기로 남기므로, 아래 빈 공간을
       // 없애기 위해 scaler 높이를 축소된 높이로 맞춘다.
-      this.scaler.style.height = `${frame.offsetHeight * scale}px`;
+      this.scaler.style.height = `${frameHeight * scale}px`;
     } else {
       frame.style.transform = "";
       frame.style.transformOrigin = "";
