@@ -219,6 +219,7 @@ width: 375                                      # custom only
 height: 640                                     # custom only
 theme: adaptive                                 # v0.2 only supports "adaptive"
 background: default | muted | transparent
+fit: width | none                               # default: width (auto-shrink to fit note width)
 screen:                                         # required: array OR grid
   - ...
 ```
@@ -544,6 +545,7 @@ width: 375                                      # custom일 때만
 height: 640                                     # custom일 때만
 theme: adaptive                                 # v0.2는 "adaptive"만 지원
 background: default | muted | transparent
+fit: width | none                               # 기본값: width (노트 폭에 맞춰 자동 축소)
 screen:                                         # 필수: 배열 OR grid
   - ...
 ```
