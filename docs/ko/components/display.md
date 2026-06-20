@@ -59,7 +59,7 @@ image:
 
 ## `icon`
 
-작은 아이콘 마커. v0.2에서는 아이콘 크기 박스 안의 텍스트 라벨 (Obsidian의 Lucide 아이콘은 아직 직접 연결 안 됨).
+작은 아이콘 마커. 현재는 아이콘 크기 박스 안의 텍스트 라벨 (Obsidian의 Lucide 아이콘은 아직 직접 연결 안 됨).
 
 <!-- gen:props type=icon -->
 | 프롭 | 타입 | 설명 |
@@ -103,13 +103,11 @@ variant가 있는 작은 상태 뱃지.
 <!-- /gen:props -->
 
 ```yaml
-badge:
-  label: "Beta"
-  variant: primary
-
-badge:
-  label: "Failed"
-  variant: danger
+row:
+  gap: 6
+  items:
+    - badge: { label: "Beta", variant: primary }
+    - badge: { label: "Failed", variant: danger }
 ```
 
 ## `tag`
@@ -175,9 +173,9 @@ button: { label: "삭제", mark: 3, markText: "소프트 삭제 — 30일간 복
 <!-- /gen:props -->
 
 ```yaml
-kbd:
-  keys: ["Ctrl", "K"]
-
-kbd:
-  keys: ["Cmd", "Shift", "P"]
+row:
+  gap: 8
+  items:
+    - kbd: { keys: ["Ctrl", "K"] }
+    - kbd: { keys: ["Cmd", "Shift", "P"] }
 ```

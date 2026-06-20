@@ -13,18 +13,15 @@ A clickable button with variants.
 |---|---|---|
 | `label` | string | Button text |
 | `variant` | `"primary"` \| `"secondary"` \| `"ghost"` \| `"danger"` | Visual style |
-| `icon` | string | Icon label (text only in v0.2) |
+| `icon` | string | Icon label (text only for now) |
 <!-- /gen:props -->
 
 ```yaml
-button:
-  label: "Save"
-  variant: primary
-
-button:
-  label: "Delete account"
-  variant: danger
-  note: "Requires confirmation modal"
+row:
+  gap: 8
+  items:
+    - button: { label: "Save", variant: primary }
+    - button: { label: "Delete account", variant: danger, note: "Requires confirmation modal" }
 ```
 
 ## `input`

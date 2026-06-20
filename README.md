@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Obsidian](https://img.shields.io/badge/Obsidian-1.5%2B-7c3aed)](https://obsidian.md)
 [![Sponsor](https://img.shields.io/github/sponsors/jkRaccoon?label=Sponsor&logo=GitHub)](https://github.com/sponsors/jkRaccoon)
-[![Tests](https://img.shields.io/badge/tests-116%20passing-brightgreen)](./tests)
+[![Tests](https://img.shields.io/badge/tests-153%20passing-brightgreen)](./tests)
 
 > **Sketch web UI wireframes from human-readable YAML — rendered inline in your Obsidian notes. 45 components. AI-friendly structure. Theme-adaptive.**
 >
@@ -207,6 +207,10 @@ tree:
 
 kbd:
   keys: ["Ctrl", "K"]
+
+marker:
+  num: 1
+  text: "Numbered annotation — hover to read; describe by number outside the sketch"
 ```
 
 ## YAML structure
@@ -217,7 +221,7 @@ See the [**YAML Reference**](./docs/yaml-reference.md) for complete syntax. Quic
 viewport: desktop | tablet | mobile | custom   # default: desktop (1200px)
 width: 375                                      # custom only
 height: 640                                     # custom only
-theme: adaptive                                 # v0.2 only supports "adaptive"
+theme: adaptive                                 # only "adaptive" is supported
 background: default | muted | transparent
 fit: width | none                               # default: width (auto-shrink to fit note width)
 screen:                                         # required: array OR grid
@@ -284,7 +288,7 @@ Open Settings → Community plugins → **UI Sketch**:
 | Setting | Default | Notes |
 |---|---|---|
 | Default viewport | `desktop` | Applied to any block that omits `viewport:` |
-| Default theme | `adaptive` | Locked in v0.2 |
+| Default theme | `adaptive` | Adaptive only |
 | Compact mode | Off | Scales spacing and fonts by ×0.875 — useful when stacking several blocks in one note |
 
 ## Development
@@ -534,6 +538,10 @@ tree:
 
 kbd:
   keys: ["Ctrl", "K"]
+
+marker:
+  num: 1
+  text: "번호 주석 — 호버하면 설명이 뜨고, 번호로 스케치 바깥에서 설명"
 ```
 
 ## YAML 구조
@@ -544,7 +552,7 @@ kbd:
 viewport: desktop | tablet | mobile | custom   # 기본값: desktop (1200px)
 width: 375                                      # custom일 때만
 height: 640                                     # custom일 때만
-theme: adaptive                                 # v0.2는 "adaptive"만 지원
+theme: adaptive                                 # "adaptive"만 지원
 background: default | muted | transparent
 fit: width | none                               # 기본값: width (노트 폭에 맞춰 자동 축소)
 screen:                                         # 필수: 배열 OR grid
@@ -611,7 +619,7 @@ UI Sketch는 조용히 실패하지 않습니다. 항상 대응 가능한 메시
 | 항목 | 기본값 | 비고 |
 |---|---|---|
 | 기본 viewport | `desktop` | `viewport:` 생략한 블록에 적용 |
-| 기본 theme | `adaptive` | v0.2에서는 고정 |
+| 기본 theme | `adaptive` | adaptive 전용 |
 | Compact 모드 | 꺼짐 | 간격과 폰트를 ×0.875로 축소 — 한 노트에 블록 여러 개 쌓을 때 유용 |
 
 ## 개발

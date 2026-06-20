@@ -18,7 +18,7 @@ Form layouts demonstrating label alignment, grouped inputs, and validation state
 - **[Login form](./login-form.md)** — centered mobile-width login + desktop variant with gutters
 - **[Contact form](./contact-form.md)** — standard labeled form with select + textarea
 - **[Settings panel](./settings-panel.md)** — 2-column settings with grouped toggles
-- **[Material registration (자재 등록)](./material-registration.md)** — complex Korean ERP form with sections, badges, and conditional fields
+- **[Material registration](./material-registration.md)** — complex Korean ERP form with sections, badges, and conditional fields
 
 ## Layouts
 

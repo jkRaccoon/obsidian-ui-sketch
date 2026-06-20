@@ -177,7 +177,7 @@ zod는 타입 불일치를 거부:
 A: UI Sketch는 Obsidian CSS 변수 (`--interactive-accent` 등)를 씁니다. 커뮤니티 테마가 이걸 이상하게 오버라이드하면 와이어프레임도 따라갑니다. 기본 Obsidian 테마로 격리해보고, 플러그인 버그면 제보해주세요.
 
 **Q: vault의 이미지를 임베드할 수 있나요?**
-A: v0.2에서는 불가. `image:`는 `alt`/`src`를 메타데이터로 보여주는 플레이스홀더, 실제 fetcher가 아닙니다. v0.3+에서 검토 중.
+A: 현재는 불가. `image:`는 `alt`/`src`를 메타데이터로 보여주는 플레이스홀더, 실제 fetcher가 아닙니다.
 
 **Q: `text:`나 `card:` 안에서 Obsidian wikilink를 쓸 수 있나요?**
 A: 없습니다 — 텍스트는 Obsidian 마크다운 파이프라인이 아닌 `textContent`로 렌더링됩니다. 인라인 마크업이 필요하면 sanitize된 HTML을 쓰는 `raw:`.

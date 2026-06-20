@@ -13,18 +13,15 @@ variant가 있는 클릭 가능한 버튼.
 |---|---|---|
 | `label` | string | 버튼 텍스트 |
 | `variant` | `"primary"` \| `"secondary"` \| `"ghost"` \| `"danger"` | 시각 스타일 |
-| `icon` | string | 아이콘 라벨 (v0.2는 텍스트만) |
+| `icon` | string | 아이콘 라벨 (현재는 텍스트만) |
 <!-- /gen:props -->
 
 ```yaml
-button:
-  label: "Save"
-  variant: primary
-
-button:
-  label: "Delete account"
-  variant: danger
-  note: "Requires confirmation modal"
+row:
+  gap: 8
+  items:
+    - button: { label: "Save", variant: primary }
+    - button: { label: "Delete account", variant: danger, note: "Requires confirmation modal" }
 ```
 
 ## `input`

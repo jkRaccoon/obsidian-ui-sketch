@@ -59,7 +59,7 @@ image:
 
 ## `icon`
 
-Small icon marker. In v0.2 this is a text label in an icon-sized box (Obsidian's Lucide icons are not directly wired yet).
+Small icon marker. Currently this is a text label in an icon-sized box (Obsidian's Lucide icons are not directly wired yet).
 
 <!-- gen:props type=icon -->
 | Prop | Type | Description |
@@ -103,13 +103,11 @@ Small status badge with a variant.
 <!-- /gen:props -->
 
 ```yaml
-badge:
-  label: "Beta"
-  variant: primary
-
-badge:
-  label: "Failed"
-  variant: danger
+row:
+  gap: 6
+  items:
+    - badge: { label: "Beta", variant: primary }
+    - badge: { label: "Failed", variant: danger }
 ```
 
 ## `tag`
@@ -176,9 +174,9 @@ Keyboard shortcut display. Renders each key in a `<kbd>`-style box joined by `+`
 <!-- /gen:props -->
 
 ```yaml
-kbd:
-  keys: ["Ctrl", "K"]
-
-kbd:
-  keys: ["Cmd", "Shift", "P"]
+row:
+  gap: 8
+  items:
+    - kbd: { keys: ["Ctrl", "K"] }
+    - kbd: { keys: ["Cmd", "Shift", "P"] }
 ```

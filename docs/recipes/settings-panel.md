@@ -29,10 +29,10 @@ screen:
                     - col:
                         flex: 1
                         items:
-                          - toggle: { label: "Weekly digest",     on: true }
-                          - toggle: { label: "Product updates",   on: true }
-                          - toggle: { label: "Security alerts",   on: true }
-                          - toggle: { label: "Marketing emails",  on: false }
+                          - toggle: { label: "Weekly digest",     "on": true }
+                          - toggle: { label: "Product updates",   "on": true }
+                          - toggle: { label: "Security alerts",   "on": true }
+                          - toggle: { label: "Marketing emails",  "on": false }
               - panel:
                   header: "Push (mobile)"
                   pad: 24
@@ -43,9 +43,9 @@ screen:
                     - col:
                         flex: 1
                         items:
-                          - toggle: { label: "Mentions",          on: true }
-                          - toggle: { label: "Direct messages",   on: true }
-                          - toggle: { label: "Task assignments",  on: false }
+                          - toggle: { label: "Mentions",          "on": true }
+                          - toggle: { label: "Direct messages",   "on": true }
+                          - toggle: { label: "Task assignments",  "on": false }
               - divider: {}
               - row:
                   gap: 12

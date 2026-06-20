@@ -15,10 +15,12 @@ On/off switch with an optional label.
 | `on` | boolean | Whether the switch is on |
 <!-- /gen:props -->
 
+> `on` is a YAML 1.1 boolean keyword, so as a key it **must be quoted** (`"on":`). An unquoted `on:` is parsed as the boolean `true`, the `on` prop is lost, and the toggle renders OFF. (Same reason `marker` uses `num`, not `n`.)
+
 ```yaml
 toggle:
   label: "Enable notifications"
-  on: true
+  "on": true
 ```
 
 ## `slider`

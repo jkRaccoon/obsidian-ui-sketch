@@ -36,8 +36,8 @@ screen:
 viewport: mobile
 screen:
   - heading: { level: 1, text: "Sign in" }
-  - input: { label: "Email", placeholder: "you@example.com" }
-  - input: { label: "Password", type: password }
+  - input: { placeholder: "Email" }
+  - input: { placeholder: "Password" }
   - button: { label: "Continue", variant: primary }
   - text: { value: "Forgot password?", muted: true }
 ```

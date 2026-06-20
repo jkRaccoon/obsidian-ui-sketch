@@ -67,6 +67,8 @@ button:
   align: center       # start | center | end
   pad: 12             # 패딩
   note: "Saves draft" # 호버 툴팁 (ⓘ 표시)
+  mark: 1             # 모서리에 번호 마커 뱃지 핀
+  markText: "1단계"   # 그 마커의 호버 설명
   muted: true         # 강조 낮춤
   id: primary-save    # 선택 식별자
 ```

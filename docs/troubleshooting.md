@@ -50,14 +50,11 @@ screen:
 **Unquoted special characters:**
 
 ```yaml
-# ✗ Wrong — the colon breaks parsing
-text: { value: "Time: 3:42 PM" }
+# ✗ Wrong — the unquoted colon breaks parsing
+text: { value: Time: 3:42 PM }
 
 # ✓ Right — quote the value
-text: { value: "Time: 3:42 PM" }   # already fine — outer quotes save you
-
-# ✗ Definitely wrong
-text: { value: Time: 3:42 PM }
+text: { value: "Time: 3:42 PM" }
 ```
 
 ## L2 — Structure error
@@ -180,7 +177,7 @@ Block-level errors with these messages:
 A: UI Sketch uses Obsidian CSS variables (`--interactive-accent`, etc.). If a community theme overrides these oddly, the wireframe follows. Try the default Obsidian theme to isolate, then report if it's a plugin bug.
 
 **Q: Can I embed an image from my vault?**
-A: Not in v0.2. `image:` is a placeholder showing `alt`/`src` as metadata, not a real fetcher. v0.3+ is evaluating this.
+A: Not currently. `image:` is a placeholder showing `alt`/`src` as metadata, not a real fetcher.
 
 **Q: Can I use Obsidian wikilinks inside `text:` or `card:`?**
 A: No — text is rendered via `textContent`, not through Obsidian's markdown pipeline. For inline markup, use `raw:` with sanitized HTML.

@@ -8,7 +8,7 @@
 viewport: desktop        # desktop | tablet | mobile | custom  (기본값: desktop)
 width: 375               # 숫자(px) — viewport: custom 일 때 필수
 height: 640              # 숫자(px) — viewport: custom 일 때 필수
-theme: adaptive          # v0.2는 "adaptive"만 지원
+theme: adaptive          # "adaptive"만 지원
 background: default      # default | muted | transparent
 fit: width               # width | none — 노트 폭에 맞춰 자동 축소(기본). none이면 원본 크기 + 가로 스크롤
 screen:                  # 필수: 레이아웃 배열 또는 단일 grid 객체
@@ -32,7 +32,7 @@ screen:                  # 필수: 레이아웃 배열 또는 단일 grid 객체
 
 ### Theme
 
-`theme: adaptive`는 와이어프레임이 Obsidian의 CSS 변수를 상속한다는 의미 — 라이트/다크/커뮤니티 테마에 자동으로 맞춰집니다. v0.2는 다른 값 미지원.
+`theme: adaptive`는 와이어프레임이 Obsidian의 CSS 변수를 상속한다는 의미 — 라이트/다크/커뮤니티 테마에 자동으로 맞춰집니다. 다른 값 미지원.
 
 ### Fit
 

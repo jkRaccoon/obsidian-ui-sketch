@@ -8,8 +8,9 @@ Complete syntax for `ui-sketch` blocks. For a gentler intro, read [Getting Start
 viewport: desktop        # desktop | tablet | mobile | custom  (default: desktop)
 width: 375               # number (px) — required when viewport: custom
 height: 640              # number (px) — required when viewport: custom
-theme: adaptive          # only "adaptive" is supported in v0.2
+theme: adaptive          # only "adaptive" is supported
 background: default      # default | muted | transparent
+fit: width               # width | none — scale down to fit the note column (default). none = original size + horizontal scroll
 screen:                  # required: layout array OR a single grid object
   - ...
 ```
@@ -31,7 +32,11 @@ screen:                  # required: layout array OR a single grid object
 
 ### Theme
 
-`theme: adaptive` means the wireframe inherits Obsidian's CSS variables — it adjusts automatically to light/dark/community themes. No other values are supported in v0.2.
+`theme: adaptive` means the wireframe inherits Obsidian's CSS variables — it adjusts automatically to light/dark/community themes. No other values are supported.
+
+### Fit
+
+`fit: width` (the default) scales the frame down proportionally when it's wider than the note column, so the whole sketch fits at a glance (shrink-only — it never enlarges). `fit: none` keeps the original pixel size and scrolls horizontally when it overflows.
 
 ## The `screen` key — two layout models
 
@@ -109,7 +114,7 @@ row:
     - col: { flex: 3, items: [ { card: { title: "Main" } } ] }
 ```
 
-## Base props (all components)
+## Base props
 
 Every component, in addition to its type-specific props, accepts these base props:
 

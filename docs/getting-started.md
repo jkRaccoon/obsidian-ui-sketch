@@ -67,6 +67,8 @@ button:
   align: center       # start | center | end
   pad: 12             # padding
   note: "Saves draft" # hover tooltip (ⓘ indicator appears)
+  mark: 1             # pins a numbered marker badge to the corner
+  markText: "Step 1"  # hover description for that marker
   muted: true         # de-emphasized look
   id: primary-save    # optional identifier
 ```

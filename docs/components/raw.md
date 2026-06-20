@@ -2,7 +2,7 @@
 
 For cases where no builtin component fits, `raw:` lets you inject a limited subset of HTML. Every input is piped through [`sanitize-html`](https://github.com/apostrophecms/sanitize-html) with a strict allow-list before rendering — there is no way to execute scripts or attach event handlers through it.
 
-Prefer builtin components when possible. `raw:` is intentionally mid-fi; richer embeds are not a v0.2 goal.
+Prefer builtin components when possible. `raw:` is intentionally mid-fi; richer embeds are out of scope.
 
 ## Props
 

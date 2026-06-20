@@ -1,4 +1,4 @@
-# Recipe — Material Registration (자재 등록)
+# Recipe — Material Registration
 
 Korean ERP-style registration form with breadcrumb, radio-selected type, multiple sections grouped by `panel`, a 4-column conditional block, a file upload, and an info alert. Shows non-English labels working natively (text rendering is just `textContent`).
 

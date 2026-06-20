@@ -15,10 +15,12 @@
 | `on` | boolean | 스위치가 켜져 있는지 |
 <!-- /gen:props -->
 
+> `on`은 YAML 1.1 불리언 키워드라, 키로 쓸 때 **반드시 따옴표**(`"on":`)로 감싸야 합니다. 따옴표 없는 `on:`은 불리언 `true`로 해석되어 `on` 프롭이 사라지고 토글이 OFF로 렌더됩니다. (`marker`가 `n` 대신 `num`을 쓰는 것과 같은 이유.)
+
 ```yaml
 toggle:
   label: "Enable notifications"
-  on: true
+  "on": true
 ```
 
 ## `slider`
