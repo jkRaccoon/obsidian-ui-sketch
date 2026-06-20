@@ -340,6 +340,15 @@
 }
 .uis-marker--pin.uis-marker--default { box-shadow: 0 0 0 2px var(--background-primary), inset 0 0 0 1px var(--background-modifier-border); }
 
+/* badge/tag/marker keep their intrinsic size as flex items (align-self:center,
+   set per-component above — prevents the cross-axis stretch). In a COLUMN
+   (.uis-flow / .uis-col) the cross axis is horizontal, so "center" would float
+   them mid-width; pin them to the start instead. In a row, center stays (vertical
+   centering). An explicit `align:` base prop still overrides via inline style. */
+.uis-flow > .uis-badge,  .uis-col > .uis-badge,
+.uis-flow > .uis-tag,    .uis-col > .uis-tag,
+.uis-flow > .uis-marker, .uis-col > .uis-marker { align-self: flex-start; }
+
 /* ===== Tag ===== */
 .uis-tag { display: inline-flex; align-items: center; align-self: center; padding: 2px 8px; background: var(--background-secondary); color: var(--text-muted); border-radius: var(--radius-s, 4px); font-size: 0.8em; }
 
