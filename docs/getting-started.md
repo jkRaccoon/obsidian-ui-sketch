@@ -88,7 +88,7 @@ screen:
 ## Next steps
 
 - **[YAML Reference](./yaml-reference.md)** — complete syntax including `grid:` for dashboard layouts.
-- **[Component Reference](./components/README.md)** — full prop tables for all 44 components.
+- **[Component Reference](./components/README.md)** — full prop tables for all 45 components.
 - **[Recipes](./recipes/dashboard.md)** — copy-paste templates for common screens.
 
 If something doesn't render the way you expect, check [Troubleshooting](./troubleshooting.md) — the plugin surfaces detailed error messages, and most mistakes have clear fixes.

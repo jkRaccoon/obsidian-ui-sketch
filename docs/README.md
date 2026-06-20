@@ -10,7 +10,7 @@ User-facing reference for the UI Sketch Obsidian plugin — render mid-fidelity 
 
 - **[Getting Started](./getting-started.md)** — your first sketch in 5 minutes.
 - **[YAML Reference](./yaml-reference.md)** — complete syntax: viewport, screen, row/col, grid, and base props.
-- **[Component Reference](./components/README.md)** — all 44 components, organized by category, with prop tables and examples.
+- **[Component Reference](./components/README.md)** — all 45 components, organized by category, with prop tables and examples.
 - **Recipes** — copy-paste templates for common layouts:
   - [Dashboard](./recipes/dashboard.md) — grid-based admin layout
   - [Login form](./recipes/login-form.md) — centered mobile form

@@ -10,7 +10,7 @@ UI Sketch Obsidian 플러그인의 사용자 문서 — 짧은 YAML 블록에서
 
 - **[시작하기](./getting-started.md)** — 5분 튜토리얼.
 - **[YAML 레퍼런스](./yaml-reference.md)** — 전체 문법: viewport, screen, row/col, grid, 공통 프롭.
-- **[컴포넌트 레퍼런스](./components/README.md)** — 44개 컴포넌트 전체를 카테고리별로, 프롭 표와 예제 포함.
+- **[컴포넌트 레퍼런스](./components/README.md)** — 45개 컴포넌트 전체를 카테고리별로, 프롭 표와 예제 포함.
 - **레시피** — 자주 쓰는 레이아웃의 복사-붙여넣기 템플릿:
   - [대시보드](./recipes/dashboard.md) — grid 기반 관리 화면
   - [로그인 폼](./recipes/login-form.md) — 중앙 정렬 모바일 폼

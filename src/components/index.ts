@@ -29,6 +29,7 @@ import { IconDef } from "./icon";
 import { AvatarDef } from "./avatar";
 import { BadgeDef } from "./badge";
 import { TagDef } from "./tag";
+import { MarkerDef } from "./marker";
 import { KbdDef } from "./kbd";
 import { AlertDef } from "./alert";
 import { ProgressDef } from "./progress";
@@ -55,7 +56,7 @@ export function installBuiltinComponents(): void {
     SidebarDef, TabsDef, BreadcrumbDef, PaginationDef, StepperDef,
     TextareaDef, SelectDef, CheckboxDef, RadioDef,
     ToggleDef, SliderDef, DatePickerDef, FileUploadDef, SearchDef,
-    ImageDef, IconDef, AvatarDef, BadgeDef, TagDef, KbdDef,
+    ImageDef, IconDef, AvatarDef, BadgeDef, TagDef, MarkerDef, KbdDef,
     AlertDef, ProgressDef, ToastDef, ModalDef, SkeletonDef,
     TableDef, ListDef, TreeDef, KvListDef,
     ChartDef, MapDef, VideoDef, PlaceholderDef,

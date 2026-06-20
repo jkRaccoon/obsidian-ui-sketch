@@ -120,7 +120,9 @@ Every component, in addition to its type-specific props, accepts these base prop
 | `h` | number \| string | Height: same rules |
 | `align` | `start` \| `center` \| `end` | Self-alignment along cross-axis |
 | `pad` | number \| string | Padding (number = px, string = CSS) |
-| `note` | string | Hover tooltip annotation — adds a ⓘ marker |
+| `note` | string | Hover tooltip annotation — adds a ⓘ marker (top-right, native tooltip) |
+| `mark` | number \| string | Pins a numbered [`marker`](./components/display.md#marker) badge to the block's corner (top-left) |
+| `markText` | string | Hover description for `mark` (styled CSS tooltip) |
 | `muted` | boolean | De-emphasize (reduces opacity/contrast) |
 
 ## Alignment idioms

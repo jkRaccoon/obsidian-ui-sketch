@@ -77,4 +77,4 @@ All styling lives in `styles.css` at the repo root and consumes Obsidian CSS var
 - TypeScript path alias: `@/*` → `src/*` (configured in both `tsconfig.json` and `vitest.config.mts`).
 - Test layout mirrors `src/` under `tests/`. Snapshot fixtures live in `tests/fixtures/*.yaml`.
 - Design context lives in `docs/superpowers/specs/` (spec) and `docs/superpowers/plans/` (implementation plans). Consult these before large changes.
-- README documents all 44 components and the YAML surface — it is the user-facing contract. Keep the catalog section in sync when adding/removing components.
+- README documents all 45 components and the YAML surface — it is the user-facing contract. Keep the catalog section in sync when adding/removing components.

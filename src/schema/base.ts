@@ -8,6 +8,8 @@ export const BasePropsSchema = z
     align: z.enum(["start", "center", "end"]).optional(),
     pad: z.union([z.number(), z.string()]).optional(),
     note: z.string().optional(),
+    mark: z.union([z.number(), z.string()]).optional(),
+    markText: z.string().optional(),
     muted: z.boolean().optional(),
   })
   .passthrough();

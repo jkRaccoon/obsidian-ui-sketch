@@ -131,6 +131,39 @@ row:
     - tag: { label: "obsidian" }
 ```
 
+## `marker`
+
+번호가 붙은 설명 뱃지. 설명이 필요한 부분 옆에 두고 번호를 부여한 뒤, 그 번호를 스케치
+**바깥**(일반 마크다운)에서 설명하면 긴 텍스트가 레이아웃을 깨지 않습니다. 설명을 인라인
+(`text`)으로 넣을 수도 있으며, 이때는 호버 시 나타납니다.
+
+<!-- gen:props type=marker -->
+| 프롭 | 타입 | 설명 |
+|---|---|---|
+| `num` | number \| string | 뱃지 라벨 — 외부 설명 리스트와 매칭되는 번호(또는 짧은 문자열) |
+| `text` | string | 호버 시 나타나는 설명 |
+| `variant` | `"default"` \| `"primary"` \| `"success"` \| `"warning"` \| `"danger"` | 색상 스타일 |
+<!-- /gen:props -->
+
+> 라벨 프롭은 `n`이 아니라 `num`입니다: YAML 파서가 1.1 모드라 맨 `n` 스칼라는 불리언 `false`로 해석되어 `n:` 키는 조용히 사라집니다.
+
+```yaml
+row:
+  gap: 8
+  items:
+    - button: { label: "저장" }
+    - marker: { num: 1, text: "자동 저장됨 — 별도 저장 불필요" }
+    - marker: { num: 2, variant: danger, text: "위험: 확인 모달이 뜸" }
+```
+
+아무 컴포넌트나 [공통 프롭(base props)](../yaml-reference.md#공통-프롭-base-props) `mark` / `markText`로 핀 형태의 마커를 달 수 있습니다. 블록 모서리에 오버레이되어 레이아웃 공간을 차지하지 않습니다:
+
+```yaml
+button: { label: "삭제", mark: 3, markText: "소프트 삭제 — 30일간 복구 가능" }
+```
+
+> 호버 툴팁은 순수 CSS라서 `panel`(overflow 숨김) 안에서는 잘릴 수 있습니다. panel 내부 마커는 외부 번호 리스트 방식을 권장합니다.
+
 ## `kbd`
 
 키보드 단축키 표시. 각 키를 `<kbd>` 스타일 박스에 넣고 `+`로 연결.

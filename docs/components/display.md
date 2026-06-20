@@ -131,6 +131,40 @@ row:
     - tag: { label: "obsidian" }
 ```
 
+## `marker`
+
+Numbered description badge. Drop it next to a part that needs explaining, give it a
+number, and describe that number **outside** the sketch (in normal markdown) so long
+text never breaks the layout. The description can also live inline (`text`) — it is
+revealed on hover.
+
+<!-- gen:props type=marker -->
+| Prop | Type | Description |
+|---|---|---|
+| `num` | number \| string | Badge label — a number (or short string) cross-referenced to an external list |
+| `text` | string | Description revealed on hover |
+| `variant` | `"default"` \| `"primary"` \| `"success"` \| `"warning"` \| `"danger"` | Color style |
+<!-- /gen:props -->
+
+> The label prop is `num`, **not** `n`: the YAML parser runs in 1.1 mode, where the bare scalar `n` means boolean `false`, so a `n:` key would silently vanish.
+
+```yaml
+row:
+  gap: 8
+  items:
+    - button: { label: "Save" }
+    - marker: { num: 1, text: "Auto-saves — no explicit save needed" }
+    - marker: { num: 2, variant: danger, text: "Destructive: opens a confirm modal" }
+```
+
+Any component can also carry a pinned marker via the [base props](../yaml-reference.md#base-props) `mark` / `markText`, which overlays the badge on the block's corner without taking layout space:
+
+```yaml
+button: { label: "Delete", mark: 3, markText: "Soft-delete — recoverable for 30 days" }
+```
+
+> The hover tooltip is plain CSS, so it can be clipped by a `panel` (which hides overflow). For markers inside a panel, prefer the external-numbered-list workflow.
+
 ## `kbd`
 
 Keyboard shortcut display. Renders each key in a `<kbd>`-style box joined by `+`.

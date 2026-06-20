@@ -1,6 +1,6 @@
 # Component Reference
 
-All 44 builtin components, organized by category. Every component accepts the [base props](../yaml-reference.md#base-props) (`id`, `w`, `h`, `align`, `pad`, `note`, `muted`) in addition to its type-specific props listed below.
+All 45 builtin components, organized by category. Every component accepts the [base props](../yaml-reference.md#base-props) (`id`, `w`, `h`, `align`, `pad`, `note`, `mark`, `markText`, `muted`) in addition to its type-specific props listed below.
 
 | Category | Components | Count |
 |---|---|---|
@@ -8,7 +8,7 @@ All 44 builtin components, organized by category. Every component accepts the [b
 | [**Navigation**](./navigation.md) | `navbar` · `sidebar` · `tabs` · `breadcrumb` · `pagination` · `stepper` | 6 |
 | [**Input (basic)**](./input-basic.md) | `button` · `input` · `textarea` · `select` · `checkbox` · `radio` | 6 |
 | [**Input (advanced)**](./input-advanced.md) | `toggle` · `slider` · `date-picker` · `file-upload` · `search` | 5 |
-| [**Display**](./display.md) | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `kbd` | 8 |
+| [**Display**](./display.md) | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `marker` · `kbd` | 9 |
 | [**Feedback**](./feedback.md) | `alert` · `progress` · `toast` · `modal` · `skeleton` | 5 |
 | [**Data**](./data.md) | `table` · `list` · `tree` · `kv-list` | 4 |
 | [**Placeholder**](./placeholder.md) | `chart` · `map` · `video` · `placeholder` | 4 |

@@ -7,9 +7,9 @@
 [![Sponsor](https://img.shields.io/github/sponsors/jkRaccoon?label=Sponsor&logo=GitHub)](https://github.com/sponsors/jkRaccoon)
 [![Tests](https://img.shields.io/badge/tests-116%20passing-brightgreen)](./tests)
 
-> **Sketch web UI wireframes from human-readable YAML — rendered inline in your Obsidian notes. 44 components. AI-friendly structure. Theme-adaptive.**
+> **Sketch web UI wireframes from human-readable YAML — rendered inline in your Obsidian notes. 45 components. AI-friendly structure. Theme-adaptive.**
 >
-> **사람이 읽기 쉽고 AI가 다루기 좋은 YAML로 웹 UI 와이어프레임을 그려서 Obsidian 노트 안에 바로 렌더링합니다. 컴포넌트 44개. AI 친화 구조. 테마 자동 적응.**
+> **사람이 읽기 쉽고 AI가 다루기 좋은 YAML로 웹 UI 와이어프레임을 그려서 Obsidian 노트 안에 바로 렌더링합니다. 컴포넌트 45개. AI 친화 구조. 테마 자동 적응.**
 
 ---
 
@@ -163,13 +163,13 @@ Full documentation lives in [**`docs/`**](./docs/README.md):
 
 - [Getting Started](./docs/getting-started.md) — a 5-minute tutorial
 - [YAML Reference](./docs/yaml-reference.md) — complete syntax
-- [Component Reference](./docs/components/README.md) — prop tables and examples for all 44 components
+- [Component Reference](./docs/components/README.md) — prop tables and examples for all 45 components
 - [Recipes](./docs/recipes/dashboard.md) — copy-paste templates for common screens
 - [Troubleshooting](./docs/troubleshooting.md) — error levels and common fixes
 
 ## Component catalog
 
-**44 components in 8 categories, plus one escape hatch.** Every component accepts the base props (`id`, `w`, `h`, `align`, `pad`, `note`, `muted`) on top of its type-specific props. Detailed prop tables live in the [Component Reference](./docs/components/README.md).
+**45 components in 8 categories, plus one escape hatch.** Every component accepts the base props (`id`, `w`, `h`, `align`, `pad`, `note`, `mark`, `markText`, `muted`) on top of its type-specific props. Detailed prop tables live in the [Component Reference](./docs/components/README.md).
 
 | Category | Components |
 |---|---|
@@ -177,7 +177,7 @@ Full documentation lives in [**`docs/`**](./docs/README.md):
 | [**Navigation**](./docs/components/navigation.md) | `navbar` · `sidebar` · `tabs` · `breadcrumb` · `pagination` · `stepper` |
 | [**Basic input**](./docs/components/input-basic.md) | `button` · `input` · `textarea` · `select` · `checkbox` · `radio` |
 | [**Advanced input**](./docs/components/input-advanced.md) | `toggle` · `slider` · `date-picker` · `file-upload` · `search` |
-| [**Display**](./docs/components/display.md) | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `kbd` |
+| [**Display**](./docs/components/display.md) | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `marker` · `kbd` |
 | [**Feedback**](./docs/components/feedback.md) | `alert` · `progress` · `toast` · `modal` · `skeleton` |
 | [**Data**](./docs/components/data.md) | `table` · `list` · `tree` · `kv-list` |
 | [**Placeholder**](./docs/components/placeholder.md) | `chart` · `map` · `video` · `placeholder` |
@@ -314,7 +314,7 @@ src/
 ├── types.ts               Shared AST types
 ├── parser/                YAML → document (+ location info)
 ├── schema/                Structural validation + per-component zod
-├── components/            44 builtin components, each a single file
+├── components/            45 builtin components, each a single file
 ├── renderer/              Dispatches layout tree → DOM
 ├── styler/                Viewport frame, theme hooks
 └── errors/                L1/L2/L3 error rendering
@@ -324,7 +324,8 @@ src/
 
 - **v0.1** (released) — Foundation: 10 components, L1/L2/L4 errors, viewport frames.
 - **v0.2** — 44 components, L3 inline errors + typo suggestions, safety caps, `raw:` + sanitize-html, zod schemas per component, auto-generated component docs, recipe screenshots, signed release workflow (GitHub artifact attestation), Obsidian Community directory submission.
-- **v0.3** (current) — Adoption of the official [`eslint-plugin-obsidianmd`](https://github.com/obsidianmd/eslint-plugin) ruleset (createDiv/createSpan helpers, `activeDocument` for popout windows, stricter style/DOM hygiene).
+- **v0.3** — Adoption of the official [`eslint-plugin-obsidianmd`](https://github.com/obsidianmd/eslint-plugin) ruleset (createDiv/createSpan helpers, `activeDocument` for popout windows, stricter style/DOM hygiene).
+- **v0.4** (current) — `marker` description badge: a numbered annotation with a hover tooltip, plus `mark`/`markText` base props to pin one onto any block. 45 components.
 - **Future ideas** — PNG/SVG export, multi-screen storyboards with connectors, reusable component definitions (partials), brand-color theme presets, an LLM-friendly OpenAPI schema for the YAML.
 
 Design specs in [`docs/superpowers/specs/`](./docs/superpowers/specs/); implementation plans in [`docs/superpowers/plans/`](./docs/superpowers/plans/).
@@ -489,13 +490,13 @@ screen:
 
 - [시작하기](./docs/ko/getting-started.md) — 5분 튜토리얼
 - [YAML 레퍼런스](./docs/ko/yaml-reference.md) — 전체 문법
-- [컴포넌트 레퍼런스](./docs/ko/components/README.md) — 44개 컴포넌트의 프롭 표와 예제
+- [컴포넌트 레퍼런스](./docs/ko/components/README.md) — 45개 컴포넌트의 프롭 표와 예제
 - [레시피](./docs/ko/recipes/dashboard.md) — 자주 쓰는 화면 템플릿
 - [문제 해결](./docs/ko/troubleshooting.md) — 에러 레벨과 대응법
 
 ## 컴포넌트 카탈로그
 
-**8개 카테고리 44개 컴포넌트 + 탈출구 하나.** 모든 컴포넌트는 타입별 프롭 위에 공통 프롭(`id`, `w`, `h`, `align`, `pad`, `note`, `muted`)을 받습니다. 상세 프롭 표는 [컴포넌트 레퍼런스](./docs/ko/components/README.md) 참고.
+**8개 카테고리 45개 컴포넌트 + 탈출구 하나.** 모든 컴포넌트는 타입별 프롭 위에 공통 프롭(`id`, `w`, `h`, `align`, `pad`, `note`, `mark`, `markText`, `muted`)을 받습니다. 상세 프롭 표는 [컴포넌트 레퍼런스](./docs/ko/components/README.md) 참고.
 
 | 카테고리 | 컴포넌트 |
 |---|---|
@@ -503,7 +504,7 @@ screen:
 | [**내비게이션**](./docs/ko/components/navigation.md) | `navbar` · `sidebar` · `tabs` · `breadcrumb` · `pagination` · `stepper` |
 | [**기본 입력**](./docs/ko/components/input-basic.md) | `button` · `input` · `textarea` · `select` · `checkbox` · `radio` |
 | [**고급 입력**](./docs/ko/components/input-advanced.md) | `toggle` · `slider` · `date-picker` · `file-upload` · `search` |
-| [**표시**](./docs/ko/components/display.md) | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `kbd` |
+| [**표시**](./docs/ko/components/display.md) | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `marker` · `kbd` |
 | [**피드백**](./docs/ko/components/feedback.md) | `alert` · `progress` · `toast` · `modal` · `skeleton` |
 | [**데이터**](./docs/ko/components/data.md) | `table` · `list` · `tree` · `kv-list` |
 | [**플레이스홀더**](./docs/ko/components/placeholder.md) | `chart` · `map` · `video` · `placeholder` |
@@ -640,7 +641,7 @@ src/
 ├── types.ts               공용 AST 타입
 ├── parser/                YAML → document (+ 위치 정보)
 ├── schema/                구조 검증 + 컴포넌트별 zod
-├── components/            내장 컴포넌트 44개, 각각 파일 하나
+├── components/            내장 컴포넌트 45개, 각각 파일 하나
 ├── renderer/              레이아웃 트리 → DOM 디스패치
 ├── styler/                viewport 프레임, 테마 훅
 └── errors/                L1/L2/L3 에러 렌더링
@@ -650,7 +651,8 @@ src/
 
 - **v0.1** (릴리스됨) — 기반: 10개 컴포넌트, L1/L2/L4 에러, viewport 프레임.
 - **v0.2** — 컴포넌트 총 44개, L3 인라인 에러 + 오타 제안, 안전 제한, `raw:` + sanitize-html, 컴포넌트별 zod 스키마, 자동 생성 컴포넌트 문서, 레시피 스크린샷, 서명된 릴리스 워크플로우(GitHub artifact attestation), Obsidian Community 디렉토리 등록.
-- **v0.3** (현재) — 공식 [`eslint-plugin-obsidianmd`](https://github.com/obsidianmd/eslint-plugin) 룰셋 적용 (createDiv/createSpan 헬퍼, 팝아웃 창 호환을 위한 `activeDocument`, 더 엄격한 스타일/DOM 규칙).
+- **v0.3** — 공식 [`eslint-plugin-obsidianmd`](https://github.com/obsidianmd/eslint-plugin) 룰셋 적용 (createDiv/createSpan 헬퍼, 팝아웃 창 호환을 위한 `activeDocument`, 더 엄격한 스타일/DOM 규칙).
+- **v0.4** (현재) — `marker` 설명 뱃지: 호버 툴팁이 있는 번호 주석, 그리고 아무 블록에 핀으로 다는 `mark`/`markText` 공통 프롭. 컴포넌트 45개.
 - **이후 아이디어** — PNG/SVG 내보내기, 커넥터가 있는 다중 화면 스토리보드, 재사용 가능한 컴포넌트 정의 (partial), 브랜드 컬러 테마 프리셋, LLM 친화 OpenAPI 스키마.
 
 설계 스펙은 [`docs/superpowers/specs/`](./docs/superpowers/specs/), 구현 플랜은 [`docs/superpowers/plans/`](./docs/superpowers/plans/) 참고.

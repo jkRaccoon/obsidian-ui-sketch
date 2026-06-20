@@ -1,6 +1,6 @@
 # 컴포넌트 레퍼런스
 
-8개 카테고리 44개 내장 컴포넌트. 모든 컴포넌트는 타입별 프롭 위에 [공통 프롭(base props)](../yaml-reference.md#공통-프롭-base-props) (`id`, `w`, `h`, `align`, `pad`, `note`, `muted`)을 받습니다.
+8개 카테고리 45개 내장 컴포넌트. 모든 컴포넌트는 타입별 프롭 위에 [공통 프롭(base props)](../yaml-reference.md#공통-프롭-base-props) (`id`, `w`, `h`, `align`, `pad`, `note`, `mark`, `markText`, `muted`)을 받습니다.
 
 | 카테고리 | 컴포넌트 | 개수 |
 |---|---|---|
@@ -8,7 +8,7 @@
 | [**내비게이션**](./navigation.md) | `navbar` · `sidebar` · `tabs` · `breadcrumb` · `pagination` · `stepper` | 6 |
 | [**기본 입력**](./input-basic.md) | `button` · `input` · `textarea` · `select` · `checkbox` · `radio` | 6 |
 | [**고급 입력**](./input-advanced.md) | `toggle` · `slider` · `date-picker` · `file-upload` · `search` | 5 |
-| [**표시**](./display.md) | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `kbd` | 8 |
+| [**표시**](./display.md) | `heading` · `text` · `image` · `icon` · `avatar` · `badge` · `tag` · `marker` · `kbd` | 9 |
 | [**피드백**](./feedback.md) | `alert` · `progress` · `toast` · `modal` · `skeleton` | 5 |
 | [**데이터**](./data.md) | `table` · `list` · `tree` · `kv-list` | 4 |
 | [**플레이스홀더**](./placeholder.md) | `chart` · `map` · `video` · `placeholder` | 4 |

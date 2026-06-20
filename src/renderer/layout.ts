@@ -87,7 +87,11 @@ function renderComponent(n: ComponentNode, path: string): HTMLElement {
 
   const inner = def.render(props, { muted: props.muted === true });
   applyBaseLayout(inner, props);
-  return wrapWithAnnotation(inner, typeof props.note === "string" ? props.note : undefined);
+  return wrapWithAnnotation(inner, {
+    note: typeof props.note === "string" ? props.note : undefined,
+    mark: typeof props.mark === "string" || typeof props.mark === "number" ? props.mark : undefined,
+    markText: typeof props.markText === "string" ? props.markText : undefined,
+  });
 }
 
 function applyBaseLayout(el: HTMLElement, props: Record<string, unknown>): void {

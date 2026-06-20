@@ -125,7 +125,9 @@ row:
 | `h` | number \| string | 높이: 동일한 규칙 |
 | `align` | `start` \| `center` \| `end` | 교차축 자기 정렬 |
 | `pad` | number \| string | 패딩 (숫자 = px, 문자열 = CSS) |
-| `note` | string | 호버 툴팁 주석 — ⓘ 마커 표시 |
+| `note` | string | 호버 툴팁 주석 — ⓘ 마커 표시 (우상단, 브라우저 기본 툴팁) |
+| `mark` | number \| string | 번호 [`marker`](./components/display.md#marker) 뱃지를 블록 모서리(좌상단)에 핀으로 부착 |
+| `markText` | string | `mark`의 호버 설명 (CSS 스타일 툴팁) |
 | `muted` | boolean | 강조 낮춤 (투명도/대비 감소) |
 
 ## 정렬 관용구

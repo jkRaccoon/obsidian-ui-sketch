@@ -88,7 +88,7 @@ screen:
 ## 다음 단계
 
 - **[YAML 레퍼런스](./yaml-reference.md)** — 대시보드용 `grid:` 포함 전체 문법.
-- **[컴포넌트 레퍼런스](./components/README.md)** — 44개 컴포넌트의 전체 프롭 표.
+- **[컴포넌트 레퍼런스](./components/README.md)** — 45개 컴포넌트의 전체 프롭 표.
 - **[레시피](./recipes/dashboard.md)** — 자주 쓰는 화면의 복사-붙여넣기 템플릿.
 
 예상대로 렌더링이 안 되면 [문제 해결](./troubleshooting.md) 참고 — 플러그인이 상세한 에러 메시지를 보여주고, 대부분 명확한 해결책이 있습니다.
