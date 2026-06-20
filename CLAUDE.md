@@ -78,3 +78,9 @@ All styling lives in `styles.css` at the repo root and consumes Obsidian CSS var
 - Test layout mirrors `src/` under `tests/`. Snapshot fixtures live in `tests/fixtures/*.yaml`.
 - Design context lives in `docs/superpowers/specs/` (spec) and `docs/superpowers/plans/` (implementation plans). Consult these before large changes.
 - README documents all 45 components and the YAML surface — it is the user-facing contract. Keep the catalog section in sync when adding/removing components.
+
+## Releasing
+
+To cut a release: bump the version in `manifest.json`, `package.json`, and add a `"<version>": "<minAppVersion>"` entry to `versions.json`; commit (`chore: release X.Y.Z`); then create and push a tag named exactly `X.Y.Z` (no `v` prefix). The push triggers `.github/workflows/release.yml`, which runs `npm ci && npm test && npm run build`, **verifies the tag matches `manifest.json` version** (mismatched tag = failed release), attests build provenance, and publishes a GitHub release with `main.js` + `manifest.json` + `styles.css` attached. `main.js` is git-ignored and built only in CI — never commit it.
+
+**Obsidian community directory.** The plugin is listed at <https://community.obsidian.md/plugins/ui-sketch>. The GitHub release is the source of truth — users' Obsidian clients fetch the latest release's `manifest.json` directly, so updates are installable the moment the release publishes. The community.obsidian.md page (version, description, download count) is a **separately-cached snapshot** that Obsidian's backend re-syncs on a ~daily schedule, so it lags the actual release by hours to a day. That lag is expected, not a failed publish. New versions propagate automatically — no re-registration or PR to `obsidianmd/obsidian-releases` is needed after the initial listing.
