@@ -1,8 +1,8 @@
 {
   "name": "obsidian-ui-sketch",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "private": true,
-  "description": "Sketch web UI wireframes from human-readable YAML inside Obsidian notes. 44 components, AI-friendly structure, theme-adaptive.",
+  "description": "Sketch web UI wireframes from human-readable YAML inside Obsidian notes. 45 components, AI-friendly structure, theme-adaptive.",
   "scripts": {
     "dev": "node esbuild.config.mjs",
     "build": "tsc --noEmit && node esbuild.config.mjs production",

@@ -1,9 +1,9 @@
 {
   "id": "ui-sketch",
   "name": "UI Sketch",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "minAppVersion": "1.5.0",
-  "description": "Sketch web UI wireframes from human-readable YAML — 44 components, AI-friendly structure, rendered inline.",
+  "description": "Sketch web UI wireframes from human-readable YAML — 45 components, AI-friendly structure, rendered inline.",
   "author": "jikwangkim",
   "authorUrl": "https://github.com/jkRaccoon",
   "fundingUrl": "https://github.com/sponsors/jkRaccoon",
