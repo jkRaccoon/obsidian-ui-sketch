@@ -5,14 +5,10 @@ export const ContainerSchema = BasePropsSchema.passthrough();
 
 export const ContainerDef: ComponentDef = {
   type: "container",
+  // `pad` is a base prop applied for every component by the renderer, so there
+  // is nothing container-specific left to do here.
   schema: ContainerSchema,
-  render(props) {
-    const el = createDiv({ cls: "uis-container" });
-    const pad = props.pad;
-    const styles: Partial<CSSStyleDeclaration> = {};
-    if (typeof pad === "number") styles.padding = `${pad}px`;
-    else if (typeof pad === "string") styles.padding = pad;
-    if (Object.keys(styles).length > 0) el.setCssStyles(styles);
-    return el;
+  render() {
+    return createDiv({ cls: "uis-container" });
   },
 };
