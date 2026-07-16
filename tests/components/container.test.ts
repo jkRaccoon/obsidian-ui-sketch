@@ -7,8 +7,6 @@ describe("container", () => {
     expect(el.tagName).toBe("DIV");
     expect(el.className).toContain("uis-container");
   });
-  it("applies padding when pad is given", () => {
-    const el = ContainerDef.render({ pad: 16 }, {});
-    expect((el as HTMLElement).style.padding).toBe("16px");
-  });
+  // `pad` is a base prop the renderer applies to every component, so it is
+  // covered end-to-end in tests/renderer/base-layout.test.ts rather than here.
 });

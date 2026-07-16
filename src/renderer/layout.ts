@@ -86,14 +86,38 @@ function renderComponent(n: ComponentNode, path: string): HTMLElement {
   }
 
   const inner = def.render(props, { muted: props.muted === true });
-  applyBaseLayout(inner, props);
-  return wrapWithAnnotation(inner, {
+  applyBoxStyles(inner, props);
+  const outer = wrapWithAnnotation(inner, {
     note: typeof props.note === "string" ? props.note : undefined,
     mark: typeof props.mark === "string" || typeof props.mark === "number" ? props.mark : undefined,
     markText: typeof props.markText === "string" ? props.markText : undefined,
   });
+  applyBaseLayout(outer, props);
+  if (outer !== inner) fillAnnotationWrapper(inner, props);
+  return outer;
 }
 
+/**
+ * Makes the component fill the annotation wrapper that now carries its `w`/`h`.
+ * Without this the wrapper alone would take the requested size while an
+ * intrinsically-sized component sat in its top-left corner. Only sizes that were
+ * actually requested are filled, so `badge`/`tag` keep their intrinsic width.
+ * `100%` (rather than copying the value) keeps percentage sizes resolving against
+ * the original parent — `w: "50%"` stays 50% of the parent, not 50% of a 50% box.
+ */
+function fillAnnotationWrapper(inner: HTMLElement, props: Record<string, unknown>): void {
+  const styles: Partial<CSSStyleDeclaration> = {};
+  if (props.w !== undefined) styles.width = "100%";
+  if (props.h !== undefined) styles.height = "100%";
+  if (Object.keys(styles).length > 0) inner.setCssStyles(styles);
+}
+
+/**
+ * Sizing and cross-axis placement, applied to whatever element the parent flex
+ * container actually lays out. `note`/`mark` wrap the component, and the wrapper
+ * — not the component — becomes the flex item, so these must land on the
+ * outermost element or `align-self` resolves against the wrong box.
+ */
 function applyBaseLayout(el: HTMLElement, props: Record<string, unknown>): void {
   const styles: Partial<CSSStyleDeclaration> = {};
   if (typeof props.w === "number") styles.width = `${props.w}px`;
@@ -102,6 +126,16 @@ function applyBaseLayout(el: HTMLElement, props: Record<string, unknown>): void 
   else if (typeof props.h === "string") styles.height = props.h;
   if (typeof props.align === "string") styles.alignSelf = props.align;
   if (Object.keys(styles).length > 0) el.setCssStyles(styles);
+}
+
+/**
+ * Styles that belong to the component's own box rather than to its slot in the
+ * parent layout. `pad` is padding inside the component's border, so it stays on
+ * the component even when a wrapper takes over as the flex item.
+ */
+function applyBoxStyles(el: HTMLElement, props: Record<string, unknown>): void {
+  if (typeof props.pad === "number") el.setCssStyles({ padding: `${props.pad}px` });
+  else if (typeof props.pad === "string") el.setCssStyles({ padding: props.pad });
   if (props.muted === true) el.classList.add("uis-muted");
 }
 
